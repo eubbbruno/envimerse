@@ -1,7 +1,7 @@
 "use client"
 
 import Link from 'next/link'
-import { Github, Twitter, Discord, Zap } from 'lucide-react'
+import { Github, Twitter, MessageCircle, Zap } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -71,7 +71,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
               >
-                <Discord className="w-5 h-5" />
+                <MessageCircle className="w-5 h-5" />
               </a>
             </div>
           </div>
