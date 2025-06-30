@@ -1,7 +1,7 @@
 "use client"
 
-import { useState, useEffect, Suspense } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { Suspense } from 'react'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { ArrowRight, Play, Sparkles, Zap, Users, Globe, CheckCircle, Rocket, Shield, Coins } from 'lucide-react'
@@ -26,25 +26,7 @@ const LogoSphere = dynamic(() => import('@/components/LogoSphere'), {
   loading: () => <div className="w-full h-full bg-gradient-to-br from-brandMagenta/20 to-brandCyan/20 animate-pulse" />
 })
 
-const LoadingScreen = dynamic(() => import('@/components/LoadingScreen'), { ssr: false })
-
 export default function HomePage() {
-  const [isLoading, setIsLoading] = useState(true)
-  const [isLoaded, setIsLoaded] = useState(false)
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoaded(true)
-      setIsLoading(false)
-    }, 2000)
-
-    return () => clearTimeout(timer)
-  }, [])
-
-  if (isLoading) {
-    return <LoadingScreen />
-  }
-
   return (
     <div className="min-h-screen bg-black overflow-x-hidden">
       <Header />
