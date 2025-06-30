@@ -4,11 +4,11 @@ import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
 interface LoadingScreenProps {
-  isLoading: boolean
+  isLoading?: boolean
   onComplete?: () => void
 }
 
-export default function LoadingScreen({ isLoading, onComplete }: LoadingScreenProps) {
+export default function LoadingScreen({ isLoading = true, onComplete }: LoadingScreenProps) {
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
