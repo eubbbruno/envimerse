@@ -1,11 +1,11 @@
 "use client"
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Send, MessageCircle, Clock, Zap } from 'lucide-react'
+import { Mail, Phone, MapPin, Send, Clock, CheckCircle, MessageSquare } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import { Button } from '@/components/ui/button'
-import { useState } from 'react'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -15,11 +15,27 @@ export default function ContactPage() {
     subject: '',
     message: ''
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
-    console.log('Form submitted:', formData)
+    setIsSubmitting(true)
+    
+    // Simulate form submission
+    await new Promise(resolve => setTimeout(resolve, 2000))
+    
+    setIsSubmitting(false)
+    setIsSubmitted(true)
+    setFormData({
+      name: '',
+      email: '',
+      company: '',
+      subject: '',
+      message: ''
+    })
+    
+    setTimeout(() => setIsSubmitted(false), 5000)
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -29,256 +45,248 @@ export default function ContactPage() {
     }))
   }
 
-  const contactInfo = [
-    {
-      icon: Mail,
-      title: "Email",
-      detail: "hello@envimerse.com",
-      description: "Send us an email anytime"
-    },
-    {
-      icon: MessageCircle,
-      title: "Discord",
-      detail: "Join our community",
-      description: "Connect with our team and community"
-    },
-    {
-      icon: Clock,
-      title: "Response Time",
-      detail: "Within 24 hours",
-      description: "We typically respond quickly"
-    }
-  ]
-
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black text-white">
       <Header />
       
-      <main className="pt-20">
-        {/* Hero Section */}
-        <section className="py-24 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto text-center">
+      {/* Hero Section */}
+      <section className="pt-20 sm:pt-24 pb-12 sm:pb-20 px-3 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
+              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+                Entre em Contato
+              </span>
+            </h1>
+            <p className="text-base sm:text-xl lg:text-2xl text-gray-300 leading-relaxed px-2">
+              Pronto para revolucionar o entretenimento? Vamos conversar sobre o futuro do VR
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pb-12 sm:pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+          {/* Contact Form */}
+          <div className="lg:col-span-2">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
+              className="bg-white/5 p-6 sm:p-8 rounded-2xl border border-white/10"
             >
-              <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-brandMagenta/20 to-brandCyan/20 border border-brandMagenta/30 backdrop-blur-md mb-8">
-                <MessageCircle className="w-5 h-5 text-brandCyan mr-2" />
-                <span className="text-white font-medium">Get in Touch</span>
-              </div>
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-6 sm:mb-8">
+                Envie sua Mensagem
+              </h2>
 
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold font-orbitron text-white mb-8">
-                Let's Build the <span className="bg-gradient-to-r from-[#8D42EC] to-[#60A3F9] bg-clip-text text-transparent">Future</span> Together
-              </h1>
-              
-              <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed font-lexend">
-                Whether you're a venue owner, investor, or just curious about the future of entertainment, 
-                we'd love to hear from you.
-              </p>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Contact Form & Info */}
-        <section className="py-24">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {/* Contact Form */}
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-                className="space-y-8"
-              >
-                <div>
-                  <h2 className="text-3xl font-bold text-white mb-4 font-orbitron">Send us a Message</h2>
-                  <p className="text-gray-400">
-                    Fill out the form below and we'll get back to you as soon as possible.
+              {isSubmitted ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="text-center py-8 sm:py-12"
+                >
+                  <CheckCircle className="w-12 h-12 sm:w-16 sm:h-16 text-green-400 mx-auto mb-4" />
+                  <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">
+                    Mensagem Enviada!
+                  </h3>
+                  <p className="text-sm sm:text-base text-gray-400">
+                    Retornaremos em até 24 horas
                   </p>
-                </div>
-
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                </motion.div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                        Name *
+                      <label className="block text-sm font-medium text-white mb-2">
+                        Nome *
                       </label>
                       <input
                         type="text"
-                        id="name"
                         name="name"
-                        required
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brandMagenta/50 focus:border-brandMagenta/50 transition-all duration-300"
-                        placeholder="Your name"
+                        required
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors text-sm sm:text-base"
+                        placeholder="Seu nome completo"
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                      <label className="block text-sm font-medium text-white mb-2">
                         Email *
                       </label>
                       <input
                         type="email"
-                        id="email"
                         name="email"
-                        required
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brandMagenta/50 focus:border-brandMagenta/50 transition-all duration-300"
-                        placeholder="your@email.com"
+                        required
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors text-sm sm:text-base"
+                        placeholder="seu@email.com"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">
-                      Company/Organization
+                    <label className="block text-sm font-medium text-white mb-2">
+                      Empresa/Organização
                     </label>
                     <input
                       type="text"
-                      id="company"
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brandMagenta/50 focus:border-brandMagenta/50 transition-all duration-300"
-                      placeholder="Your company (optional)"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors text-sm sm:text-base"
+                      placeholder="Nome da sua empresa"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
-                      Subject *
+                    <label className="block text-sm font-medium text-white mb-2">
+                      Assunto *
                     </label>
                     <select
-                      id="subject"
                       name="subject"
-                      required
                       value={formData.subject}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-brandMagenta/50 focus:border-brandMagenta/50 transition-all duration-300"
+                      required
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-purple-500 transition-colors text-sm sm:text-base"
                     >
-                      <option value="">Select a subject</option>
-                      <option value="partnership">Partnership Opportunity</option>
-                      <option value="venue">Venue Integration</option>
-                      <option value="investment">Investment Inquiry</option>
-                      <option value="support">Technical Support</option>
-                      <option value="press">Press & Media</option>
-                      <option value="other">Other</option>
+                      <option value="">Selecione um assunto</option>
+                      <option value="partnership">Parceria Comercial</option>
+                      <option value="venue">Integração de Venue</option>
+                      <option value="investment">Oportunidade de Investimento</option>
+                      <option value="support">Suporte Técnico</option>
+                      <option value="press">Imprensa</option>
+                      <option value="other">Outros</option>
                     </select>
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                      Message *
+                    <label className="block text-sm font-medium text-white mb-2">
+                      Mensagem *
                     </label>
                     <textarea
-                      id="message"
                       name="message"
-                      required
-                      rows={6}
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brandMagenta/50 focus:border-brandMagenta/50 transition-all duration-300 resize-none"
-                      placeholder="Tell us about your project or inquiry..."
+                      required
+                      rows={6}
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors resize-none text-sm sm:text-base"
+                      placeholder="Conte-nos como podemos ajudar..."
                     />
                   </div>
 
-                  <Button 
+                  <Button
                     type="submit"
-                    size="lg"
-                    className="w-full px-8 py-4 bg-gradient-to-r from-brandMagenta to-brandCyan hover:from-brandMagenta/80 hover:to-brandCyan/80 text-white font-bold rounded-xl transition-all duration-300 font-orbitron group"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 py-3 sm:py-4 text-sm sm:text-base"
                   >
-                    Send Message
-                    <Send className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    {isSubmitting ? (
+                      <div className="flex items-center justify-center">
+                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                        Enviando...
+                      </div>
+                    ) : (
+                      <div className="flex items-center justify-center">
+                        <Send className="w-4 h-4 mr-2" />
+                        Enviar Mensagem
+                      </div>
+                    )}
                   </Button>
                 </form>
-              </motion.div>
-
-              {/* Contact Info */}
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-                className="space-y-8"
-              >
-                <div>
-                  <h2 className="text-3xl font-bold text-white mb-4 font-orbitron">Get in Touch</h2>
-                  <p className="text-gray-400">
-                    Ready to revolutionize entertainment? Let's talk about how we can work together.
-                  </p>
-                </div>
-
-                <div className="space-y-6">
-                  {contactInfo.map((info, index) => (
-                    <motion.div
-                      key={info.title}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="p-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-brandMagenta/50 transition-all duration-500 group"
-                    >
-                      <div className="flex items-start space-x-4">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brandMagenta to-brandCyan flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                          <info.icon className="w-6 h-6 text-white" />
-                        </div>
-                        <div>
-                          <h3 className="text-lg font-bold text-white mb-1 font-orbitron">{info.title}</h3>
-                          <p className="text-brandCyan font-medium mb-1">{info.detail}</p>
-                          <p className="text-gray-400 text-sm">{info.description}</p>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-
-                {/* Quick Response */}
-                <div className="p-6 rounded-2xl bg-gradient-to-r from-brandMagenta/10 to-brandCyan/10 border border-brandMagenta/20">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <Zap className="w-6 h-6 text-brandCyan" />
-                    <h3 className="text-lg font-bold text-white font-orbitron">Quick Response</h3>
-                  </div>
-                  <p className="text-gray-300 text-sm">
-                    We understand that time is valuable. Our team typically responds to all inquiries within 24 hours. 
-                    For urgent matters, reach out via Discord for faster communication.
-                  </p>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ Preview */}
-        <section className="py-24 bg-gradient-to-b from-transparent via-brandMagenta/5 to-transparent">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6 font-orbitron">
-                Have <span className="bg-gradient-to-r from-[#8D42EC] to-[#60A3F9] bg-clip-text text-transparent">Questions</span>?
-              </h2>
-              <p className="text-xl text-gray-300 mb-8">
-                Check out our FAQ section for quick answers to common questions.
-              </p>
-              
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="px-8 py-4 border-2 border-white/20 text-white font-bold rounded-xl hover:border-[#60A3F9] hover:shadow-lg hover:shadow-[#60A3F9]/25 transition-all duration-300 font-orbitron bg-transparent backdrop-blur-md"
-              >
-                View FAQ
-              </Button>
+              )}
             </motion.div>
           </div>
-        </section>
-      </main>
+
+          {/* Contact Info Sidebar */}
+          <div className="lg:col-span-1">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="space-y-6 sm:space-y-8"
+            >
+              {/* Contact Details */}
+              <div className="bg-white/5 p-6 sm:p-8 rounded-2xl border border-white/10">
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6">
+                  Informações de Contato
+                </h3>
+                <div className="space-y-4 sm:space-y-6">
+                  <div className="flex items-start space-x-3">
+                    <Mail className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="text-sm font-medium text-white">Email</p>
+                      <p className="text-sm text-gray-400">contato@envimerse.com</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <Phone className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="text-sm font-medium text-white">Telefone</p>
+                      <p className="text-sm text-gray-400">+55 (11) 9999-9999</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <MapPin className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="text-sm font-medium text-white">Localização</p>
+                      <p className="text-sm text-gray-400">São Paulo, Brasil</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Response Time */}
+              <div className="bg-gradient-to-br from-purple-900/30 to-cyan-900/30 p-6 sm:p-8 rounded-2xl border border-purple-500/20">
+                <div className="flex items-center mb-3">
+                  <Clock className="w-5 h-5 text-purple-400 mr-2" />
+                  <h3 className="text-base sm:text-lg font-bold text-white">Tempo de Resposta</h3>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-300">Consultas Gerais</span>
+                    <span className="text-purple-400 font-medium">24h</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-300">Parcerias</span>
+                    <span className="text-purple-400 font-medium">48h</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-300">Suporte Técnico</span>
+                    <span className="text-purple-400 font-medium">12h</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Office Hours */}
+              <div className="bg-white/5 p-6 sm:p-8 rounded-2xl border border-white/10">
+                <div className="flex items-center mb-3">
+                  <MessageSquare className="w-5 h-5 text-cyan-400 mr-2" />
+                  <h3 className="text-base sm:text-lg font-bold text-white">Horário de Atendimento</h3>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-300">Segunda - Sexta</span>
+                    <span className="text-cyan-400 font-medium">09:00 - 18:00</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-300">Sábado</span>
+                    <span className="text-cyan-400 font-medium">09:00 - 14:00</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-300">Domingo</span>
+                    <span className="text-gray-400">Fechado</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
 
       <Footer />
     </div>

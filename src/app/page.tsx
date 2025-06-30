@@ -4,7 +4,7 @@ import { Suspense } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
-import { ArrowRight, Play, Sparkles, Zap, Users, Globe, CheckCircle, Rocket, Shield, Coins } from 'lucide-react'
+import { ArrowRight, Play, Sparkles, Zap, Users, Globe, CheckCircle, Rocket, Shield, Coins, TrendingUp, Star, Target, Heart, Trophy, MapPin, Calendar, ChevronRight } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -19,11 +19,16 @@ import InteractiveRoadmap from '@/components/InteractiveRoadmap'
 import CommunityDriven from '@/components/CommunityDriven'
 import ConnectWalletButton from '@/components/ConnectWalletButton'
 import AuthDemo from '@/components/demo/AuthDemo'
+import { Badge } from '@/components/ui/badge'
 
 // Dynamic imports for client-side components
-const LogoSphere = dynamic(() => import('@/components/LogoSphere'), { 
+const LogoSphere = dynamic(() => import('@/components/LogoSphere'), {
   ssr: false,
-  loading: () => <div className="w-full h-full bg-gradient-to-br from-brandMagenta/20 to-brandCyan/20 animate-pulse" />
+  loading: () => (
+    <div className="w-full h-32 sm:h-40 lg:h-80 flex items-center justify-center">
+      <div className="w-12 h-12 border-2 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
+    </div>
+  )
 })
 
 export default function HomePage() {
@@ -33,266 +38,281 @@ export default function HomePage() {
       
       <main>
         {/* Hero Section - Enhanced with LogoSphere */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-          {/* 3D Background */}
-          <div className="absolute inset-0 z-0">
-            <Suspense fallback={<div className="w-full h-full bg-gradient-to-br from-brandMagenta/20 to-brandCyan/20" />}>
-              <LogoSphere />
-            </Suspense>
-          </div>
-
-          {/* Animated Background Elements */}
-          <div className="absolute inset-0 z-0">
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brandMagenta/10 rounded-full blur-3xl animate-pulse-glow" />
-            <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-brandCyan/10 rounded-full blur-3xl animate-float" />
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-r from-brandMagenta to-brandCyan rounded-full blur-2xl animate-pulsate" />
-          </div>
+        <section className="relative min-h-screen flex items-center justify-center px-3 sm:px-6 lg:px-8 pt-16 sm:pt-20">
+          {/* Background Gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-cyan-900/20" />
           
-          {/* Hero Content */}
-          <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+          {/* Animated Grid */}
+          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
+          
+          <div className="relative z-10 text-center max-w-5xl mx-auto">
+            {/* Premium Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="mb-4 sm:mb-6"
+            >
+              <Badge className="px-3 py-1 text-xs sm:text-sm bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border-purple-500/30 text-purple-200">
+                <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
+                Plataforma VR Next-Gen
+              </Badge>
+            </motion.div>
+
+            {/* Main Heading */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="text-3xl sm:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight"
+            >
+              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+                O Futuro do
+              </span>
+              <br />
+              <span className="text-white">Entretenimento VR</span>
+            </motion.h1>
+
+            {/* Subtitle */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-base sm:text-xl lg:text-2xl text-gray-300 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed px-4"
+            >
+              Conectamos venues, revendedores e audiências através de experiências VR imersivas e tecnologia blockchain
+            </motion.p>
+
+            {/* Action Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="space-y-8"
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-8 sm:mb-12"
             >
-              {/* Premium Badge */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-brandMagenta/20 to-brandCyan/20 border border-brandMagenta/30 backdrop-blur-md"
+              <Button 
+                size="lg" 
+                className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg"
               >
-                <Sparkles className="w-5 h-5 text-brandCyan mr-2" />
-                <span className="text-white font-medium">The Future of Immersive Entertainment</span>
-              </motion.div>
+                <Play className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                Começar Agora
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="w-full sm:w-auto border-gray-600 text-gray-300 hover:bg-white/10 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg"
+              >
+                Ver Demo
+              </Button>
+            </motion.div>
 
-              <motion.h1 
-                className="text-4xl sm:text-6xl lg:text-8xl font-bold font-orbitron tracking-tight"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-              >
-                <span className="block text-white mb-4">Welcome to</span>
-                <span className="block bg-gradient-to-r from-[#8D42EC] via-[#60A3F9] to-[#8D42EC] bg-clip-text text-transparent animate-gradient-x">
-                  Envimerse
-                </span>
-              </motion.h1>
-              
-              <motion.p 
-                className="text-xl sm:text-2xl text-gray-300 max-w-4xl mx-auto font-lexend leading-relaxed"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-              >
-                Experience live events in virtual reality. Connect venues, resellers, and audiences worldwide through cutting-edge VR technology powered by blockchain on BASE.
-              </motion.p>
-              
-              <motion.div 
-                className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-12"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-              >
-                <ConnectWalletButton />
-                <Link href="/marketplace">
-                  <Button 
-                    variant="outline" 
-                    size="lg"
-                    className="group px-8 py-4 border-2 border-white/20 text-white font-bold rounded-xl hover:border-[#60A3F9] hover:shadow-lg hover:shadow-[#60A3F9]/25 transition-all duration-300 font-orbitron text-lg bg-transparent backdrop-blur-md"
-                  >
-                    Explore Platform
-                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
-              </motion.div>
+            {/* 3D Logo Sphere */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.5 }}
+              className="mb-8 sm:mb-12"
+            >
+              <Suspense fallback={
+                <div className="w-full h-32 sm:h-40 lg:h-80 flex items-center justify-center">
+                  <div className="w-8 h-8 sm:w-12 sm:h-12 border-2 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
+                </div>
+              }>
+                <LogoSphere />
+              </Suspense>
+            </motion.div>
 
-              {/* Three Pillars */}
-              <motion.div 
-                className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20 max-w-5xl mx-auto"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.0 }}
-              >
-                <motion.div 
-                  className="group text-center p-8 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-brandMagenta/50 transition-all duration-500"
-                  whileHover={{ scale: 1.05, y: -10 }}
-                  transition={{ type: "spring", stiffness: 300 }}
+            {/* Platform Pillars */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
+            >
+              {[
+                {
+                  icon: Users,
+                  title: "VR-Clients",
+                  desc: "Experiências premium para usuários"
+                },
+                {
+                  icon: TrendingUp,
+                  title: "VR-Resellers",
+                  desc: "Plataforma de revenda lucrativa"
+                },
+                {
+                  icon: Globe,
+                  title: "VR-Environments",
+                  desc: "Ambientes virtuais únicos"
+                }
+              ].map((pillar, index) => (
+                <div 
+                  key={index}
+                  className="p-4 sm:p-6 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300"
                 >
-                  <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-brandMagenta to-brandMagenta/60 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <Users className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-3 font-orbitron">VR-Clients</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">Experience premium events from home with immersive VR technology</p>
-                </motion.div>
-                
-                <motion.div 
-                  className="group text-center p-8 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-brandCyan/50 transition-all duration-500"
-                  whileHover={{ scale: 1.05, y: -10 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-brandCyan to-brandCyan/60 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <Zap className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-3 font-orbitron">VR-Resellers</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">Monetize event experiences and build your VR business</p>
-                </motion.div>
-                
-                <motion.div 
-                  className="group text-center p-8 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-brandMagenta/50 transition-all duration-500"
-                  whileHover={{ scale: 1.05, y: -10 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-brandMagenta via-brandCyan to-brandMagenta flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <Globe className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-3 font-orbitron">VR-Environments</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">Host global VR experiences and reach worldwide audiences</p>
-                </motion.div>
-              </motion.div>
+                  <pillar.icon className="w-6 h-6 sm:w-8 sm:h-8 text-purple-400 mx-auto mb-3 sm:mb-4" />
+                  <h3 className="text-base sm:text-lg font-semibold text-white mb-2">{pillar.title}</h3>
+                  <p className="text-sm sm:text-base text-gray-400">{pillar.desc}</p>
+                </div>
+              ))}
             </motion.div>
           </div>
         </section>
 
-        {/* Enhanced Features Section */}
-        <section className="py-24 bg-gradient-to-b from-transparent via-brandMagenta/5 to-transparent">
-          <EnhancedFeatures />
+        {/* Features Section */}
+        <section className="py-12 sm:py-20 px-3 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-8 sm:mb-16">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+                <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                  Recursos Avançados
+                </span>
+              </h2>
+              <p className="text-base sm:text-xl text-gray-400 max-w-3xl mx-auto px-4">
+                Tecnologia de ponta para revolucionar o entretenimento
+              </p>
+            </div>
+            <EnhancedFeatures />
+          </div>
         </section>
 
         {/* How It Works Section */}
-        <section className="py-24">
-          <HowItWorks />
+        <section className="py-12 sm:py-20 px-3 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-purple-900/10">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-8 sm:mb-16">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+                Como Funciona
+              </h2>
+              <p className="text-base sm:text-xl text-gray-400 max-w-3xl mx-auto px-4">
+                Processo simples e eficiente para todos os usuários
+              </p>
+            </div>
+            <HowItWorks />
+          </div>
         </section>
 
         {/* VR Experience Carousel */}
-        <section className="py-24 bg-gradient-to-b from-transparent via-brandCyan/5 to-transparent">
-          <VRExperienceCarousel />
+        <section className="py-12 sm:py-20 px-3 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-8 sm:mb-16">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+                Experiências VR
+              </h2>
+              <p className="text-base sm:text-xl text-gray-400 max-w-3xl mx-auto px-4">
+                Descubra mundos virtuais incríveis
+              </p>
+            </div>
+            <VRExperienceCarousel />
+          </div>
         </section>
 
-        {/* Animated Stats */}
-        <section className="py-24">
-          <AnimatedStats />
+        {/* Stats Section */}
+        <section className="py-12 sm:py-20 px-3 sm:px-6 lg:px-8 bg-gradient-to-r from-purple-900/20 to-cyan-900/20">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-8 sm:mb-16">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+                Números Impressionantes
+              </h2>
+              <p className="text-base sm:text-xl text-gray-400 max-w-3xl mx-auto px-4">
+                Nossa plataforma em constante crescimento
+              </p>
+            </div>
+            <AnimatedStats />
+          </div>
         </section>
 
-        {/* Partners Marquee */}
-        <section className="py-24 bg-gradient-to-b from-transparent via-brandMagenta/5 to-transparent">
-          <PartnersMarquee />
+        {/* Partners */}
+        <section className="py-12 sm:py-20 px-3 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-8 sm:mb-16">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+                Nossos Parceiros
+              </h2>
+              <p className="text-base sm:text-xl text-gray-400 max-w-3xl mx-auto px-4">
+                Trabalhando com as melhores empresas do setor
+              </p>
+            </div>
+            <PartnersMarquee />
+          </div>
         </section>
 
         {/* Monetization Model */}
-        <section className="py-24">
-          <MonetizationModel />
+        <section className="py-12 sm:py-20 px-3 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-purple-900/10">
+          <div className="max-w-7xl mx-auto">
+            <MonetizationModel />
+          </div>
         </section>
 
         {/* Realtime Metrics */}
-        <section className="py-24 bg-gradient-to-b from-transparent via-brandCyan/5 to-transparent">
-          <RealtimeMetrics />
+        <section className="py-12 sm:py-20 px-3 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <RealtimeMetrics />
+          </div>
         </section>
 
         {/* Interactive Roadmap */}
-        <section className="py-24">
-          <InteractiveRoadmap />
+        <section className="py-12 sm:py-20 px-3 sm:px-6 lg:px-8 bg-gradient-to-r from-purple-900/20 to-cyan-900/20">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-8 sm:mb-16">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+                Roadmap 2025
+              </h2>
+              <p className="text-base sm:text-xl text-gray-400 max-w-3xl mx-auto px-4">
+                Nosso plano para o futuro da plataforma
+              </p>
+            </div>
+            <InteractiveRoadmap />
+          </div>
         </section>
 
         {/* Community Driven */}
-        <section className="py-24 bg-gradient-to-b from-transparent via-brandMagenta/5 to-transparent">
-          <CommunityDriven />
+        <section className="py-12 sm:py-20 px-3 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <CommunityDriven />
+          </div>
         </section>
 
         {/* Auth Demo */}
-        <section className="py-24">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <motion.h2 
-                className="text-4xl sm:text-6xl font-bold text-white mb-6 font-orbitron"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                Try the <span className="bg-gradient-to-r from-[#8D42EC] to-[#60A3F9] bg-clip-text text-transparent">Platform</span>
-              </motion.h2>
-              <motion.p 
-                className="text-xl text-gray-300 max-w-3xl mx-auto font-lexend"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                Connect your Web3 wallet and experience the future of immersive entertainment
-              </motion.p>
+        <section className="py-12 sm:py-20 px-3 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-purple-900/10">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-8 sm:mb-16">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+                Teste a Plataforma
+              </h2>
+              <p className="text-base sm:text-xl text-gray-400 max-w-3xl mx-auto px-4">
+                Experimente nosso sistema de autenticação
+              </p>
             </div>
             <AuthDemo />
           </div>
         </section>
 
         {/* Final CTA Section */}
-        <section className="py-32 bg-gradient-to-r from-[#8D42EC]/20 via-transparent to-[#60A3F9]/20 relative overflow-hidden">
-          {/* Background Elements */}
-          <div className="absolute inset-0">
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brandMagenta/10 rounded-full blur-3xl animate-pulse-glow" />
-            <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-brandCyan/10 rounded-full blur-3xl animate-float" />
-          </div>
-
-          <div className="relative max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-brandMagenta/20 to-brandCyan/20 border border-brandMagenta/30 backdrop-blur-md mb-8">
-                <Rocket className="w-5 h-5 text-brandCyan mr-2" />
-                <span className="text-white font-medium">Ready to Launch</span>
-              </div>
-
-              <h2 className="text-4xl sm:text-6xl font-bold text-white mb-6 font-orbitron">
-                Join the VR Revolution
-              </h2>
-              <p className="text-xl text-gray-300 mb-12 font-lexend max-w-3xl mx-auto">
-                Transform how people experience entertainment. Whether you're a venue owner, reseller, or VR enthusiast, Envimerse is your gateway to the metaverse.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                <ConnectWalletButton />
-                <Link href="/environments/apply">
-                  <Button 
-                    variant="outline" 
-                    size="lg"
-                    className="group px-8 py-4 border-2 border-white/20 text-white font-bold rounded-xl hover:border-[#60A3F9] hover:shadow-lg hover:shadow-[#60A3F9]/25 transition-all duration-300 font-orbitron bg-transparent backdrop-blur-md"
-                  >
-                    Become a Partner
-                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
-              </div>
-
-              {/* Trust Indicators */}
-              <motion.div 
-                className="flex flex-wrap justify-center items-center gap-8 mt-16 opacity-60"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 0.6, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                viewport={{ once: true }}
+        <section className="py-12 sm:py-20 px-3 sm:px-6 lg:px-8 bg-gradient-to-r from-purple-600/20 to-cyan-600/20">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+              Pronto para o Futuro?
+            </h2>
+            <p className="text-base sm:text-xl text-gray-300 mb-6 sm:mb-8 px-4">
+              Junte-se à revolução do entretenimento VR
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+              <Button 
+                size="lg"
+                className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg"
               >
-                <div className="flex items-center gap-2">
-                  <Shield className="w-5 h-5 text-brandCyan" />
-                  <span className="text-sm text-gray-400 font-medium">Blockchain Secured</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Zap className="w-5 h-5 text-brandMagenta" />
-                  <span className="text-sm text-gray-400 font-medium">Lightning Fast</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Globe className="w-5 h-5 text-brandCyan" />
-                  <span className="text-sm text-gray-400 font-medium">Global Reach</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Coins className="w-5 h-5 text-brandMagenta" />
-                  <span className="text-sm text-gray-400 font-medium">Crypto Native</span>
-                </div>
-              </motion.div>
-            </motion.div>
+                Começar Agora
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="w-full sm:w-auto border-gray-600 text-gray-300 hover:bg-white/10 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg"
+              >
+                Saber Mais
+              </Button>
+            </div>
           </div>
         </section>
       </main>

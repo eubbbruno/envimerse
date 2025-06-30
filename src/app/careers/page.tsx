@@ -1,41 +1,45 @@
 "use client"
 
 import { motion } from 'framer-motion'
-import { Briefcase, Users, Globe, Zap, ArrowRight, Heart, Star, Rocket } from 'lucide-react'
+import { MapPin, Clock, DollarSign, Users, Code, Palette, TrendingUp, MessageSquare, Heart, Globe, Zap, Shield } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import { Button } from '@/components/ui/button'
-import Link from 'next/link'
 
 export default function CareersPage() {
-  const openPositions = [
+  const jobs = [
     {
-      title: "Senior Frontend Developer",
-      department: "Engineering",
-      location: "Remote",
-      type: "Full-time",
-      description: "Build amazing user experiences with React, Next.js, and Web3 technologies."
+      title: "Desenvolvedor Frontend Sênior",
+      department: "Engenharia",
+      location: "São Paulo, Brasil / Remoto",
+      type: "Tempo Integral",
+      icon: Code,
+      description: "Construa interfaces incríveis para nossa plataforma VR usando React, Next.js e Three.js"
     },
     {
-      title: "VR Experience Designer",
+      title: "Designer de Experiência VR",
       department: "Design",
-      location: "Remote",
-      type: "Full-time",
-      description: "Design immersive VR experiences that captivate global audiences."
+      location: "Remoto",
+      type: "Tempo Integral",
+      icon: Palette,
+      description: "Crie experiências VR imersivas e intuitivas que encantam nossos usuários"
     },
     {
-      title: "Blockchain Engineer",
-      department: "Engineering",
-      location: "Remote",
-      type: "Full-time",
-      description: "Develop smart contracts and Web3 integrations for our platform."
+      title: "Engenheiro Blockchain",
+      department: "Engenharia",
+      location: "São Paulo, Brasil / Remoto",
+      type: "Tempo Integral",
+      icon: Shield,
+      description: "Desenvolva smart contracts e integre soluções Web3 na nossa plataforma"
     },
     {
-      title: "Business Development Manager",
-      department: "Business",
-      location: "São Paulo/Remote",
-      type: "Full-time",
-      description: "Build partnerships with venues and entertainment companies."
+      title: "Gerente de Desenvolvimento de Negócios",
+      department: "Negócios",
+      location: "São Paulo, Brasil",
+      type: "Tempo Integral",
+      icon: TrendingUp,
+      description: "Expanda nossa rede de parceiros e identifique novas oportunidades de mercado"
     }
   ]
 
@@ -43,241 +47,224 @@ export default function CareersPage() {
     {
       icon: Globe,
       title: "Remote First",
-      description: "Work from anywhere in the world with our global team"
+      description: "Trabalhe de qualquer lugar do mundo"
     },
     {
-      icon: Rocket,
-      title: "Cutting-Edge Tech",
-      description: "Work with VR, blockchain, and the latest web technologies"
+      icon: Zap,
+      title: "Tecnologia de Ponta",
+      description: "Use as ferramentas mais avançadas do mercado"
     },
     {
       icon: Users,
-      title: "Amazing Team",
-      description: "Collaborate with passionate, talented people who love what they do"
+      title: "Time Incrível",
+      description: "Colabore com os melhores talentos"
     },
     {
       icon: Heart,
-      title: "Impact",
-      description: "Help build the future of entertainment and reach millions"
+      title: "Impacto",
+      description: "Construa o futuro do entretenimento"
     }
   ]
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black text-white">
       <Header />
       
-      <main className="pt-20">
-        {/* Hero Section */}
-        <section className="py-24 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-brandMagenta/20 to-brandCyan/20 border border-brandMagenta/30 backdrop-blur-md mb-8">
-                <Briefcase className="w-5 h-5 text-brandCyan mr-2" />
-                <span className="text-white font-medium">Join Our Team</span>
-              </div>
+      {/* Hero Section */}
+      <section className="pt-20 sm:pt-24 pb-12 sm:pb-20 px-3 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
+              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+                Junte-se ao Futuro
+              </span>
+            </h1>
+            <p className="text-base sm:text-xl lg:text-2xl text-gray-300 leading-relaxed px-2 mb-6 sm:mb-8">
+              Construa o próximo capítulo do entretenimento conosco
+            </p>
+            <Badge className="px-4 py-2 text-sm bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border-purple-500/30 text-purple-200">
+              <Users className="w-4 h-4 mr-2" />
+              4 vagas abertas
+            </Badge>
+          </motion.div>
+        </div>
+      </section>
 
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold font-orbitron text-white mb-8">
-                Build the <span className="bg-gradient-to-r from-[#8D42EC] to-[#60A3F9] bg-clip-text text-transparent">Future</span> With Us
-              </h1>
-              
-              <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed font-lexend">
-                Join our mission to revolutionize entertainment through immersive VR experiences 
-                and blockchain technology. We're looking for passionate innovators to help us build 
-                the future of how people experience entertainment.
-              </p>
-            </motion.div>
-          </div>
-        </section>
+      {/* Open Positions */}
+      <section className="py-12 sm:py-20 px-3 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-8 sm:mb-16"
+          >
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+              Posições Abertas
+            </h2>
+            <p className="text-base sm:text-xl text-gray-400 max-w-3xl mx-auto px-2">
+              Encontre sua próxima oportunidade na vanguarda da tecnologia VR
+            </p>
+          </motion.div>
 
-        {/* Why Join Us */}
-        <section className="py-24 bg-gradient-to-b from-transparent via-brandMagenta/5 to-transparent">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6 font-orbitron">
-                Why <span className="bg-gradient-to-r from-[#8D42EC] to-[#60A3F9] bg-clip-text text-transparent">Envimerse</span>?
-              </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Be part of something extraordinary
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {benefits.map((benefit, index) => (
-                <motion.div
-                  key={benefit.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="group text-center p-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-brandMagenta/50 transition-all duration-500"
-                >
-                  <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-brandMagenta to-brandCyan flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <benefit.icon className="w-8 h-8 text-white" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+            {jobs.map((job, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white/5 p-4 sm:p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300"
+              >
+                <div className="flex items-start space-x-3 sm:space-x-4 mb-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-purple-500 to-cyan-400 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <job.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3 font-orbitron">{benefit.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{benefit.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Open Positions */}
-        <section className="py-24">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6 font-orbitron">
-                Open <span className="bg-gradient-to-r from-[#8D42EC] to-[#60A3F9] bg-clip-text text-transparent">Positions</span>
-              </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Find your next opportunity
-              </p>
-            </motion.div>
-
-            <div className="space-y-6">
-              {openPositions.map((position, index) => (
-                <motion.div
-                  key={position.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="group p-8 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-brandMagenta/50 transition-all duration-500"
-                >
-                  <div className="flex flex-col lg:flex-row lg:items-center justify-between">
-                    <div className="flex-1">
-                      <div className="flex flex-wrap items-center gap-4 mb-4">
-                        <h3 className="text-2xl font-bold text-white font-orbitron">{position.title}</h3>
-                        <div className="flex flex-wrap gap-2">
-                          <span className="px-3 py-1 text-xs font-medium bg-brandMagenta/20 text-brandMagenta rounded-full border border-brandMagenta/30">
-                            {position.department}
-                          </span>
-                          <span className="px-3 py-1 text-xs font-medium bg-brandCyan/20 text-brandCyan rounded-full border border-brandCyan/30">
-                            {position.location}
-                          </span>
-                          <span className="px-3 py-1 text-xs font-medium bg-white/10 text-gray-300 rounded-full border border-white/20">
-                            {position.type}
-                          </span>
-                        </div>
-                      </div>
-                      <p className="text-gray-300 leading-relaxed">{position.description}</p>
-                    </div>
-                    
-                    <div className="mt-6 lg:mt-0 lg:ml-8">
-                      <Button 
-                        className="group px-6 py-3 bg-gradient-to-r from-brandMagenta to-brandCyan hover:from-brandMagenta/80 hover:to-brandCyan/80 text-white font-bold rounded-xl transition-all duration-300 font-orbitron"
-                      >
-                        Apply Now
-                        <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </Button>
-                    </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white mb-1 leading-tight">
+                      {job.title}
+                    </h3>
+                    <p className="text-sm text-purple-400 font-medium">
+                      {job.department}
+                    </p>
                   </div>
-                </motion.div>
-              ))}
-            </div>
+                </div>
 
-            {/* Don't see your role? */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="mt-12 text-center p-8 rounded-2xl bg-gradient-to-r from-brandMagenta/10 to-brandCyan/10 border border-brandMagenta/20"
-            >
-              <Star className="w-12 h-12 text-brandCyan mx-auto mb-4" />
-              <h3 className="text-2xl font-bold text-white mb-4 font-orbitron">Don't See Your Role?</h3>
-              <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-                We're always looking for exceptional talent. Even if you don't see a specific role that fits, 
-                we'd love to hear from you if you're passionate about VR and blockchain technology.
-              </p>
-              <Link href="/contact">
+                <p className="text-sm sm:text-base text-gray-300 mb-4 leading-relaxed">
+                  {job.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
+                  <div className="flex items-center text-xs sm:text-sm text-gray-400">
+                    <MapPin className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
+                    {job.location}
+                  </div>
+                  <div className="flex items-center text-xs sm:text-sm text-gray-400">
+                    <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
+                    {job.type}
+                  </div>
+                </div>
+
                 <Button 
-                  variant="outline" 
-                  size="lg"
-                  className="px-8 py-4 border-2 border-white/20 text-white font-bold rounded-xl hover:border-[#60A3F9] hover:shadow-lg hover:shadow-[#60A3F9]/25 transition-all duration-300 font-orbitron bg-transparent backdrop-blur-md"
+                  className="w-full bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-sm sm:text-base"
                 >
-                  Get in Touch
+                  Candidatar-se
                 </Button>
-              </Link>
-            </motion.div>
+              </motion.div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Culture */}
-        <section className="py-24 bg-gradient-to-b from-transparent via-brandCyan/5 to-transparent">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6 font-orbitron">
-                  Our <span className="bg-gradient-to-r from-[#8D42EC] to-[#60A3F9] bg-clip-text text-transparent">Culture</span>
-                </h2>
-                <div className="space-y-6">
-                  <p className="text-gray-300 leading-relaxed">
-                    At Envimerse, we believe that the best innovation comes from diverse perspectives 
-                    and collaborative teamwork. We're building more than just a product - we're 
-                    creating a new way for people to experience entertainment.
-                  </p>
-                  <p className="text-gray-300 leading-relaxed">
-                    Our team is passionate, curious, and always pushing boundaries. We value 
-                    creativity, technical excellence, and the courage to try new things.
-                  </p>
-                  <div className="flex flex-wrap gap-3">
-                    <span className="px-4 py-2 bg-brandMagenta/20 text-brandMagenta rounded-full text-sm font-medium border border-brandMagenta/30">
-                      Innovation
-                    </span>
-                    <span className="px-4 py-2 bg-brandCyan/20 text-brandCyan rounded-full text-sm font-medium border border-brandCyan/30">
-                      Collaboration
-                    </span>
-                    <span className="px-4 py-2 bg-white/10 text-gray-300 rounded-full text-sm font-medium border border-white/20">
-                      Growth
-                    </span>
-                    <span className="px-4 py-2 bg-brandMagenta/20 text-brandMagenta rounded-full text-sm font-medium border border-brandMagenta/30">
-                      Impact
-                    </span>
-                  </div>
-                </div>
-              </motion.div>
+      {/* Benefits */}
+      <section className="py-12 sm:py-20 px-3 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-purple-900/10">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-8 sm:mb-16"
+          >
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+              Por que Envimerse?
+            </h2>
+            <p className="text-base sm:text-xl text-gray-400 max-w-3xl mx-auto px-2">
+              Benefícios que fazem a diferença na sua jornada profissional
+            </p>
+          </motion.div>
 
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+            {benefits.map((benefit, index) => (
               <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="relative"
+                className="text-center p-4 sm:p-6 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition-all duration-300"
               >
-                <div className="aspect-square rounded-2xl bg-gradient-to-br from-brandMagenta/20 to-brandCyan/20 border border-white/10 flex items-center justify-center">
-                  <div className="text-center">
-                    <Users className="w-24 h-24 text-white mx-auto mb-4" />
-                    <p className="text-white font-medium">Remote-First Team</p>
-                    <p className="text-gray-400 text-sm">Working from around the globe</p>
-                  </div>
-                </div>
+                <benefit.icon className="w-8 h-8 sm:w-10 sm:h-10 text-purple-400 mx-auto mb-3 sm:mb-4" />
+                <h3 className="text-base sm:text-lg font-semibold text-white mb-2">
+                  {benefit.title}
+                </h3>
+                <p className="text-sm sm:text-base text-gray-400">
+                  {benefit.description}
+                </p>
               </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Company Culture */}
+      <section className="py-12 sm:py-20 px-3 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-8 sm:mb-12"
+          >
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+              Nossa Cultura
+            </h2>
+            <div className="bg-gradient-to-br from-purple-900/20 to-cyan-900/20 p-6 sm:p-8 rounded-2xl border border-white/10">
+              <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed mb-4 sm:mb-6">
+                Na Envimerse, acreditamos que as melhores inovações vêm de equipes diversas e 
+                colaborativas. Criamos um ambiente onde cada pessoa pode crescer, aprender e 
+                contribuir para o futuro do entretenimento.
+              </p>
+              <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed">
+                Valorizamos a criatividade, a autonomia e o pensamento disruptivo. Se você é 
+                apaixonado por tecnologia e quer fazer parte da revolução VR, este é o seu lugar.
+              </p>
             </div>
-          </div>
-        </section>
-      </main>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Open Application */}
+      <section className="py-12 sm:py-20 px-3 sm:px-6 lg:px-8 bg-gradient-to-r from-purple-600/20 to-cyan-600/20">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+              Não encontrou sua vaga?
+            </h2>
+            <p className="text-base sm:text-xl text-gray-300 mb-6 sm:mb-8 px-2">
+              Estamos sempre em busca de talentos excepcionais. Envie seu currículo mesmo assim!
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+              <Button 
+                size="lg"
+                className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base"
+              >
+                <MessageSquare className="w-4 h-4 mr-2" />
+                Candidatura Espontânea
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="w-full sm:w-auto border-gray-600 text-gray-300 hover:bg-white/10 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base"
+              >
+                Ver Todas as Vagas
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
       <Footer />
     </div>
