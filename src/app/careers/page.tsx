@@ -1,68 +1,59 @@
 "use client"
 
 import { motion } from 'framer-motion'
-import { MapPin, Clock, DollarSign, Users, Code, Palette, TrendingUp, MessageSquare, Heart, Globe, Zap, Shield } from 'lucide-react'
+import { Code, Zap, Users, TrendingUp, Heart, Shield, Globe, Coffee, Gamepad2, Headphones, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export default function CareersPage() {
   const jobs = [
     {
-      title: "Desenvolvedor Frontend Sênior",
-      department: "Engenharia",
-      location: "São Paulo, Brasil / Remoto",
-      type: "Tempo Integral",
-      icon: Code,
-      description: "Construa interfaces incríveis para nossa plataforma VR usando React, Next.js e Three.js"
+      title: "Senior Frontend Developer",
+      type: "Full-time",
+      location: "Remote",
+      description: "Join our team to build the next generation of VR interfaces using React, Three.js, and WebXR."
     },
     {
-      title: "Designer de Experiência VR",
-      department: "Design",
-      location: "Remoto",
-      type: "Tempo Integral",
-      icon: Palette,
-      description: "Crie experiências VR imersivas e intuitivas que encantam nossos usuários"
+      title: "Blockchain Developer",
+      type: "Full-time", 
+      location: "São Paulo, Brazil",
+      description: "Develop smart contracts and Web3 integrations for our VR entertainment platform."
     },
     {
-      title: "Engenheiro Blockchain",
-      department: "Engenharia",
-      location: "São Paulo, Brasil / Remoto",
-      type: "Tempo Integral",
-      icon: Shield,
-      description: "Desenvolva smart contracts e integre soluções Web3 na nossa plataforma"
+      title: "VR Experience Designer",
+      type: "Full-time",
+      location: "Remote",
+      description: "Create immersive VR experiences and design innovative interaction patterns."
     },
     {
-      title: "Gerente de Desenvolvimento de Negócios",
-      department: "Negócios",
-      location: "São Paulo, Brasil",
-      type: "Tempo Integral",
-      icon: TrendingUp,
-      description: "Expanda nossa rede de parceiros e identifique novas oportunidades de mercado"
+      title: "Business Development Manager",
+      type: "Full-time",
+      location: "São Paulo, Brazil",
+      description: "Drive partnerships with venues and resellers to expand our platform globally."
     }
   ]
 
   const benefits = [
     {
-      icon: Globe,
-      title: "Remote First",
-      description: "Trabalhe de qualquer lugar do mundo"
-    },
-    {
-      icon: Zap,
-      title: "Tecnologia de Ponta",
-      description: "Use as ferramentas mais avançadas do mercado"
-    },
-    {
-      icon: Users,
-      title: "Time Incrível",
-      description: "Colabore com os melhores talentos"
-    },
-    {
       icon: Heart,
-      title: "Impacto",
-      description: "Construa o futuro do entretenimento"
+      title: "Health & Wellness",
+      description: "Complete health insurance and mental wellness support"
+    },
+    {
+      icon: Coffee,
+      title: "Flexible Schedule",
+      description: "Work-life balance with flexible hours and remote work"
+    },
+    {
+      icon: TrendingUp,
+      title: "Professional Growth",
+      description: "Continuous learning and career development opportunities"
+    },
+    {
+      icon: Gamepad2,
+      title: "Innovation Time",
+      description: "20% of your time dedicated to personal projects"
     }
   ]
 
@@ -80,16 +71,12 @@ export default function CareersPage() {
           >
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
-                Junte-se ao Futuro
+                Join Our Team
               </span>
             </h1>
-            <p className="text-base sm:text-xl lg:text-2xl text-gray-300 leading-relaxed px-2 mb-6 sm:mb-8">
-              Construa o próximo capítulo do entretenimento conosco
+            <p className="text-base sm:text-xl lg:text-2xl text-gray-300 leading-relaxed px-2">
+              Help us build the future of VR entertainment and revolutionize the industry
             </p>
-            <Badge className="px-4 py-2 text-sm bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border-purple-500/30 text-purple-200">
-              <Users className="w-4 h-4 mr-2" />
-              4 vagas abertas
-            </Badge>
           </motion.div>
         </div>
       </section>
@@ -105,10 +92,10 @@ export default function CareersPage() {
             className="text-center mb-8 sm:mb-16"
           >
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-              Posições Abertas
+              Open Positions
             </h2>
             <p className="text-base sm:text-xl text-gray-400 max-w-3xl mx-auto px-2">
-              Encontre sua próxima oportunidade na vanguarda da tecnologia VR
+              Join the most innovative team in VR technology
             </p>
           </motion.div>
 
@@ -120,41 +107,24 @@ export default function CareersPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white/5 p-4 sm:p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300"
+                className="bg-white/5 p-6 sm:p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300"
               >
-                <div className="flex items-start space-x-3 sm:space-x-4 mb-4">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-purple-500 to-cyan-400 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <job.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white mb-1 leading-tight">
-                      {job.title}
-                    </h3>
-                    <p className="text-sm text-purple-400 font-medium">
-                      {job.department}
-                    </p>
-                  </div>
+                <div className="flex justify-between items-start mb-3 sm:mb-4">
+                  <h3 className="text-lg sm:text-xl font-bold text-white">{job.title}</h3>
+                  <span className="text-xs sm:text-sm bg-purple-500/20 text-purple-400 px-2 py-1 rounded-full">
+                    {job.type}
+                  </span>
                 </div>
-
-                <p className="text-sm sm:text-base text-gray-300 mb-4 leading-relaxed">
+                <p className="text-sm sm:text-base text-cyan-400 mb-3 sm:mb-4 flex items-center">
+                  <Globe className="w-4 h-4 mr-1" />
+                  {job.location}
+                </p>
+                <p className="text-sm sm:text-base text-gray-300 mb-4 sm:mb-6 leading-relaxed">
                   {job.description}
                 </p>
-
-                <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
-                  <div className="flex items-center text-xs sm:text-sm text-gray-400">
-                    <MapPin className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
-                    {job.location}
-                  </div>
-                  <div className="flex items-center text-xs sm:text-sm text-gray-400">
-                    <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
-                    {job.type}
-                  </div>
-                </div>
-
-                <Button 
-                  className="w-full bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-sm sm:text-base"
-                >
-                  Candidatar-se
+                <Button className="w-full bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700">
+                  Apply Now
+                  <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </motion.div>
             ))}
@@ -173,10 +143,10 @@ export default function CareersPage() {
             className="text-center mb-8 sm:mb-16"
           >
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-              Por que Envimerse?
+              Why Work With Us
             </h2>
             <p className="text-base sm:text-xl text-gray-400 max-w-3xl mx-auto px-2">
-              Benefícios que fazem a diferença na sua jornada profissional
+              Benefits and advantages that make the difference
             </p>
           </motion.div>
 
@@ -188,13 +158,13 @@ export default function CareersPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="text-center p-4 sm:p-6 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition-all duration-300"
+                className="bg-white/5 p-4 sm:p-6 rounded-xl border border-white/10 hover:bg-white/10 transition-all duration-300 text-center"
               >
                 <benefit.icon className="w-8 h-8 sm:w-10 sm:h-10 text-purple-400 mx-auto mb-3 sm:mb-4" />
-                <h3 className="text-base sm:text-lg font-semibold text-white mb-2">
+                <h3 className="text-base sm:text-lg font-semibold text-white mb-2 sm:mb-3">
                   {benefit.title}
                 </h3>
-                <p className="text-sm sm:text-base text-gray-400">
+                <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
                   {benefit.description}
                 </p>
               </motion.div>
@@ -205,33 +175,35 @@ export default function CareersPage() {
 
       {/* Company Culture */}
       <section className="py-12 sm:py-20 px-3 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-8 sm:mb-12"
           >
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-              Nossa Cultura
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8">
+              Our Culture
             </h2>
-            <div className="bg-gradient-to-br from-purple-900/20 to-cyan-900/20 p-6 sm:p-8 rounded-2xl border border-white/10">
+            <div className="bg-gradient-to-br from-purple-900/30 to-cyan-900/30 p-6 sm:p-8 rounded-2xl border border-purple-500/20">
               <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed mb-4 sm:mb-6">
-                Na Envimerse, acreditamos que as melhores inovações vêm de equipes diversas e 
-                colaborativas. Criamos um ambiente onde cada pessoa pode crescer, aprender e 
-                contribuir para o futuro do entretenimento.
+                At Envimerse, we believe innovation emerges from collaboration and diversity. 
+                Our team is passionate about creating the future of entertainment through VR technology.
+              </p>
+              <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed mb-4 sm:mb-6">
+                We value creativity, technical excellence, and the constant pursuit of learning. 
+                Each team member has autonomy to contribute meaningfully to our mission.
               </p>
               <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed">
-                Valorizamos a criatividade, a autonomia e o pensamento disruptivo. Se você é 
-                apaixonado por tecnologia e quer fazer parte da revolução VR, este é o seu lugar.
+                Join us and be part of the team that's transforming how people experience 
+                entertainment in the digital age.
               </p>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Open Application */}
+      {/* CTA Section */}
       <section className="py-12 sm:py-20 px-3 sm:px-6 lg:px-8 bg-gradient-to-r from-purple-600/20 to-cyan-600/20">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
@@ -241,25 +213,26 @@ export default function CareersPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-              Não encontrou sua vaga?
+              Don't See Your Role?
             </h2>
             <p className="text-base sm:text-xl text-gray-300 mb-6 sm:mb-8 px-2">
-              Estamos sempre em busca de talentos excepcionais. Envie seu currículo mesmo assim!
+              We're always looking for exceptional talent. Send us your resume!
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Button 
                 size="lg"
-                className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base"
+                className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg"
               >
-                <MessageSquare className="w-4 h-4 mr-2" />
-                Candidatura Espontânea
+                Open Application
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
               </Button>
               <Button 
                 variant="outline" 
                 size="lg"
-                className="w-full sm:w-auto border-gray-600 text-gray-300 hover:bg-white/10 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base"
+                className="w-full sm:w-auto border-gray-600 text-gray-300 hover:bg-white/10 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg"
               >
-                Ver Todas as Vagas
+                <Headphones className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                Contact Us
               </Button>
             </div>
           </motion.div>

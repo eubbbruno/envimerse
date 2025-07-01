@@ -74,72 +74,6 @@ const AnimatedSphere: React.FC<AnimatedSphereProps> = ({ position, scale, speed 
   )
 }
 
-const OrbitingRings: React.FC = () => {
-  const groupRef = useRef<THREE.Group>(null)
-
-  useFrame((state) => {
-    if (groupRef.current) {
-      groupRef.current.rotation.y = state.clock.elapsedTime * 0.3
-      groupRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.2) * 0.1
-    }
-  })
-
-  return (
-    <group ref={groupRef}>
-      {[...Array(3)].map((_, i) => (
-        <mesh key={i} rotation={[Math.PI / 2, 0, i * (Math.PI / 3)]}>
-          <ringGeometry args={[2.8 + i * 0.5, 3 + i * 0.5, 64]} />
-          <meshBasicMaterial
-            color={i % 2 === 0 ? '#8D42EC' : '#60A3F9'}
-            transparent
-            opacity={0.3}
-            side={THREE.DoubleSide}
-          />
-        </mesh>
-      ))}
-    </group>
-  )
-}
-
-const SphereLines: React.FC = () => {
-  const linesRef = useRef<THREE.Group>(null)
-
-  const points = useMemo(() => {
-    const pts = []
-    for (let i = 0; i < 100; i++) {
-      const phi = Math.acos(-1 + (2 * i) / 100)
-      const theta = Math.sqrt(100 * Math.PI) * phi
-      const x = Math.cos(theta) * Math.sin(phi) * 2.5
-      const y = Math.sin(theta) * Math.sin(phi) * 2.5
-      const z = Math.cos(phi) * 2.5
-      pts.push(new THREE.Vector3(x, y, z))
-    }
-    return pts
-  }, [])
-
-  useFrame((state) => {
-    if (linesRef.current) {
-      linesRef.current.rotation.y = state.clock.elapsedTime * 0.1
-      linesRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.15) * 0.05
-    }
-  })
-
-  return (
-    <group ref={linesRef}>
-      {points.map((point, index) => (
-        <mesh key={index} position={[point.x, point.y, point.z]} scale={0.02}>
-          <sphereGeometry args={[1, 8, 8]} />
-          <meshBasicMaterial
-            color={index % 2 === 0 ? '#8D42EC' : '#60A3F9'}
-            transparent
-            opacity={0.8}
-          />
-        </mesh>
-      ))}
-    </group>
-  )
-}
-
 const LogoSphereScene: React.FC = () => {
   return (
     <>
@@ -153,12 +87,6 @@ const LogoSphereScene: React.FC = () => {
       <AnimatedSphere position={[4, 2, 0]} scale={0.8} speed={0.8} />
       <AnimatedSphere position={[-3, -1, 2]} scale={0.6} speed={1.2} />
       <AnimatedSphere position={[2, -3, -1]} scale={0.7} speed={0.9} />
-      
-      {/* Orbiting rings */}
-      <OrbitingRings />
-      
-      {/* Sphere lines pattern */}
-      <SphereLines />
     </>
   )
 }
@@ -168,7 +96,7 @@ interface LogoSphereProps {
   height?: string | number
 }
 
-const LogoSphere: React.FC<LogoSphereProps> = ({ className = "", height = "100vh" }) => {
+const LogoSphere: React.FC<LogoSphereProps> = ({ className = "", height = 400 }) => {
   return (
     <div className={`w-full ${className}`} style={{ height }}>
       <Canvas

@@ -1,10 +1,10 @@
 "use client"
 
+import React, { useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Github, Twitter, MessageCircle, Mail, MapPin, Phone, Zap, Shield, Globe, Wifi } from 'lucide-react'
+import { Mail, Phone, MapPin, Send, CheckCircle2, Github, Twitter, Linkedin, Youtube } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { useState } from 'react'
 
 export default function Footer() {
   const [email, setEmail] = useState('')
@@ -18,177 +18,232 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-black border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-8 sm:py-12">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12 mb-8">
-          {/* Brand Column */}
+    <footer className="bg-gradient-to-b from-black to-purple-900/20 text-white py-12 sm:py-16 lg:py-20">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-purple-500 to-cyan-400 rounded-lg flex items-center justify-center">
-                <Zap className="w-3 h-3 sm:w-5 sm:h-5 text-white" />
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">
+                <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                  Envimerse
+                </span>
+              </h3>
+              <p className="text-sm sm:text-base text-gray-300 leading-relaxed mb-4 sm:mb-6">
+                Revolutionizing entertainment through immersive VR experiences and 
+                cutting-edge blockchain technology.
+              </p>
+              
+              {/* Newsletter */}
+              <div className="mb-4 sm:mb-6">
+                <h4 className="text-sm font-semibold text-white mb-2 sm:mb-3">
+                  Stay Updated
+                </h4>
+                {isSubscribed ? (
+                  <div className="flex items-center text-green-400 text-sm">
+                    <CheckCircle2 className="w-4 h-4 mr-2" />
+                    Subscribed successfully!
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2">
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="your@email.com"
+                      className="flex-1 px-3 py-2 bg-white/5 border border-white/10 rounded text-sm text-white placeholder-gray-500 focus:outline-none focus:border-purple-500"
+                      required
+                    />
+                    <Button 
+                      type="submit" 
+                      size="sm"
+                      className="bg-purple-600 hover:bg-purple-700 px-3 py-2"
+                    >
+                      <Send className="w-3 h-3" />
+                    </Button>
+                  </form>
+                )}
               </div>
-              <span className="text-lg sm:text-xl font-bold text-white">Envimerse</span>
-            </div>
-            <p className="text-sm sm:text-base text-gray-400 mb-4 sm:mb-6 leading-relaxed">
-              Revolucionando o entretenimento através de experiências VR imersivas e tecnologia blockchain.
-            </p>
-            
-            {/* Newsletter */}
-            <div className="space-y-3">
-              <h4 className="text-sm font-semibold text-white">Newsletter</h4>
-              <form onSubmit={handleSubscribe} className="space-y-2">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Seu email"
-                  className="w-full px-3 py-2 text-sm bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-purple-500"
-                  required
-                />
-                <Button
-                  type="submit"
-                  size="sm"
-                  className="w-full bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-sm"
-                  disabled={isSubscribed}
-                >
-                  {isSubscribed ? 'Inscrito!' : 'Inscrever-se'}
-                </Button>
-              </form>
-            </div>
+
+              {/* Social Media */}
+              <div>
+                <h4 className="text-sm font-semibold text-white mb-2 sm:mb-3">
+                  Follow Us
+                </h4>
+                <div className="flex space-x-3">
+                  <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
+                    <Github className="w-4 h-4 sm:w-5 sm:h-5" />
+                  </a>
+                  <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
+                    <Twitter className="w-4 h-4 sm:w-5 sm:h-5" />
+                  </a>
+                  <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                    <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
+                  </a>
+                  <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                    <Youtube className="w-4 h-4 sm:w-5 sm:h-5" />
+                  </a>
+                </div>
+              </div>
+            </motion.div>
           </div>
 
-          {/* Platform Links */}
+          {/* Platform */}
           <div>
-            <h3 className="text-sm sm:text-base font-semibold text-white mb-3 sm:mb-4">Plataforma</h3>
-            <ul className="space-y-2 sm:space-y-3">
-              {[
-                { name: 'Marketplace', href: '/marketplace' },
-                { name: 'Eventos', href: '/events' },
-                { name: 'Ambientes', href: '/environments' },
-                { name: 'Dashboard', href: '/dashboard/client' },
-              ].map((link) => (
-                <li key={link.name}>
-                  <Link 
-                    href={link.href} 
-                    className="text-sm text-gray-400 hover:text-white transition-colors"
-                  >
-                    {link.name}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4">Platform</h3>
+              <ul className="space-y-2 sm:space-y-3">
+                <li>
+                  <Link href="/environments" className="text-sm sm:text-base text-gray-300 hover:text-purple-400 transition-colors">
+                    VR Environments
                   </Link>
                 </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company Links */}
-          <div>
-            <h3 className="text-sm sm:text-base font-semibold text-white mb-3 sm:mb-4">Empresa</h3>
-            <ul className="space-y-2 sm:space-y-3">
-              {[
-                { name: 'Sobre', href: '/about' },
-                { name: 'Carreiras', href: '/careers' },
-                { name: 'Contato', href: '/contact' },
-                { name: 'Blog', href: '#' },
-              ].map((link) => (
-                <li key={link.name}>
-                  <Link 
-                    href={link.href} 
-                    className="text-sm text-gray-400 hover:text-white transition-colors"
-                  >
-                    {link.name}
+                <li>
+                  <Link href="/marketplace" className="text-sm sm:text-base text-gray-300 hover:text-purple-400 transition-colors">
+                    Marketplace
                   </Link>
                 </li>
-              ))}
-            </ul>
+                <li>
+                  <Link href="/events" className="text-sm sm:text-base text-gray-300 hover:text-purple-400 transition-colors">
+                    Events
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/dashboard" className="text-sm sm:text-base text-gray-300 hover:text-purple-400 transition-colors">
+                    Dashboard
+                  </Link>
+                </li>
+              </ul>
+            </motion.div>
           </div>
 
-          {/* Contact Info */}
+          {/* Company */}
           <div>
-            <h3 className="text-sm sm:text-base font-semibold text-white mb-3 sm:mb-4">Contato</h3>
-            <div className="space-y-2 sm:space-y-3">
-              <div className="flex items-center space-x-2">
-                <Mail className="w-4 h-4 text-purple-400" />
-                <span className="text-sm text-gray-400">contato@envimerse.com</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <MapPin className="w-4 h-4 text-purple-400" />
-                <span className="text-sm text-gray-400">São Paulo, Brasil</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Phone className="w-4 h-4 text-purple-400" />
-                <span className="text-sm text-gray-400">+55 (11) 9999-9999</span>
-              </div>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4">Company</h3>
+              <ul className="space-y-2 sm:space-y-3">
+                <li>
+                  <Link href="/about" className="text-sm sm:text-base text-gray-300 hover:text-cyan-400 transition-colors">
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/careers" className="text-sm sm:text-base text-gray-300 hover:text-cyan-400 transition-colors">
+                    Careers
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="text-sm sm:text-base text-gray-300 hover:text-cyan-400 transition-colors">
+                    Contact
+                  </Link>
+                </li>
+                <li>
+                  <a href="#" className="text-sm sm:text-base text-gray-300 hover:text-cyan-400 transition-colors">
+                    Press Kit
+                  </a>
+                </li>
+              </ul>
+            </motion.div>
+          </div>
 
-            {/* Social Links */}
-            <div className="mt-4 sm:mt-6">
-              <h4 className="text-sm font-semibold text-white mb-3">Redes Sociais</h4>
-              <div className="flex space-x-3">
-                {[
-                  { icon: Github, href: 'https://github.com/eubbbruno/envimerse', label: 'GitHub' },
-                  { icon: Twitter, href: '#', label: 'Twitter' },
-                  { icon: MessageCircle, href: '#', label: 'Discord' },
-                ].map((social) => (
-                  <motion.a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <social.icon className="w-4 h-4" />
-                  </motion.a>
-                ))}
+          {/* Contact */}
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4">Contact</h3>
+              <div className="space-y-3 sm:space-y-4">
+                <div className="flex items-start space-x-3">
+                  <Mail className="w-4 h-4 text-purple-400 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="text-xs sm:text-sm text-gray-400">Email</p>
+                    <a href="mailto:hello@envimerse.com" className="text-sm sm:text-base text-gray-300 hover:text-purple-400">
+                      hello@envimerse.com
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <Phone className="w-4 h-4 text-purple-400 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="text-xs sm:text-sm text-gray-400">Phone</p>
+                    <a href="tel:+15551234567" className="text-sm sm:text-base text-gray-300 hover:text-purple-400">
+                      +1 (555) 123-4567
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <MapPin className="w-4 h-4 text-purple-400 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="text-xs sm:text-sm text-gray-400">Location</p>
+                    <p className="text-sm sm:text-base text-gray-300">
+                      São Paulo, Brazil
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
 
-        {/* Trust Indicators - Hidden on small mobile */}
-        <div className="hidden sm:block border-t border-white/10 pt-6 sm:pt-8 mb-6 sm:mb-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
-            {[
-              { icon: Shield, text: 'Blockchain Secured' },
-              { icon: Globe, text: 'Global Platform' },
-              { icon: Wifi, text: 'Web3 Native' },
-              { icon: Zap, text: 'Next-Gen VR' },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                className="flex items-center space-x-2 justify-center lg:justify-start"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <item.icon className="w-4 h-4 text-purple-400" />
-                <span className="text-xs sm:text-sm text-gray-400">{item.text}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="border-t border-white/10 pt-4 sm:pt-6">
-          <div className="flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0">
+        {/* Bottom Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="border-t border-white/10 mt-8 sm:mt-12 pt-6 sm:pt-8"
+        >
+          <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
             <p className="text-xs sm:text-sm text-gray-400 text-center sm:text-left">
-              © 2024 Envimerse. Todos os direitos reservados.
+              © 2024 Envimerse. All rights reserved.
             </p>
-            <div className="flex flex-wrap justify-center sm:justify-end space-x-4 sm:space-x-6">
-              <Link href="#" className="text-xs sm:text-sm text-gray-400 hover:text-white transition-colors">
-                Privacidade
-              </Link>
-              <Link href="#" className="text-xs sm:text-sm text-gray-400 hover:text-white transition-colors">
-                Termos
-              </Link>
-              <Link href="#" className="text-xs sm:text-sm text-gray-400 hover:text-white transition-colors">
-                Cookies
-              </Link>
+            <div className="flex flex-wrap justify-center sm:justify-end gap-4 sm:gap-6">
+              <a href="#" className="text-xs sm:text-sm text-gray-400 hover:text-white transition-colors">
+                Privacy Policy
+              </a>
+              <a href="#" className="text-xs sm:text-sm text-gray-400 hover:text-white transition-colors">
+                Terms of Service
+              </a>
+              <a href="#" className="text-xs sm:text-sm text-gray-400 hover:text-white transition-colors">
+                Cookie Policy
+              </a>
             </div>
           </div>
-        </div>
+
+          {/* Trust Indicators */}
+          <div className="hidden sm:flex justify-center items-center space-x-8 mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-white/5">
+            <div className="flex items-center space-x-2 text-xs text-gray-500">
+              <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+              <span>Blockchain Verified</span>
+            </div>
+            <div className="flex items-center space-x-2 text-xs text-gray-500">
+              <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+              <span>Enterprise Security</span>
+            </div>
+            <div className="flex items-center space-x-2 text-xs text-gray-500">
+              <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+              <span>VR Certified</span>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </footer>
   )

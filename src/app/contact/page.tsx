@@ -59,11 +59,11 @@ export default function ContactPage() {
           >
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
-                Entre em Contato
+                Get in Touch
               </span>
             </h1>
             <p className="text-base sm:text-xl lg:text-2xl text-gray-300 leading-relaxed px-2">
-              Pronto para revolucionar o entretenimento? Vamos conversar sobre o futuro do VR
+              Ready to revolutionize entertainment? Let's talk about the future of VR
             </p>
           </motion.div>
         </div>
@@ -80,7 +80,7 @@ export default function ContactPage() {
               className="bg-white/5 p-6 sm:p-8 rounded-2xl border border-white/10"
             >
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-6 sm:mb-8">
-                Envie sua Mensagem
+                Send Your Message
               </h2>
 
               {isSubmitted ? (
@@ -91,10 +91,10 @@ export default function ContactPage() {
                 >
                   <CheckCircle className="w-12 h-12 sm:w-16 sm:h-16 text-green-400 mx-auto mb-4" />
                   <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">
-                    Mensagem Enviada!
+                    Message Sent!
                   </h3>
                   <p className="text-sm sm:text-base text-gray-400">
-                    Retornaremos em até 24 horas
+                    We'll get back to you within 24 hours
                   </p>
                 </motion.div>
               ) : (
@@ -102,7 +102,7 @@ export default function ContactPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     <div>
                       <label className="block text-sm font-medium text-white mb-2">
-                        Nome *
+                        Name *
                       </label>
                       <input
                         type="text"
@@ -111,7 +111,7 @@ export default function ContactPage() {
                         onChange={handleChange}
                         required
                         className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors text-sm sm:text-base"
-                        placeholder="Seu nome completo"
+                        placeholder="Your full name"
                       />
                     </div>
                     <div>
@@ -125,14 +125,14 @@ export default function ContactPage() {
                         onChange={handleChange}
                         required
                         className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors text-sm sm:text-base"
-                        placeholder="seu@email.com"
+                        placeholder="your@email.com"
                       />
                     </div>
                   </div>
 
                   <div>
                     <label className="block text-sm font-medium text-white mb-2">
-                      Empresa/Organização
+                      Company/Organization
                     </label>
                     <input
                       type="text"
@@ -140,13 +140,13 @@ export default function ContactPage() {
                       value={formData.company}
                       onChange={handleChange}
                       className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors text-sm sm:text-base"
-                      placeholder="Nome da sua empresa"
+                      placeholder="Your company name"
                     />
                   </div>
 
                   <div>
                     <label className="block text-sm font-medium text-white mb-2">
-                      Assunto *
+                      Subject *
                     </label>
                     <select
                       name="subject"
@@ -155,19 +155,19 @@ export default function ContactPage() {
                       required
                       className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-purple-500 transition-colors text-sm sm:text-base"
                     >
-                      <option value="">Selecione um assunto</option>
-                      <option value="partnership">Parceria Comercial</option>
-                      <option value="venue">Integração de Venue</option>
-                      <option value="investment">Oportunidade de Investimento</option>
-                      <option value="support">Suporte Técnico</option>
-                      <option value="press">Imprensa</option>
-                      <option value="other">Outros</option>
+                      <option value="">Select a subject</option>
+                      <option value="partnership">Business Partnership</option>
+                      <option value="venue">Venue Integration</option>
+                      <option value="investment">Investment Opportunity</option>
+                      <option value="support">Technical Support</option>
+                      <option value="press">Press & Media</option>
+                      <option value="other">Other</option>
                     </select>
                   </div>
 
                   <div>
                     <label className="block text-sm font-medium text-white mb-2">
-                      Mensagem *
+                      Message *
                     </label>
                     <textarea
                       name="message"
@@ -176,7 +176,7 @@ export default function ContactPage() {
                       required
                       rows={6}
                       className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors resize-none text-sm sm:text-base"
-                      placeholder="Conte-nos como podemos ajudar..."
+                      placeholder="Tell us how we can help you..."
                     />
                   </div>
 
@@ -188,12 +188,12 @@ export default function ContactPage() {
                     {isSubmitting ? (
                       <div className="flex items-center justify-center">
                         <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
-                        Enviando...
+                        Sending...
                       </div>
                     ) : (
                       <div className="flex items-center justify-center">
                         <Send className="w-4 h-4 mr-2" />
-                        Enviar Mensagem
+                        Send Message
                       </div>
                     )}
                   </Button>
@@ -213,28 +213,28 @@ export default function ContactPage() {
               {/* Contact Details */}
               <div className="bg-white/5 p-6 sm:p-8 rounded-2xl border border-white/10">
                 <h3 className="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6">
-                  Informações de Contato
+                  Contact Information
                 </h3>
                 <div className="space-y-4 sm:space-y-6">
                   <div className="flex items-start space-x-3">
                     <Mail className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
                     <div>
                       <p className="text-sm font-medium text-white">Email</p>
-                      <p className="text-sm text-gray-400">contato@envimerse.com</p>
+                      <p className="text-sm text-gray-400">hello@envimerse.com</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
                     <Phone className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
                     <div>
-                      <p className="text-sm font-medium text-white">Telefone</p>
-                      <p className="text-sm text-gray-400">+55 (11) 9999-9999</p>
+                      <p className="text-sm font-medium text-white">Phone</p>
+                      <p className="text-sm text-gray-400">+1 (555) 123-4567</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
                     <MapPin className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
                     <div>
-                      <p className="text-sm font-medium text-white">Localização</p>
-                      <p className="text-sm text-gray-400">São Paulo, Brasil</p>
+                      <p className="text-sm font-medium text-white">Location</p>
+                      <p className="text-sm text-gray-400">São Paulo, Brazil</p>
                     </div>
                   </div>
                 </div>
@@ -244,19 +244,19 @@ export default function ContactPage() {
               <div className="bg-gradient-to-br from-purple-900/30 to-cyan-900/30 p-6 sm:p-8 rounded-2xl border border-purple-500/20">
                 <div className="flex items-center mb-3">
                   <Clock className="w-5 h-5 text-purple-400 mr-2" />
-                  <h3 className="text-base sm:text-lg font-bold text-white">Tempo de Resposta</h3>
+                  <h3 className="text-base sm:text-lg font-bold text-white">Response Time</h3>
                 </div>
                 <div className="space-y-2">
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-300">Consultas Gerais</span>
+                    <span className="text-gray-300">General Inquiries</span>
                     <span className="text-purple-400 font-medium">24h</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-300">Parcerias</span>
+                    <span className="text-gray-300">Partnerships</span>
                     <span className="text-purple-400 font-medium">48h</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-300">Suporte Técnico</span>
+                    <span className="text-gray-300">Technical Support</span>
                     <span className="text-purple-400 font-medium">12h</span>
                   </div>
                 </div>
@@ -266,20 +266,20 @@ export default function ContactPage() {
               <div className="bg-white/5 p-6 sm:p-8 rounded-2xl border border-white/10">
                 <div className="flex items-center mb-3">
                   <MessageSquare className="w-5 h-5 text-cyan-400 mr-2" />
-                  <h3 className="text-base sm:text-lg font-bold text-white">Horário de Atendimento</h3>
+                  <h3 className="text-base sm:text-lg font-bold text-white">Office Hours</h3>
                 </div>
                 <div className="space-y-2">
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-300">Segunda - Sexta</span>
-                    <span className="text-cyan-400 font-medium">09:00 - 18:00</span>
+                    <span className="text-gray-300">Monday - Friday</span>
+                    <span className="text-cyan-400 font-medium">9:00 - 18:00</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-300">Sábado</span>
-                    <span className="text-cyan-400 font-medium">09:00 - 14:00</span>
+                    <span className="text-gray-300">Saturday</span>
+                    <span className="text-cyan-400 font-medium">9:00 - 14:00</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-300">Domingo</span>
-                    <span className="text-gray-400">Fechado</span>
+                    <span className="text-gray-300">Sunday</span>
+                    <span className="text-gray-400">Closed</span>
                   </div>
                 </div>
               </div>

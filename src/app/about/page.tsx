@@ -60,11 +60,11 @@ export default function AboutPage() {
           >
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
-                Sobre a Envimerse
+                About Envimerse
               </span>
             </h1>
             <p className="text-base sm:text-xl lg:text-2xl text-gray-300 leading-relaxed px-2">
-              Revolucionando o entretenimento através de experiências VR imersivas e tecnologia blockchain de ponta
+              Revolutionizing entertainment through immersive VR experiences and cutting-edge blockchain technology
             </p>
           </motion.div>
         </div>
@@ -84,12 +84,12 @@ export default function AboutPage() {
             >
               <div className="flex items-center mb-4 sm:mb-6">
                 <Target className="w-6 h-6 sm:w-8 sm:h-8 text-purple-400 mr-3" />
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">Nossa Missão</h2>
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">Our Mission</h2>
               </div>
               <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed">
-                Conectar venues, revendedores e audiências através de experiências VR imersivas, 
-                democratizando o acesso ao entretenimento de alta qualidade e criando novas 
-                oportunidades de negócio no metaverso.
+                To connect venues, resellers, and audiences through immersive VR experiences, 
+                democratizing access to high-quality entertainment and creating new 
+                business opportunities in the metaverse.
               </p>
             </motion.div>
 
@@ -103,12 +103,12 @@ export default function AboutPage() {
             >
               <div className="flex items-center mb-4 sm:mb-6">
                 <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-cyan-400 mr-3" />
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">Nossa Visão</h2>
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">Our Vision</h2>
               </div>
               <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed">
-                Ser a plataforma líder mundial em entretenimento VR, criando um ecossistema 
-                sustentável onde a tecnologia blockchain potencializa experiências únicas 
-                e conecta pessoas globalmente.
+                To be the world's leading VR entertainment platform, creating a 
+                sustainable ecosystem where blockchain technology powers unique experiences 
+                and connects people globally.
               </p>
             </motion.div>
           </div>
@@ -126,10 +126,10 @@ export default function AboutPage() {
             className="text-center mb-8 sm:mb-16"
           >
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-              Nossos Valores
+              Our Values
             </h2>
             <p className="text-base sm:text-xl text-gray-400 max-w-3xl mx-auto px-2">
-              Os princípios que guiam cada decisão e inovação na Envimerse
+              The principles that guide every decision and innovation at Envimerse
             </p>
           </motion.div>
 
@@ -137,23 +137,23 @@ export default function AboutPage() {
             {[
               {
                 icon: Zap,
-                title: "Inovação Primeiro",
-                desc: "Sempre na vanguarda da tecnologia VR e blockchain"
+                title: "Innovation First",
+                desc: "Always at the forefront of VR and blockchain technology"
               },
               {
                 icon: Users,
-                title: "Comunidade Unida",
-                desc: "Construindo juntos o futuro do entretenimento"
+                title: "Community Driven",
+                desc: "Building the future of entertainment together"
               },
               {
                 icon: Shield,
-                title: "Confiança & Segurança",
-                desc: "Proteção total para usuários e parceiros"
+                title: "Trust & Security",
+                desc: "Complete protection for users and partners"
               },
               {
                 icon: Globe,
-                title: "Impacto Global",
-                desc: "Conectando pessoas e culturas mundialmente"
+                title: "Global Impact",
+                desc: "Connecting people and cultures worldwide"
               }
             ].map((value, index) => (
               <motion.div
@@ -188,10 +188,10 @@ export default function AboutPage() {
             className="text-center mb-8 sm:mb-16"
           >
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-              Nossa Equipe
+              Our Team
             </h2>
             <p className="text-base sm:text-xl text-gray-400 max-w-3xl mx-auto px-2">
-              Conheça os visionários por trás da revolução VR
+              Meet the visionaries behind the VR revolution
             </p>
           </motion.div>
 
@@ -210,12 +210,12 @@ export default function AboutPage() {
               Bruno Briote
             </h3>
             <p className="text-base sm:text-lg text-purple-400 mb-3 sm:mb-4 font-semibold">
-              Fundador & CEO
+              Founder & CEO
             </p>
             <p className="text-sm sm:text-base text-gray-300 leading-relaxed max-w-2xl mx-auto">
-              Visionário em tecnologia VR e blockchain, com mais de 10 anos de experiência 
-              em desenvolvimento de plataformas digitais inovadoras. Especialista em 
-              Web3 e arquitetura de sistemas distribuídos.
+              Visionary in VR and blockchain technology, with over 10 years of experience 
+              in developing innovative digital platforms. Expert in 
+              Web3 and distributed systems architecture.
             </p>
           </motion.div>
         </div>
@@ -232,18 +232,18 @@ export default function AboutPage() {
             className="text-center"
           >
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8">
-              Nossa História
+              Our Story
             </h2>
             <div className="bg-white/5 p-6 sm:p-8 rounded-2xl border border-white/10">
               <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed mb-4 sm:mb-6">
-                A Envimerse nasceu da visão de democratizar o acesso a experiências de entretenimento 
-                premium através da realidade virtual. Em 2024, identificamos uma lacuna no mercado: 
-                a falta de uma plataforma que conectasse eficientemente venues, revendedores e audiências.
+                Envimerse was born from the vision to democratize access to premium entertainment 
+                experiences through virtual reality. In 2024, we identified a gap in the market: 
+                the lack of a platform that efficiently connected venues, resellers, and audiences.
               </p>
               <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed">
-                Combinando nossa expertise em VR, blockchain e desenvolvimento de plataformas, criamos 
-                um ecossistema inovador que transforma como as pessoas experienciam entretenimento, 
-                criando novas oportunidades de negócio e conexões globais autênticas.
+                Combining our expertise in VR, blockchain, and platform development, we created 
+                an innovative ecosystem that transforms how people experience entertainment, 
+                creating new business opportunities and authentic global connections.
               </p>
             </div>
           </motion.div>
