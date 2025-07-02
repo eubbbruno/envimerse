@@ -4,7 +4,7 @@ import { Suspense, useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
-import { ArrowRight, Play, Sparkles, Zap, Users, Globe, CheckCircle, Rocket, Shield, Coins, TrendingUp, Star, Target, Heart, Trophy, MapPin, Calendar, ChevronRight, Eye, Brain, Code, Layers, Network, MessageCircle, Headphones, Gamepad2, Monitor, Activity, BarChart3, Award, Palette, Video, Music, Building } from 'lucide-react'
+import { ArrowRight, Play, Sparkles, Zap, Users, Globe, CheckCircle, Rocket, Shield, Coins, TrendingUp, Star, Target, Heart, Trophy, MapPin, Calendar, ChevronRight, Eye, Brain, Code, Layers, Network, MessageCircle, Headphones, Gamepad2, Monitor, Activity, BarChart3, Award, Palette, Video, Music, Building, Crown } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -33,10 +33,10 @@ const LogoSphere = dynamic(() => import('@/components/LogoSphere'), {
 
 export default function HomePage() {
   const [metrics, setMetrics] = useState([
-    { label: "Active Users", value: 52847, trend: 12.5 },
-    { label: "Live Events", value: 127, trend: 8.3 },
-    { label: "Revenue", value: 2847000, trend: 23.8 },
-    { label: "Satisfaction", value: 98.7, trend: 2.1 }
+    { label: "Active Users", value: 52847, trend: 12.5, color: "from-purple-500 to-pink-500" },
+    { label: "Live Events", value: 127, trend: 8.3, color: "from-cyan-500 to-blue-500" },
+    { label: "Revenue", value: 2847000, trend: 23.8, color: "from-yellow-500 to-orange-500" },
+    { label: "Satisfaction", value: 98.7, trend: 2.1, color: "from-green-500 to-emerald-500" }
   ])
 
   // Simulate real-time updates
