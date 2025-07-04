@@ -684,8 +684,7 @@ export default function HomePage() {
         {/* Revenue Ecosystem Section */}
         <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-yellow-900/10 to-black relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-yellow-900/10 via-black to-green-900/10" />
-          
-          <div className="max-w-6xl mx-auto relative z-10">
+          <div className="max-w-7xl mx-auto relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -705,38 +704,37 @@ export default function HomePage() {
                 <span className="text-white">Revenue Ecosystem</span>
               </h2>
               <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
-                Multiple revenue streams creating value for all platform participants
+                Múltiplas fontes de receita criando valor para todos os participantes da plataforma
               </p>
             </motion.div>
-
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {[
                 {
                   icon: Palette,
                   title: "VR Cosmetics & Skins",
                   percentage: "65%",
-                  description: "Premium virtual items, avatar customization, and exclusive cosmetics",
+                  description: "Itens virtuais premium, customização de avatar e cosméticos exclusivos",
                   color: "from-purple-500 to-pink-500"
                 },
                 {
                   icon: Coins,
-                  title: "Transaction Fees",
+                  title: "Taxas de Transação",
                   percentage: "20%",
-                  description: "Small commission on all marketplace transactions and ticket sales",
+                  description: "Comissão sobre todas as transações do marketplace e vendas de ingressos",
                   color: "from-yellow-500 to-orange-500"
                 },
                 {
                   icon: Crown,
-                  title: "Premium Experiences",
+                  title: "Experiências Premium",
                   percentage: "10%",
-                  description: "VIP access, backstage passes, and exclusive content offerings",
+                  description: "Acesso VIP, bastidores e conteúdos exclusivos",
                   color: "from-cyan-500 to-blue-500"
                 },
                 {
                   icon: MessageCircle,
-                  title: "Social Features",
+                  title: "Recursos Sociais",
                   percentage: "5%",
-                  description: "Enhanced chat, custom emotes, and social interaction tools",
+                  description: "Chat avançado, emotes customizados e ferramentas de interação social",
                   color: "from-green-500 to-emerald-500"
                 }
               ].map((stream, index) => (
@@ -757,7 +755,6 @@ export default function HomePage() {
                         {stream.percentage}
                       </div>
                     </div>
-                    
                     <h3 className="text-2xl font-bold text-white mb-4">{stream.title}</h3>
                     <p className="text-gray-300 leading-relaxed">{stream.description}</p>
                   </div>
