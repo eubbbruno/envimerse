@@ -385,7 +385,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Key Features Section */}
+        {/* Features Section */}
         <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-cyan-900/10 to-black">
           <div className="max-w-7xl mx-auto">
             <motion.div
@@ -411,202 +411,163 @@ export default function HomePage() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                {
-                  icon: Brain,
-                  title: "AI-Powered Matching",
-                  description: "Smart algorithms connect users with their perfect VR experiences",
-                  tech: "Machine Learning"
-                },
-                {
-                  icon: Shield,
-                  title: "Blockchain Security",
-                  description: "Decentralized transactions ensuring transparent and secure payments",
-                  tech: "Web3 Integration"
-                },
-                {
-                  icon: Layers,
-                  title: "Real-Time Streaming",
-                  description: "Ultra-low latency VR streaming with 4K+ resolution support",
-                  tech: "WebRTC Technology"
-                },
-                {
-                  icon: Network,
-                  title: "Cross-Platform",
-                  description: "Works seamlessly across all VR headsets and devices",
-                  tech: "Universal Compatibility"
-                },
-                {
-                  icon: Zap,
-                  title: "Instant Deployment",
-                  description: "Deploy your VR venue or experience in minutes, not months",
-                  tech: "Cloud Infrastructure"
-                },
-                {
-                  icon: Globe,
-                  title: "Global CDN",
-                  description: "Worldwide content delivery for optimal performance everywhere",
-                  tech: "Edge Computing"
-                }
-              ].map((feature, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="group relative"
-                >
-                  <div className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-cyan-500/30 transition-all duration-300 group-hover:transform group-hover:scale-105">
-                    <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-500 to-purple-500 p-3 flex-shrink-0">
-                        <feature.icon className="w-full h-full text-white" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-lg font-bold text-white mb-2">{feature.title}</h3>
-                        <p className="text-gray-400 text-sm leading-relaxed mb-3">{feature.description}</p>
-                        <span className="inline-block px-3 py-1 bg-cyan-500/20 text-cyan-300 text-xs rounded-full border border-cyan-500/30">
-                          {feature.tech}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Features Section */}
-        <section className="py-12 sm:py-20 px-3 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-8 sm:mb-16">
-              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-                <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                  Advanced Features
-                </span>
-              </h2>
-              <p className="text-base sm:text-xl text-gray-400 max-w-3xl mx-auto px-4">
-                Cutting-edge technology to revolutionize entertainment
-              </p>
-            </div>
             <EnhancedFeatures />
           </div>
         </section>
 
-        {/* How It Works Section */}
-        <section className="py-12 sm:py-20 px-3 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-purple-900/10">
+        {/* VR Experience Showcase */}
+        <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-8 sm:mb-16">
-              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-                How It Works
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <Badge className="mb-4 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border-purple-500/30 text-purple-200">
+                <Gamepad2 className="w-4 h-4 mr-2" />
+                VR Showcase
+              </Badge>
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-6">
+                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  Immersive
+                </span>
+                <br />
+                <span className="text-white">VR Experiences</span>
               </h2>
-              <p className="text-base sm:text-xl text-gray-400 max-w-3xl mx-auto px-4">
-                Simple and efficient process for all users
+              <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+                Discover incredible virtual worlds and live events from anywhere
               </p>
-            </div>
-            <HowItWorks />
-          </div>
-        </section>
-
-        {/* VR Experience Carousel */}
-        <section className="py-12 sm:py-20 px-3 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-8 sm:mb-16">
-              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-                VR Experiences
-              </h2>
-              <p className="text-base sm:text-xl text-gray-400 max-w-3xl mx-auto px-4">
-                Discover incredible virtual worlds
-              </p>
-            </div>
+            </motion.div>
             <VRExperienceCarousel />
           </div>
         </section>
 
-        {/* Stats Section */}
-        <section className="py-12 sm:py-20 px-3 sm:px-6 lg:px-8 bg-gradient-to-r from-purple-900/20 to-cyan-900/20">
+        {/* Platform Statistics */}
+        <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-purple-900/10 to-black">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-8 sm:mb-16">
-              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-                Impressive Numbers
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <Badge className="mb-4 px-4 py-2 bg-gradient-to-r from-green-500/20 to-blue-500/20 border-green-500/30 text-green-200">
+                <BarChart3 className="w-4 h-4 mr-2" />
+                Platform Stats
+              </Badge>
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-6">
+                <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+                  Impressive
+                </span>
+                <br />
+                <span className="text-white">Growth Numbers</span>
               </h2>
-              <p className="text-base sm:text-xl text-gray-400 max-w-3xl mx-auto px-4">
-                Our platform in constant growth
+              <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+                Our platform continues to grow exponentially worldwide
               </p>
-            </div>
+            </motion.div>
             <AnimatedStats />
           </div>
         </section>
 
-        {/* Partners */}
-        <section className="py-12 sm:py-20 px-3 sm:px-6 lg:px-8">
+        {/* Partners Section */}
+        <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-8 sm:mb-16">
-              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-                Our Partners
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <Badge className="mb-4 px-4 py-2 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border-cyan-500/30 text-cyan-200">
+                <Building className="w-4 h-4 mr-2" />
+                Trusted Partners
+              </Badge>
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-6">
+                <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                  Industry
+                </span>
+                <br />
+                <span className="text-white">Leading Partners</span>
               </h2>
-              <p className="text-base sm:text-xl text-gray-400 max-w-3xl mx-auto px-4">
-                Working with the best companies in the industry
+              <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+                Collaborating with the best companies to deliver exceptional experiences
               </p>
-            </div>
+            </motion.div>
             <PartnersMarquee />
           </div>
         </section>
 
         {/* Monetization Model */}
-        <section className="py-12 sm:py-20 px-3 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-purple-900/10">
+        <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-yellow-900/10 to-black">
           <div className="max-w-7xl mx-auto">
             <MonetizationModel />
           </div>
         </section>
 
-        {/* Realtime Metrics */}
-        <section className="py-12 sm:py-20 px-3 sm:px-6 lg:px-8">
+        {/* Roadmap Section */}
+        <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <RealtimeMetrics />
-          </div>
-        </section>
-
-        {/* Interactive Roadmap */}
-        <section className="py-12 sm:py-20 px-3 sm:px-6 lg:px-8 bg-gradient-to-r from-purple-900/20 to-cyan-900/20">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-8 sm:mb-16">
-              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-                2025 Roadmap
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <Badge className="mb-4 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border-purple-500/30 text-purple-200">
+                <Target className="w-4 h-4 mr-2" />
+                Future Vision
+              </Badge>
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-6">
+                <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                  2025
+                </span>
+                <br />
+                <span className="text-white">Platform Roadmap</span>
               </h2>
-              <p className="text-base sm:text-xl text-gray-400 max-w-3xl mx-auto px-4">
-                Our plan for the future of the platform
+              <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+                Our ambitious plan to revolutionize the future of VR entertainment
               </p>
-            </div>
+            </motion.div>
             <InteractiveRoadmap />
           </div>
         </section>
 
-        {/* Community Driven */}
-        <section className="py-12 sm:py-20 px-3 sm:px-6 lg:px-8">
+        {/* Community Section */}
+        <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-orange-900/10 to-black">
           <div className="max-w-7xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <Badge className="mb-4 px-4 py-2 bg-gradient-to-r from-orange-500/20 to-red-500/20 border-orange-500/30 text-orange-200">
+                <Heart className="w-4 h-4 mr-2" />
+                Community First
+              </Badge>
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-6">
+                <span className="bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
+                  Community
+                </span>
+                <br />
+                <span className="text-white">Driven Platform</span>
+              </h2>
+              <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+                Built by the community, for the community
+              </p>
+            </motion.div>
             <CommunityDriven />
           </div>
         </section>
 
-        {/* Auth Demo */}
-        <section className="py-12 sm:py-20 px-3 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-purple-900/10">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-8 sm:mb-16">
-              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-                Try the Platform
-              </h2>
-              <p className="text-base sm:text-xl text-gray-400 max-w-3xl mx-auto px-4">
-                Experience our authentication system
-              </p>
-            </div>
-            <AuthDemo />
-          </div>
-        </section>
-
-        {/* Live Analytics Dashboard */}
+        {/* Live Metrics Dashboard */}
         <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-green-900/10 via-black to-blue-900/10" />
           
@@ -634,40 +595,12 @@ export default function HomePage() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {metrics.map((metric, index) => (
-                <motion.div
-                  key={metric.label}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="group relative"
-                >
-                  <div className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-green-500/30 transition-all duration-300">
-                    <div className="flex items-center justify-between mb-6">
-                      <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${metric.color} p-4`}>
-                        {index === 0 && <Users className="w-full h-full text-white" />}
-                        {index === 1 && <Video className="w-full h-full text-white" />}
-                        {index === 2 && <Coins className="w-full h-full text-white" />}
-                        {index === 3 && <Star className="w-full h-full text-white" />}
-                      </div>
-                      <div className={`text-4xl font-bold bg-gradient-to-r ${metric.color} bg-clip-text text-transparent`}>
-                        {metric.value.toLocaleString()}
-                      </div>
-                    </div>
-                    
-                    <h3 className="text-2xl font-bold text-white mb-4">{metric.label}</h3>
-                    <p className="text-gray-300 leading-relaxed">{metric.value.toLocaleString()}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            <RealtimeMetrics />
           </div>
         </section>
 
-        {/* Success Stories */}
-        <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-orange-900/10 to-black">
+        {/* Success Stories Section */}
+        <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -748,8 +681,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Revenue Ecosystem */}
-        <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8 relative overflow-hidden">
+        {/* Revenue Ecosystem Section */}
+        <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-yellow-900/10 to-black relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-yellow-900/10 via-black to-green-900/10" />
           
           <div className="max-w-6xl mx-auto relative z-10">
@@ -831,6 +764,35 @@ export default function HomePage() {
                 </motion.div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Auth Demo Section */}
+        <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <Badge className="mb-4 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border-purple-500/30 text-purple-200">
+                <Shield className="w-4 h-4 mr-2" />
+                Web3 Authentication
+              </Badge>
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-6">
+                <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                  Try Our
+                </span>
+                <br />
+                <span className="text-white">Secure Platform</span>
+              </h2>
+              <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+                Experience our decentralized authentication system powered by blockchain
+              </p>
+            </motion.div>
+            <AuthDemo />
           </div>
         </section>
 
