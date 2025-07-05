@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { TrendingUp, Users, Globe, Zap, Eye, Heart, Star, Trophy } from 'lucide-react'
+import { TrendingUp, Users, Globe, Zap, Eye, Heart, Star, Trophy, Activity, DollarSign, ArrowUp } from 'lucide-react'
 
 interface MetricData {
   label: string
@@ -21,7 +21,7 @@ const RealtimeMetrics: React.FC = () => {
       value: 52847,
       suffix: "",
       icon: <Users className="w-6 h-6" />,
-      color: "from-brandMagenta to-purple-600",
+      color: "from-purple-500 to-pink-500",
       trend: 12.5,
       description: "Users online now"
     },
@@ -30,25 +30,25 @@ const RealtimeMetrics: React.FC = () => {
       value: 127,
       suffix: "",
       icon: <Eye className="w-6 h-6" />,
-      color: "from-brandCyan to-blue-600",
+      color: "from-cyan-500 to-blue-500",
       trend: 8.3,
       description: "Active streams"
     },
     {
-      label: "Countries Served",
-      value: 28,
+      label: "Revenue",
+      value: 2847000,
       suffix: "",
-      icon: <Globe className="w-6 h-6" />,
-      color: "from-green-400 to-emerald-600",
-      trend: 15.2,
-      description: "Global coverage"
+      icon: <DollarSign className="w-6 h-6" />,
+      color: "from-yellow-500 to-orange-500",
+      trend: 23.8,
+      description: "Total revenue"
     },
     {
       label: "Satisfaction",
       value: 98.7,
       suffix: "%",
       icon: <Heart className="w-6 h-6" />,
-      color: "from-pink-400 to-rose-600",
+      color: "from-green-500 to-emerald-500",
       trend: 2.1,
       description: "User rating"
     },
@@ -99,10 +99,7 @@ const RealtimeMetrics: React.FC = () => {
           ? metric.value + Math.floor(Math.random() * 10) - 5
           : metric.label === "Live Events"
           ? Math.max(100, metric.value + Math.floor(Math.random() * 6) - 3)
-          : metric.label === "Transactions/min"
-          ? metric.value + Math.floor(Math.random() * 100) - 50
-          : metric.value,
-        trend: metric.trend + (Math.random() * 2 - 1)
+          : metric.value
       })))
     }, 3000)
 
@@ -139,102 +136,54 @@ const RealtimeMetrics: React.FC = () => {
       <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-brandCyan/10 rounded-full blur-3xl animate-float" />
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-5xl md:text-7xl font-bold font-orbitron mb-6 text-transparent bg-clip-text bg-gradient-to-r from-brandMagenta to-brandCyan">
-            Real-Time Metrics
-          </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Track Envimerse's explosive growth with real-time updated data. 
-            <span className="text-brandCyan font-medium"> Our platform is revolutionizing digital entertainment.</span>
-          </p>
-        </motion.div>
-
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {metrics.map((metric, index) => (
             <motion.div
-              key={metric.label}
-              variants={itemVariants}
-              className="group relative"
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="group"
             >
-              <div className="glass-dark rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300 group-hover:scale-105">
-                {/* Icon and Trend */}
-                <div className="flex items-center justify-between mb-4">
-                  <div className={`p-3 rounded-xl bg-gradient-to-r ${metric.color} bg-opacity-20`}>
-                    <div className="text-white">
-                      {metric.icon}
+              <div className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-green-500/30 transition-all duration-300">
+                <div className="flex items-center justify-between mb-6">
+                  <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${metric.color} p-4`}>
+                    {index === 0 && <Users className="w-full h-full text-white" />}
+                    {index === 1 && <Eye className="w-full h-full text-white" />}
+                    {index === 2 && <DollarSign className="w-full h-full text-white" />}
+                    {index === 3 && <Heart className="w-full h-full text-white" />}
+                  </div>
+                  <div className="text-right">
+                    <div className="flex items-center text-green-400">
+                      <ArrowUp className="w-4 h-4 mr-1" />
+                      <span className="text-sm font-medium">+{metric.trend}%</span>
                     </div>
                   </div>
-                  <div className="flex items-center gap-1 text-sm">
-                    <TrendingUp className="w-4 h-4 text-green-400" />
-                    <span className="text-green-400 font-medium">
-                      +{metric.trend.toFixed(1)}%
-                    </span>
-                  </div>
                 </div>
-
-                {/* Value */}
-                <div className="mb-2">
-                  <motion.div
-                    className={`text-3xl md:text-4xl font-bold font-orbitron text-transparent bg-clip-text bg-gradient-to-r ${metric.color}`}
-                    key={metric.value}
-                    initial={{ scale: 1.1, opacity: 0.8 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {metric.value.toLocaleString()}{metric.suffix}
-                  </motion.div>
-                </div>
-
-                {/* Label and Description */}
-                <div>
-                  <h3 className="text-white font-semibold mb-1">
-                    {metric.label}
-                  </h3>
-                  <p className="text-gray-400 text-sm">
-                    {metric.description}
-                  </p>
-                </div>
-
-                {/* Animated Border */}
-                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${metric.color} opacity-0 group-hover:opacity-20 transition-opacity duration-300 -z-10`} />
                 
-                {/* Pulse Effect */}
-                <div className="absolute top-4 right-4 w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                <div className="space-y-2">
+                  <h3 className="text-2xl font-bold text-white">
+                    {metric.label === "Revenue" ? `$${(metric.value / 1000000).toFixed(1)}M` : 
+                     metric.label === "Satisfaction" ? `${metric.value}%` :
+                     metric.value.toLocaleString()}
+                  </h3>
+                  <p className="text-gray-400 text-sm">{metric.label}</p>
+                </div>
+
+                <div className="mt-4 h-2 bg-gray-700 rounded-full overflow-hidden">
+                  <motion.div 
+                    className={`h-full bg-gradient-to-r ${metric.color} rounded-full`}
+                    initial={{ width: 0 }}
+                    whileInView={{ width: `${Math.min(100, (metric.value / (metric.label === "Revenue" ? 3000000 : metric.label === "Satisfaction" ? 100 : 60000)) * 100)}%` }}
+                    transition={{ duration: 1.5, delay: index * 0.2 }}
+                    viewport={{ once: true }}
+                  />
+                </div>
               </div>
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* Live Status Indicator */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="text-center mt-12"
-        >
-          <div className="inline-flex items-center gap-3 glass-dark rounded-full px-6 py-3 border border-white/10">
-            <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse" />
-            <span className="text-white font-medium">
-              Real-time data updates
-            </span>
-            <div className="text-gray-400 text-sm">
-              • Last updated: now
-            </div>
-          </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

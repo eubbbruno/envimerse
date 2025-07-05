@@ -26,21 +26,6 @@ const PartnersMarquee: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent" />
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl md:text-6xl font-bold font-orbitron mb-6 text-transparent bg-clip-text bg-gradient-to-r from-brandMagenta to-brandCyan">
-            Trusted by Industry Leaders
-          </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Partnering with the world's most innovative companies to deliver cutting-edge VR experiences.
-          </p>
-        </motion.div>
-
         {/* Marquee Container */}
         <div className="relative">
           <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]">

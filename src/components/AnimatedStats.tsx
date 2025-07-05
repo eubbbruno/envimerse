@@ -117,21 +117,6 @@ const AnimatedStats: React.FC = () => {
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brandCyan/10 rounded-full blur-3xl animate-float" />
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl md:text-6xl font-bold font-orbitron mb-6 text-transparent bg-clip-text bg-gradient-to-r from-brandMagenta to-brandCyan">
-            Envimerse by the Numbers
-          </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Our platform continues to revolutionize the entertainment industry, connecting audiences worldwide through immersive VR experiences.
-          </p>
-        </motion.div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
             <motion.div

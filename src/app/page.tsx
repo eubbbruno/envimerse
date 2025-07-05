@@ -397,14 +397,10 @@ export default function HomePage() {
             >
               <Badge className="mb-4 px-4 py-2 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border-cyan-500/30 text-cyan-200">
                 <Code className="w-4 h-4 mr-2" />
-                Advanced Technology
+                Features
               </Badge>
               <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-                  Cutting-Edge
-                </span>
-                <br />
-                <span className="text-white">Features</span>
+                Cutting-Edge Features
               </h2>
               <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
                 Powered by the latest in VR, blockchain, and web technologies

@@ -136,33 +136,6 @@ const EnhancedFeatures: React.FC = () => {
       <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-brandCyan/10 rounded-full blur-3xl animate-float" />
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <motion.div
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <motion.h2 
-            className="text-5xl md:text-7xl font-bold font-orbitron mb-6 text-transparent bg-clip-text bg-gradient-to-r from-brandMagenta to-brandCyan"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            Revolutionary Features
-          </motion.h2>
-          <motion.p 
-            className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            Discover the cutting-edge technology that powers the future of immersive entertainment
-          </motion.p>
-        </motion.div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <FeatureCard

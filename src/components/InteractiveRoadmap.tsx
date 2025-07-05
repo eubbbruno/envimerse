@@ -13,7 +13,9 @@ import {
   Gamepad2,
   CheckCircle,
   Clock,
-  ArrowRight
+  ArrowRight,
+  Users,
+  Building
 } from 'lucide-react'
 
 interface RoadmapItem {
@@ -84,65 +86,49 @@ const InteractiveRoadmap: React.FC = () => {
       id: '2024-q4',
       quarter: 'Q4',
       year: '2024',
-      title: 'Mobile App & AR',
-      description: 'Launch of mobile application with Augmented Reality features.',
+      title: 'AI & Automation',
+      description: 'Implementation of AI-driven features and automated systems.',
       features: [
-        'iOS and Android apps',
-        'AR features',
-        'Push notifications',
-        'Cross-platform sync'
+        'AI content recommendation',
+        'Automated event management',
+        'Smart pricing algorithms',
+        'Predictive analytics'
       ],
-      status: 'in-progress',
-      icon: <Smartphone className="w-6 h-6" />,
-      color: 'from-brandCyan to-blue-600'
+      status: 'planned',
+      icon: <Brain className="w-6 h-6" />,
+      color: 'from-orange-400 to-red-600'
     },
     {
       id: '2025-q1',
       quarter: 'Q1',
       year: '2025',
-      title: 'AI & Machine Learning',
-      description: 'Implementation of AI for personalization and intelligent recommendations.',
+      title: 'Metaverse Integration',
+      description: 'Full integration with major metaverse platforms and virtual worlds.',
       features: [
-        'Personalized recommendations',
-        'Behavior analysis',
-        'Intelligent chatbot',
-        'Automatic optimization'
+        'Cross-platform compatibility',
+        'Virtual world hosting',
+        'Avatar customization',
+        'Social VR features'
       ],
       status: 'planned',
-      icon: <Brain className="w-6 h-6" />,
-      color: 'from-purple-400 to-pink-600'
+      icon: <Users className="w-6 h-6" />,
+      color: 'from-brandCyan to-brandMagenta'
     },
     {
       id: '2025-q2',
       quarter: 'Q2',
       year: '2025',
-      title: 'Advanced Security',
-      description: 'Implementation of advanced security and privacy features.',
+      title: 'Enterprise Solutions',
+      description: 'Launch of enterprise-focused tools and B2B partnerships.',
       features: [
-        'Biometric authentication',
-        'End-to-end encryption',
-        'Security auditing',
-        'GDPR/CCPA compliance'
+        'Corporate event hosting',
+        'Training simulations',
+        'Team collaboration tools',
+        'Analytics dashboard'
       ],
       status: 'planned',
-      icon: <Shield className="w-6 h-6" />,
-      color: 'from-red-400 to-orange-600'
-    },
-    {
-      id: '2025-q3',
-      quarter: 'Q3',
-      year: '2025',
-      title: 'Gaming & Interactivity',
-      description: 'Addition of gamification elements and interactive experiences.',
-      features: [
-        'VR mini-games',
-        'Achievement system',
-        'Tournaments and competitions',
-        'Token economy'
-      ],
-      status: 'planned',
-      icon: <Gamepad2 className="w-6 h-6" />,
-      color: 'from-yellow-400 to-orange-600'
+      icon: <Building className="w-6 h-6" />,
+      color: 'from-purple-400 to-pink-600'
     }
   ]
 
@@ -171,161 +157,113 @@ const InteractiveRoadmap: React.FC = () => {
   return (
     <section className="relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-brandMagenta/5 to-brandCyan/5" />
-      <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-brandMagenta/10 rounded-full blur-3xl animate-pulse-glow" />
-      <div className="absolute bottom-1/3 right-1/3 w-64 h-64 bg-brandCyan/10 rounded-full blur-3xl animate-float" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brandMagenta/5 to-transparent" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brandMagenta/10 rounded-full blur-3xl animate-pulse-glow" />
+      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-brandCyan/10 rounded-full blur-3xl animate-float" />
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-5xl md:text-7xl font-bold font-orbitron mb-6 text-transparent bg-clip-text bg-gradient-to-r from-brandMagenta to-brandCyan">
-            Interactive Roadmap
-          </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Follow our innovation journey and the upcoming milestones that will define the future of VR entertainment. 
-            <span className="text-brandCyan font-medium"> Each step brings us closer to the digital revolution.</span>
-          </p>
-        </motion.div>
-
         <div className="relative">
           {/* Timeline Line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-brandMagenta via-brandCyan to-brandMagenta opacity-30" />
+          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-brandMagenta via-brandCyan to-brandMagenta opacity-30" />
           
-          {roadmapData.map((item, index) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className={`relative flex items-center mb-16 ${
-                index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
-              }`}
-            >
-              {/* Content Card */}
-              <div className={`w-5/12 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
-                <motion.div
-                  className="glass-dark rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300 cursor-pointer group"
-                  whileHover={{ scale: 1.02 }}
-                  onClick={() => setSelectedItem(selectedItem === item.id ? null : item.id)}
-                >
-                  {/* Header */}
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-3">
-                      <div className={`p-3 rounded-xl bg-gradient-to-r ${item.color} bg-opacity-20`}>
-                        <div className="text-white">
-                          {item.icon}
-                        </div>
-                      </div>
-                      <div>
-                        <div className="text-sm text-gray-400">
-                          {item.quarter} {item.year}
-                        </div>
-                        <h3 className="text-xl font-bold text-white font-orbitron">
-                          {item.title}
-                        </h3>
-                      </div>
+          <div className="space-y-16">
+            {roadmapData.map((item, index) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className={`relative flex items-center ${
+                  index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
+                }`}
+              >
+                {/* Timeline Node */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 z-20">
+                  <motion.div
+                    className={`w-16 h-16 rounded-full bg-gradient-to-r ${item.color} flex items-center justify-center border-4 border-black shadow-neonRing`}
+                    whileHover={{ scale: 1.2, rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <div className="text-white">
+                      {item.icon}
                     </div>
-                    <div className="flex items-center gap-2">
-                      {getStatusIcon(item.status)}
-                      <span className="text-sm text-gray-300">
-                        {getStatusText(item.status)}
+                  </motion.div>
+                </div>
+
+                {/* Content Card */}
+                <div className={`w-5/12 ${index % 2 === 0 ? 'pr-16' : 'pl-16'}`}>
+                  <motion.div
+                    className={`glass-dark rounded-2xl p-8 border border-white/10 hover:border-white/20 transition-all duration-300 cursor-pointer ${
+                      selectedItem === item.id ? 'ring-2 ring-brandMagenta shadow-neonRing' : ''
+                    }`}
+                    onClick={() => setSelectedItem(selectedItem === item.id ? null : item.id)}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    {/* Quarter Badge */}
+                    <div className={`inline-flex items-center px-3 py-1 rounded-full bg-gradient-to-r ${item.color} text-black font-bold text-sm mb-4`}>
+                      {item.quarter} {item.year}
+                    </div>
+
+                    {/* Status Badge */}
+                    <div className="mb-4">
+                      <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                        item.status === 'completed' ? 'bg-green-500/20 text-green-400 border border-green-500/30' :
+                        item.status === 'in-progress' ? 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30' :
+                        'bg-blue-500/20 text-blue-400 border border-blue-500/30'
+                      }`}>
+                        {item.status === 'completed' ? 'Completed' :
+                         item.status === 'in-progress' ? 'In Progress' : 'Planned'}
                       </span>
                     </div>
-                  </div>
 
-                  {/* Description */}
-                  <p className="text-gray-300 mb-4 leading-relaxed">
-                    {item.description}
-                  </p>
+                    {/* Title and Description */}
+                    <h3 className="text-2xl font-bold font-orbitron text-white mb-3">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-300 leading-relaxed mb-6">
+                      {item.description}
+                    </p>
 
-                  {/* Features Preview */}
-                  <div className="flex items-center justify-between">
-                    <div className="text-sm text-gray-400">
-                      {item.features.length} key features
-                    </div>
-                    <ArrowRight className="w-4 h-4 text-brandCyan group-hover:translate-x-1 transition-transform duration-300" />
-                  </div>
-
-                  {/* Expanded Features */}
-                  <AnimatePresence>
-                    {selectedItem === item.id && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="mt-4 pt-4 border-t border-white/10"
-                      >
-                        <h4 className="text-white font-semibold mb-3">Key Features:</h4>
-                        <ul className="space-y-2">
-                          {item.features.map((feature, featureIndex) => (
-                            <motion.li
-                              key={featureIndex}
-                              initial={{ opacity: 0, x: -10 }}
+                    {/* Features List */}
+                    <AnimatePresence>
+                      {selectedItem === item.id && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="space-y-2"
+                        >
+                          {item.features.map((feature, idx) => (
+                            <motion.div
+                              key={idx}
+                              initial={{ opacity: 0, x: -20 }}
                               animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: featureIndex * 0.1 }}
-                              className="flex items-center gap-2 text-gray-300"
+                              transition={{ duration: 0.3, delay: idx * 0.1 }}
+                              className="flex items-center gap-3"
                             >
-                              <div className="w-1.5 h-1.5 bg-brandCyan rounded-full" />
-                              {feature}
-                            </motion.li>
+                              <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${item.color}`} />
+                              <span className="text-gray-400 text-sm">{feature}</span>
+                            </motion.div>
                           ))}
-                        </ul>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
 
-              {/* Timeline Node */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
-                <motion.div
-                  className={`w-6 h-6 rounded-full bg-gradient-to-r ${item.color} border-4 border-black shadow-lg`}
-                  whileHover={{ scale: 1.2 }}
-                  transition={{ duration: 0.2 }}
-                />
-                {item.status === 'in-progress' && (
-                  <div className="absolute inset-0 w-6 h-6 rounded-full bg-gradient-to-r from-brandMagenta to-brandCyan animate-ping opacity-30" />
-                )}
-              </div>
-
-              {/* Empty Space */}
-              <div className="w-5/12" />
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mt-16"
-        >
-          <div className="glass-dark rounded-2xl p-8 border border-white/10 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold font-orbitron mb-4 text-transparent bg-clip-text bg-gradient-to-r from-brandMagenta to-brandCyan">
-              Join the Journey
-            </h3>
-            <p className="text-gray-300 mb-6 leading-relaxed">
-              Join our community and be among the first to experience each new feature. 
-              Your feedback shapes the future of Envimerse.
-            </p>
-            <motion.button
-              className="bg-gradient-to-r from-brandMagenta to-brandCyan hover:from-brandMagenta/80 hover:to-brandCyan/80 text-white font-bold px-8 py-3 rounded-xl shadow-neonRing hover:shadow-neonRingHover transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Join Beta Program
-            </motion.button>
+                    {/* Click Indicator */}
+                    <div className="text-right mt-4">
+                      <span className="text-xs text-gray-500">
+                        {selectedItem === item.id ? 'Click to collapse' : 'Click to expand'}
+                      </span>
+                    </div>
+                  </motion.div>
+                </div>
+              </motion.div>
+            ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )
