@@ -411,38 +411,269 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* VR Experience Showcase */}
-        <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
+        {/* VR Experience Showcase - REDESIGNED */}
+        <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8 relative overflow-hidden">
+          {/* Futuristic Background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-black to-pink-900/30" />
+          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-20 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]" />
+          
+          {/* Floating Particles */}
+          <div className="absolute inset-0">
+            {[...Array(20)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute w-2 h-2 bg-purple-400/30 rounded-full"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                }}
+                animate={{
+                  y: [0, -100, 0],
+                  opacity: [0, 1, 0],
+                  scale: [0, 1, 0],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  delay: i * 0.2,
+                  ease: "easeInOut",
+                }}
+              />
+            ))}
+          </div>
+
+          <div className="max-w-7xl mx-auto relative z-10">
+            {/* Header with Holographic Effect */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-center mb-16"
+              className="text-center mb-20"
             >
               <Badge className="mb-4 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border-purple-500/30 text-purple-200">
                 <Gamepad2 className="w-4 h-4 mr-2" />
                 VR Showcase
               </Badge>
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  Immersive
-                </span>
-                <br />
-                <span className="text-white">VR Experiences</span>
-              </h2>
+              
+              {/* Holographic Title */}
+              <div className="relative">
+                <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-6 relative z-10">
+                  <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    Immersive
+                  </span>
+                  <br />
+                  <span className="text-white relative">
+                    VR Experiences
+                    {/* Holographic Glow */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent blur-sm opacity-50 animate-pulse" />
+                  </span>
+                </h2>
+                
+                {/* Scanning Lines Effect */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-400/20 to-transparent h-1"
+                  animate={{ y: [0, 200, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                />
+              </div>
+              
               <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
-                Discover incredible virtual worlds and live events from anywhere
+                Step into incredible virtual worlds and live events from anywhere in the universe
               </p>
             </motion.div>
-            <VRExperienceCarousel />
+
+            {/* 3D Floating Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-1000">
+              {[
+                {
+                  title: "Virtual Concerts",
+                  description: "Front row seats to the world's biggest artists",
+                  icon: Music,
+                  color: "from-purple-500 to-pink-500",
+                  bgImage: "bg-gradient-to-br from-purple-900/50 to-pink-900/50",
+                  delay: 0
+                },
+                {
+                  title: "Sports Events", 
+                  description: "Feel the energy of live sports in VR",
+                  icon: Trophy,
+                  color: "from-cyan-500 to-blue-500",
+                  bgImage: "bg-gradient-to-br from-cyan-900/50 to-blue-900/50",
+                  delay: 0.2
+                },
+                {
+                  title: "Gaming Tournaments",
+                  description: "Compete in immersive VR competitions",
+                  icon: Gamepad2,
+                  color: "from-green-500 to-emerald-500", 
+                  bgImage: "bg-gradient-to-br from-green-900/50 to-emerald-900/50",
+                  delay: 0.4
+                },
+                {
+                  title: "Art Galleries",
+                  description: "Explore virtual museums and exhibitions",
+                  icon: Palette,
+                  color: "from-orange-500 to-red-500",
+                  bgImage: "bg-gradient-to-br from-orange-900/50 to-red-900/50",
+                  delay: 0.6
+                },
+                {
+                  title: "Educational Events",
+                  description: "Learn in interactive virtual environments",
+                  icon: Brain,
+                  color: "from-yellow-500 to-orange-500",
+                  bgImage: "bg-gradient-to-br from-yellow-900/50 to-orange-900/50",
+                  delay: 0.8
+                },
+                {
+                  title: "Social Spaces",
+                  description: "Connect with friends in virtual worlds",
+                  icon: Users,
+                  color: "from-indigo-500 to-purple-500",
+                  bgImage: "bg-gradient-to-br from-indigo-900/50 to-purple-900/50",
+                  delay: 1.0
+                }
+              ].map((experience, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 100, rotateX: 45 }}
+                  whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+                  transition={{ duration: 0.8, delay: experience.delay }}
+                  viewport={{ once: true }}
+                  className="group relative transform-gpu"
+                  whileHover={{ 
+                    y: -20, 
+                    rotateX: -10, 
+                    rotateY: 5,
+                    transition: { duration: 0.3 }
+                  }}
+                >
+                  {/* Floating Card */}
+                  <div className={`relative h-80 rounded-2xl ${experience.bgImage} backdrop-blur-sm border border-white/20 overflow-hidden group-hover:border-white/40 transition-all duration-300`}>
+                    
+                    {/* Holographic Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    
+                    {/* Scanning Effect */}
+                    <motion.div
+                      className={`absolute inset-0 bg-gradient-to-r ${experience.color} opacity-0 group-hover:opacity-20 blur-xl`}
+                      animate={{ 
+                        scale: [1, 1.1, 1],
+                        opacity: [0, 0.3, 0]
+                      }}
+                      transition={{ 
+                        duration: 2, 
+                        repeat: Infinity,
+                        repeatDelay: 1
+                      }}
+                    />
+
+                    {/* Content */}
+                    <div className="relative z-10 p-8 h-full flex flex-col justify-between">
+                      
+                      {/* Icon with Glow */}
+                      <div className="relative">
+                        <motion.div
+                          className={`w-16 h-16 rounded-xl bg-gradient-to-br ${experience.color} p-4 mb-6 shadow-2xl`}
+                          whileHover={{ rotate: 360, scale: 1.1 }}
+                          transition={{ duration: 0.6 }}
+                        >
+                          <experience.icon className="w-full h-full text-white" />
+                        </motion.div>
+                        
+                        {/* Icon Glow Effect */}
+                        <div className={`absolute top-0 left-0 w-16 h-16 rounded-xl bg-gradient-to-br ${experience.color} opacity-50 blur-lg animate-pulse`} />
+                      </div>
+
+                      {/* Text Content */}
+                      <div>
+                        <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-purple-200 transition-all duration-300">
+                          {experience.title}
+                        </h3>
+                        <p className="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+                          {experience.description}
+                        </p>
+                      </div>
+
+                      {/* Interactive Elements */}
+                      <div className="flex items-center justify-between mt-6">
+                        <div className="flex space-x-2">
+                          {[...Array(3)].map((_, i) => (
+                            <motion.div
+                              key={i}
+                              className={`w-2 h-2 rounded-full bg-gradient-to-r ${experience.color}`}
+                              animate={{ 
+                                scale: [1, 1.5, 1],
+                                opacity: [0.5, 1, 0.5]
+                              }}
+                              transition={{ 
+                                duration: 1.5, 
+                                repeat: Infinity,
+                                delay: i * 0.2
+                              }}
+                            />
+                          ))}
+                        </div>
+                        
+                        <motion.div
+                          className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                          whileHover={{ x: 5 }}
+                        >
+                          <ArrowRight className="w-5 h-5" />
+                        </motion.div>
+                      </div>
+                    </div>
+
+                    {/* Corner Accent */}
+                    <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl ${experience.color} opacity-20 blur-2xl`} />
+                    <div className={`absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr ${experience.color} opacity-20 blur-2xl`} />
+                  </div>
+
+                  {/* Shadow/Reflection */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl transform translate-y-2 blur-sm opacity-50 group-hover:opacity-75 transition-opacity duration-300" />
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Bottom CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
+              viewport={{ once: true }}
+              className="text-center mt-20"
+            >
+              <motion.button
+                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold text-lg px-12 py-4 rounded-2xl shadow-2xl relative overflow-hidden group"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="relative z-10 flex items-center">
+                  <Gamepad2 className="w-5 h-5 mr-2" />
+                  Explore VR Worlds
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                </span>
+                
+                {/* Button Glow Effect */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 opacity-0 group-hover:opacity-30 blur-xl"
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
+              </motion.button>
+            </motion.div>
           </div>
         </section>
 
-        {/* Platform Statistics */}
-        <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-purple-900/10 to-black">
-          <div className="max-w-7xl mx-auto">
+        {/* Platform Statistics - REDESIGNED */}
+        <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8 relative overflow-hidden">
+          {/* Terminal/Console Background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-green-900/20 via-black to-blue-900/20" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_24px,rgba(255,255,255,.03)_25px,rgba(255,255,255,.03)_26px,transparent_27px,transparent_74px,rgba(255,255,255,.03)_75px,rgba(255,255,255,.03)_76px,transparent_77px,transparent_24px),linear-gradient(rgba(255,255,255,.03)_50%,transparent_50%)] bg-[size:100px_4px]" />
+          
+          <div className="max-w-7xl mx-auto relative z-10">
+            {/* Terminal Header */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -454,18 +685,218 @@ export default function HomePage() {
                 <BarChart3 className="w-4 h-4 mr-2" />
                 Platform Stats
               </Badge>
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-6">
+              
+              {/* Terminal Window Title */}
+              <div className="max-w-4xl mx-auto mb-8">
+                <div className="bg-gray-900/80 rounded-t-lg border border-gray-700 p-3">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                    <div className="ml-4 text-gray-400 text-sm font-mono">envimerse://analytics/dashboard</div>
+                  </div>
+                </div>
+                
+                <div className="bg-black/90 rounded-b-lg border-x border-b border-gray-700 p-6">
+                  <div className="font-mono text-green-400 text-sm mb-2">
+                    <span className="text-gray-500">user@envimerse:~$</span> show platform --stats --live
+                  </div>
+                  <div className="font-mono text-blue-400 text-xs">
+                    Fetching real-time platform metrics...
+                    <motion.span
+                      animate={{ opacity: [1, 0] }}
+                      transition={{ duration: 0.8, repeat: Infinity }}
+                      className="ml-1"
+                    >
+                      █
+                    </motion.span>
+                  </div>
+                </div>
+              </div>
+
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-6 font-mono">
                 <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
-                  Impressive
+                  System Status:
                 </span>
                 <br />
-                <span className="text-white">Growth Numbers</span>
+                <span className="text-white">OPERATIONAL</span>
               </h2>
-              <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
-                Our platform continues to grow exponentially worldwide
+              <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto font-mono">
+                Real-time metrics from our global infrastructure
               </p>
             </motion.div>
-            <AnimatedStats />
+
+            {/* Stats Dashboard Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                {
+                  label: "Active Users",
+                  value: 52847,
+                  unit: "",
+                  trend: "+12.5%",
+                  color: "from-green-400 to-emerald-500",
+                  icon: Users,
+                  prefix: "",
+                  format: "number"
+                },
+                {
+                  label: "Live Events", 
+                  value: 127,
+                  unit: "",
+                  trend: "+8.3%",
+                  color: "from-blue-400 to-cyan-500",
+                  icon: Activity,
+                  prefix: "",
+                  format: "number"
+                },
+                {
+                  label: "Revenue",
+                  value: 2847000,
+                  unit: "",
+                  trend: "+23.8%",
+                  color: "from-yellow-400 to-orange-500",
+                  icon: TrendingUp,
+                  prefix: "$",
+                  format: "currency"
+                },
+                {
+                  label: "Satisfaction",
+                  value: 98.7,
+                  unit: "%",
+                  trend: "+2.1%",
+                  color: "from-purple-400 to-pink-500",
+                  icon: Heart,
+                  prefix: "",
+                  format: "percentage"
+                }
+              ].map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="group relative"
+                >
+                  {/* Terminal Window */}
+                  <div className="bg-gray-900/90 rounded-lg border border-gray-700 overflow-hidden hover:border-green-500/50 transition-all duration-300">
+                    
+                    {/* Window Header */}
+                    <div className="bg-gray-800/50 px-4 py-2 border-b border-gray-700">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-2">
+                          <stat.icon className="w-4 h-4 text-green-400" />
+                          <span className="text-green-400 text-xs font-mono">{stat.label.toLowerCase().replace(' ', '_')}.log</span>
+                        </div>
+                        <div className="text-green-400 text-xs font-mono">{stat.trend}</div>
+                      </div>
+                    </div>
+
+                    {/* Terminal Content */}
+                    <div className="p-6 bg-black/50">
+                      
+                      {/* Value Display */}
+                      <div className="mb-4">
+                        <motion.div
+                          className={`text-4xl font-bold font-mono bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}
+                          initial={{ scale: 0 }}
+                          whileInView={{ scale: 1 }}
+                          transition={{ duration: 0.8, delay: index * 0.2 }}
+                          viewport={{ once: true }}
+                        >
+                          {stat.format === "currency" ? `$${(stat.value / 1000000).toFixed(1)}M` :
+                           stat.format === "percentage" ? `${stat.value}%` :
+                           stat.value.toLocaleString()}{stat.unit}
+                        </motion.div>
+                        <div className="text-gray-400 text-sm font-mono mt-1">{stat.label}</div>
+                      </div>
+
+                      {/* Progress Bar */}
+                      <div className="mb-4">
+                        <div className="flex justify-between text-xs font-mono text-gray-500 mb-1">
+                          <span>0</span>
+                          <span>MAX</span>
+                        </div>
+                        <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
+                          <motion.div
+                            className={`h-full bg-gradient-to-r ${stat.color} rounded-full relative`}
+                            initial={{ width: 0 }}
+                            whileInView={{ width: "85%" }}
+                            transition={{ duration: 1.5, delay: index * 0.2 + 0.5 }}
+                            viewport={{ once: true }}
+                          >
+                            {/* Scanning effect */}
+                            <motion.div
+                              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent w-full"
+                              animate={{ x: ["-100%", "100%"] }}
+                              transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                            />
+                          </motion.div>
+                        </div>
+                      </div>
+
+                      {/* Terminal Output */}
+                      <div className="space-y-1">
+                        <div className="text-green-400 text-xs font-mono">
+                          <span className="text-gray-500">{'>'}</span> status: ONLINE
+                        </div>
+                        <div className="text-blue-400 text-xs font-mono">
+                          <span className="text-gray-500">{'>'}</span> trend: {stat.trend}
+                        </div>
+                        <div className="text-yellow-400 text-xs font-mono">
+                          <span className="text-gray-500">{'>'}</span> updated: {new Date().toLocaleTimeString()}
+                        </div>
+                      </div>
+
+                      {/* Live Indicator */}
+                      <div className="flex items-center mt-4 space-x-2">
+                        <motion.div
+                          className="w-2 h-2 bg-green-400 rounded-full"
+                          animate={{ opacity: [1, 0.3, 1] }}
+                          transition={{ duration: 1.5, repeat: Infinity }}
+                        />
+                        <span className="text-green-400 text-xs font-mono">LIVE</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Glow Effect */}
+                  <div className={`absolute inset-0 bg-gradient-to-r ${stat.color} opacity-0 group-hover:opacity-20 blur-xl rounded-lg transition-opacity duration-300 -z-10`} />
+                </motion.div>
+              ))}
+            </div>
+
+            {/* System Status Footer */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              viewport={{ once: true }}
+              className="mt-16 text-center"
+            >
+              <div className="max-w-4xl mx-auto bg-gray-900/80 rounded-lg border border-gray-700 p-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                  <div>
+                    <div className="text-green-400 text-2xl font-mono font-bold">99.9%</div>
+                    <div className="text-gray-400 text-sm font-mono">Uptime</div>
+                  </div>
+                  <div>
+                    <div className="text-blue-400 text-2xl font-mono font-bold">{'<'} 50ms</div>
+                    <div className="text-gray-400 text-sm font-mono">Latency</div>
+                  </div>
+                  <div>
+                    <div className="text-yellow-400 text-2xl font-mono font-bold">24/7</div>
+                    <div className="text-gray-400 text-sm font-mono">Monitoring</div>
+                  </div>
+                </div>
+                
+                <div className="mt-4 text-center">
+                  <div className="text-green-400 text-sm font-mono">
+                    All systems operational • Last updated: {new Date().toLocaleString()}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </section>
 
@@ -595,168 +1026,224 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Success Stories Section */}
-        <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
+        {/* Success Stories - REDESIGNED */}
+        <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8 relative overflow-hidden">
+          {/* Cinematic Background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-black to-red-900/20" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,165,0,0.1)_0%,transparent_70%)]" />
+          
+          <div className="max-w-7xl mx-auto relative z-10">
+            {/* Cinematic Header */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-center mb-16"
+              className="text-center mb-20"
             >
               <Badge className="mb-4 px-4 py-2 bg-gradient-to-r from-orange-500/20 to-red-500/20 border-orange-500/30 text-orange-200">
-                <Award className="w-4 h-4 mr-2" />
+                <Star className="w-4 h-4 mr-2" />
                 Success Stories
               </Badge>
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
-                  Trusted by
-                </span>
-                <br />
-                <span className="text-white">Industry Leaders</span>
-              </h2>
+              
+              {/* Film Strip Effect */}
+              <div className="relative mb-8">
+                <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-6 relative z-10">
+                  <span className="bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
+                    Epic
+                  </span>
+                  <br />
+                  <span className="text-white">Success Stories</span>
+                </h2>
+                
+                {/* Film Strip Decoration */}
+                <div className="absolute -top-4 -bottom-4 left-1/2 transform -translate-x-1/2 w-2 bg-gradient-to-b from-orange-500/30 to-red-500/30 rounded-full" />
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-orange-500 rounded-full animate-pulse" />
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-red-500 rounded-full animate-pulse" />
+              </div>
+              
               <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
-                See how venues and resellers are transforming their business with Envimerse
+                Real stories from real clients who transformed their business with Envimerse
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                {
-                  icon: Music,
-                  name: "Cosmic Arena",
-                  type: "Virtual Concert Venue",
-                  result: "500% increase in attendance",
-                  description: "Transformed their physical venue into a global VR destination, hosting artists for millions worldwide.",
-                  metric: "2.5M+ attendees"
-                },
-                {
-                  icon: Building,
-                  name: "EventPro Networks",
-                  type: "VR Reseller Partner",
-                  result: "$1.2M monthly revenue",
-                  description: "Built a thriving VR events business by connecting venues with global audiences through our platform.",
-                  metric: "150+ events/month"
-                },
-                {
-                  icon: Gamepad2,
-                  name: "TechCorp Convention",
-                  type: "Corporate Events",
-                  result: "90% cost reduction",
-                  description: "Moved their annual conference to VR, reaching 10x more participants while cutting costs dramatically.",
-                  metric: "50K+ participants"
-                }
-              ].map((story, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.2 }}
-                  viewport={{ once: true }}
-                  className="group relative"
-                >
-                  <div className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-8 hover:border-orange-500/30 transition-all duration-300 group-hover:transform group-hover:scale-105">
-                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 p-4 mb-6">
-                      <story.icon className="w-full h-full text-white" />
-                    </div>
-                    
-                    <h3 className="text-2xl font-bold text-white mb-2">{story.name}</h3>
-                    <p className="text-orange-400 font-medium mb-4">{story.type}</p>
-                    
-                    <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-lg p-4 mb-6">
-                      <p className="text-white font-bold text-lg">{story.result}</p>
-                      <p className="text-orange-300 text-sm">{story.metric}</p>
-                    </div>
-                    
-                    <p className="text-gray-300 leading-relaxed">{story.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+            {/* Timeline Layout */}
+            <div className="relative">
+              {/* Central Timeline Line */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-orange-500/50 to-red-500/50 rounded-full" />
+              
+              {/* Timeline Stories */}
+              <div className="space-y-24">
+                {[
+                  {
+                    icon: Music,
+                    name: "Global Music Festival",
+                    type: "Music Events",
+                    result: "500% attendance increase",
+                    description: "Transformed their annual festival into a global VR experience, reaching fans worldwide and creating an unforgettable immersive concert series.",
+                    metric: "2.5M+ attendees",
+                    year: "2024",
+                    side: "left",
+                    color: "from-purple-500 to-pink-500",
+                    bgColor: "from-purple-900/50 to-pink-900/50"
+                  },
+                  {
+                    icon: Trophy,
+                    name: "Champions League VR",
+                    type: "Sports Broadcasting",
+                    result: "Record-breaking viewership",
+                    description: "Revolutionized sports viewing with immersive VR broadcasts, allowing fans to feel like they're on the field with their favorite teams.",
+                    metric: "50M+ viewers",
+                    year: "2023",
+                    side: "right",
+                    color: "from-cyan-500 to-blue-500",
+                    bgColor: "from-cyan-900/50 to-blue-900/50"
+                  },
+                  {
+                    icon: Gamepad2,
+                    name: "TechCorp Convention",
+                    type: "Corporate Events",
+                    result: "90% cost reduction",
+                    description: "Moved their annual conference to VR, reaching 10x more participants while cutting costs dramatically and improving engagement.",
+                    metric: "150K+ participants",
+                    year: "2023",
+                    side: "left",
+                    color: "from-green-500 to-emerald-500",
+                    bgColor: "from-green-900/50 to-emerald-900/50"
+                  }
+                ].map((story, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: story.side === 'left' ? -100 : 100 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, delay: index * 0.3 }}
+                    viewport={{ once: true }}
+                    className={`relative flex items-center ${story.side === 'left' ? 'justify-end pr-8' : 'justify-start pl-8'}`}
+                  >
+                    {/* Timeline Node */}
+                    <motion.div
+                      className="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-gradient-to-br from-orange-500 to-red-500 border-4 border-black shadow-2xl z-20"
+                      initial={{ scale: 0, rotate: -180 }}
+                      whileInView={{ scale: 1, rotate: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.3 + 0.2 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-orange-400 to-red-400 animate-ping opacity-20" />
+                    </motion.div>
 
-        {/* Revenue Ecosystem Section */}
-        <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-yellow-900/10 to-black relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-yellow-900/10 via-black to-green-900/10" />
-          <div className="max-w-7xl mx-auto relative z-10">
+                    {/* Story Card */}
+                    <motion.div
+                      className={`w-full max-w-md group cursor-pointer ${story.side === 'right' ? 'ml-8' : 'mr-8'}`}
+                      whileHover={{ scale: 1.05, rotateY: story.side === 'left' ? 5 : -5 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className={`relative bg-gradient-to-br ${story.bgColor} backdrop-blur-sm border border-white/20 rounded-2xl p-8 overflow-hidden group-hover:border-orange-500/50 transition-all duration-300`}>
+                        
+                        {/* Year Badge */}
+                        <div className="absolute top-4 right-4 bg-black/50 rounded-full px-3 py-1">
+                          <span className="text-orange-400 text-sm font-bold">{story.year}</span>
+                        </div>
+
+                        {/* Spotlight Effect */}
+                        <motion.div
+                          className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                          style={{
+                            background: `radial-gradient(circle at ${story.side === 'left' ? '20%' : '80%'} 20%, rgba(255,255,255,0.1) 0%, transparent 50%)`
+                          }}
+                        />
+
+                        {/* Icon with Cinematic Glow */}
+                        <div className="relative mb-6">
+                          <motion.div
+                            className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${story.color} p-5 shadow-2xl`}
+                            whileHover={{ rotate: 360 }}
+                            transition={{ duration: 0.8 }}
+                          >
+                            <story.icon className="w-full h-full text-white" />
+                          </motion.div>
+                          
+                          {/* Glow Effect */}
+                          <div className={`absolute inset-0 w-20 h-20 rounded-2xl bg-gradient-to-br ${story.color} opacity-50 blur-xl animate-pulse`} />
+                        </div>
+
+                        {/* Content */}
+                        <div className="relative z-10">
+                          <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-orange-300 transition-colors duration-300">
+                            {story.name}
+                          </h3>
+                          <p className="text-orange-400 font-medium mb-4">{story.type}</p>
+                          
+                          {/* Result Highlight */}
+                          <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-lg p-4 mb-6 border border-orange-500/30">
+                            <p className="text-white font-bold text-lg mb-1">{story.result}</p>
+                            <p className="text-orange-300 text-sm font-medium">{story.metric}</p>
+                          </div>
+                          
+                          <p className="text-gray-300 leading-relaxed mb-6 group-hover:text-gray-200 transition-colors duration-300">
+                            {story.description}
+                          </p>
+
+                          {/* Action Button */}
+                          <motion.button
+                            className="flex items-center space-x-2 text-orange-400 hover:text-orange-300 transition-colors duration-300 group-hover:translate-x-2"
+                            whileHover={{ x: 5 }}
+                          >
+                            <span className="text-sm font-medium">Read Full Story</span>
+                            <ArrowRight className="w-4 h-4" />
+                          </motion.button>
+                        </div>
+
+                        {/* Decorative Elements */}
+                        <div className={`absolute top-0 ${story.side === 'left' ? 'right-0' : 'left-0'} w-32 h-32 bg-gradient-to-br ${story.color} opacity-10 blur-3xl`} />
+                        <div className={`absolute bottom-0 ${story.side === 'left' ? 'left-0' : 'right-0'} w-24 h-24 bg-gradient-to-tr ${story.color} opacity-10 blur-2xl`} />
+                      </div>
+                    </motion.div>
+
+                    {/* Connection Line */}
+                    <motion.div
+                      className={`absolute top-1/2 ${story.side === 'left' ? 'right-4' : 'left-4'} w-8 h-0.5 bg-gradient-to-r ${story.color} opacity-50`}
+                      initial={{ width: 0 }}
+                      whileInView={{ width: 32 }}
+                      transition={{ duration: 0.6, delay: index * 0.3 + 0.4 }}
+                      viewport={{ once: true }}
+                    />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Bottom CTA */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
               viewport={{ once: true }}
-              className="text-center mb-16"
+              className="text-center mt-24"
             >
-              <Badge className="mb-4 px-4 py-2 bg-gradient-to-r from-yellow-500/20 to-green-500/20 border-yellow-500/30 text-yellow-200">
-                <Coins className="w-4 h-4 mr-2" />
-                Revenue Model
-              </Badge>
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-yellow-400 to-green-400 bg-clip-text text-transparent">
-                  Sustainable
-                </span>
-                <br />
-                <span className="text-white">Revenue Ecosystem</span>
-              </h2>
-              <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
-                Múltiplas fontes de receita criando valor para todos os participantes da plataforma
-              </p>
-            </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {[
-                {
-                  icon: Palette,
-                  title: "VR Cosmetics & Skins",
-                  percentage: "65%",
-                  description: "Itens virtuais premium, customização de avatar e cosméticos exclusivos",
-                  color: "from-purple-500 to-pink-500"
-                },
-                {
-                  icon: Coins,
-                  title: "Taxas de Transação",
-                  percentage: "20%",
-                  description: "Comissão sobre todas as transações do marketplace e vendas de ingressos",
-                  color: "from-yellow-500 to-orange-500"
-                },
-                {
-                  icon: Crown,
-                  title: "Experiências Premium",
-                  percentage: "10%",
-                  description: "Acesso VIP, bastidores e conteúdos exclusivos",
-                  color: "from-cyan-500 to-blue-500"
-                },
-                {
-                  icon: MessageCircle,
-                  title: "Recursos Sociais",
-                  percentage: "5%",
-                  description: "Chat avançado, emotes customizados e ferramentas de interação social",
-                  color: "from-green-500 to-emerald-500"
-                }
-              ].map((stream, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.2 }}
-                  viewport={{ once: true }}
-                  className="group relative"
+              <div className="relative">
+                <motion.button
+                  className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white font-bold text-lg px-12 py-4 rounded-2xl shadow-2xl relative overflow-hidden group"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <div className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-8 hover:border-yellow-500/30 transition-all duration-300">
-                    <div className={`flex items-center justify-between mb-6`}>
-                      <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${stream.color} p-4`}>
-                        <stream.icon className="w-full h-full text-white" />
-                      </div>
-                      <div className={`text-4xl font-bold bg-gradient-to-r ${stream.color} bg-clip-text text-transparent`}>
-                        {stream.percentage}
-                      </div>
-                    </div>
-                    <h3 className="text-2xl font-bold text-white mb-4">{stream.title}</h3>
-                    <p className="text-gray-300 leading-relaxed">{stream.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+                  <span className="relative z-10 flex items-center">
+                    <Star className="w-5 h-5 mr-2" />
+                    Start Your Success Story
+                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                  </span>
+                  
+                  {/* Button Glow Effect */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-orange-400 to-red-400 opacity-0 group-hover:opacity-30 blur-xl"
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  />
+                </motion.button>
+                
+                {/* Spotlight Effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-500/20 to-transparent blur-3xl animate-pulse" />
+              </div>
+            </motion.div>
           </div>
         </section>
 
