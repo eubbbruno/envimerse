@@ -13,7 +13,7 @@ import HowItWorks from '@/components/HowItWorks'
 import VRExperienceCarousel from '@/components/VRExperienceCarousel'
 import AnimatedStats from '@/components/AnimatedStats'
 import PartnersMarquee from '@/components/PartnersMarquee'
-import MonetizationModel from '@/components/MonetizationModel'
+
 import RealtimeMetrics from '@/components/RealtimeMetrics'
 import InteractiveRoadmap from '@/components/InteractiveRoadmap'
 import CommunityDriven from '@/components/CommunityDriven'
@@ -60,25 +60,36 @@ export default function HomePage() {
       <Header />
       
       <main>
-        {/* Hero Section - Enhanced with LogoSphere */}
-        <section className="relative min-h-screen flex items-center justify-center px-3 sm:px-6 lg:px-8 pt-16 sm:pt-20">
-          {/* Background Gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-cyan-900/20" />
+        {/* Hero Section - Enhanced with Video Background */}
+        <section className="relative min-h-screen flex items-center justify-center px-3 sm:px-6 lg:px-8 pt-16 sm:pt-20 overflow-hidden">
+          {/* Video Background */}
+          <div className="absolute inset-0 z-0">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-cover opacity-30"
+            >
+              <source src="/bg-envi.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-900/40 via-black/60 to-cyan-900/40" />
+          </div>
           
-          {/* Animated Grid */}
-          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
+          {/* Animated Grid Overlay */}
+          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-20 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
           
           <div className="relative z-10 max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              {/* Content Column */}
-              <div className="text-center lg:text-left order-2 lg:order-1">
+            <div className="text-center">
+              {/* Content Column - Centralizado */}
+              <div className="max-w-4xl mx-auto mb-12">
                 {/* Premium Badge */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  className="mb-4 sm:mb-6 flex justify-center lg:justify-start"
-                >
+                                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="mb-4 sm:mb-6 flex justify-center"
+                  >
                   <Badge className="px-3 py-1 text-xs sm:text-sm bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border-purple-500/30 text-purple-200">
                     <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
                     Next-Gen VR Platform
@@ -100,22 +111,22 @@ export default function HomePage() {
                 </motion.h1>
 
                 {/* Subtitle */}
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  className="text-base sm:text-xl lg:text-2xl text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
-                >
+                                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="text-base sm:text-xl lg:text-2xl text-gray-300 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed"
+                  >
                   Connecting venues, resellers, and audiences through immersive VR experiences powered by blockchain technology
                 </motion.p>
 
                 {/* Action Buttons */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start items-center mb-8 sm:mb-12"
-                >
+                                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                    className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-8 sm:mb-12"
+                  >
                   <Button 
                     size="lg" 
                     className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg"
@@ -134,55 +145,55 @@ export default function HomePage() {
                 </motion.div>
 
                 {/* Platform Pillars */}
-                <motion.div
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
-                  className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6"
-                >
-                  {[
-                    {
-                      icon: Users,
-                      title: "VR-Clients",
-                      desc: "Premium experiences for users"
-                    },
-                    {
-                      icon: TrendingUp,
-                      title: "VR-Resellers",
-                      desc: "Profitable reseller platform"
-                    },
-                    {
-                      icon: Globe,
-                      title: "VR-Environments",
-                      desc: "Unique virtual venues"
-                    }
-                  ].map((pillar, index) => (
-                    <div 
-                      key={index}
-                      className="p-4 sm:p-6 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 text-center lg:text-left"
-                    >
-                      <pillar.icon className="w-6 h-6 sm:w-8 sm:h-8 text-purple-400 mx-auto lg:mx-0 mb-3 sm:mb-4" />
-                      <h3 className="text-base sm:text-lg font-semibold text-white mb-2">{pillar.title}</h3>
-                      <p className="text-sm sm:text-base text-gray-400">{pillar.desc}</p>
-                    </div>
-                  ))}
-                </motion.div>
-              </div>
+                                  <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                    className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto"
+                  >
+                    {[
+                      {
+                        icon: Users,
+                        title: "VR-Clients",
+                        desc: "Premium experiences for users"
+                      },
+                      {
+                        icon: TrendingUp,
+                        title: "VR-Resellers",
+                        desc: "Profitable reseller platform"
+                      },
+                      {
+                        icon: Globe,
+                        title: "VR-Environments",
+                        desc: "Unique virtual venues"
+                      }
+                    ].map((pillar, index) => (
+                      <div 
+                        key={index}
+                        className="p-4 sm:p-6 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 text-center"
+                      >
+                        <pillar.icon className="w-6 h-6 sm:w-8 sm:h-8 text-purple-400 mx-auto mb-3 sm:mb-4" />
+                        <h3 className="text-base sm:text-lg font-semibold text-white mb-2">{pillar.title}</h3>
+                        <p className="text-sm sm:text-base text-gray-400">{pillar.desc}</p>
+                      </div>
+                    ))}
+                  </motion.div>
+                </div>
 
-              {/* 3D Art Column */}
-              <div className="order-1 lg:order-2">
+              {/* 3D Art Section - Centralizado */}
+              <div className="flex justify-center">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 1, delay: 0.5 }}
-                  className="flex justify-center"
+                  className="w-full max-w-2xl"
                 >
                   <Suspense fallback={
                     <div className="w-full h-64 sm:h-80 lg:h-96 flex items-center justify-center">
                       <div className="w-8 h-8 sm:w-12 sm:h-12 border-2 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
                     </div>
                   }>
-                    <LogoSphere />
+                    <LogoSphere height={600} />
                   </Suspense>
                 </motion.div>
               </div>
@@ -200,12 +211,12 @@ export default function HomePage() {
               viewport={{ once: true }}
               className="text-center mb-12 sm:mb-20"
             >
-              <Badge className="mb-4 px-4 py-2 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border-cyan-500/30 text-cyan-200">
+              <Badge className="mb-4 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border-purple-500/30 text-purple-200">
                 <Eye className="w-4 h-4 mr-2" />
                 Platform Overview
               </Badge>
               <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
                   Three Worlds,
                 </span>
                 <br />
@@ -233,8 +244,8 @@ export default function HomePage() {
                   subtitle: "Profitable Partnerships",
                   description: "Build your business by reselling VR experiences. Earn commissions and grow your network in the booming VR market.",
                   features: ["Revenue Sharing", "Marketing Tools", "Analytics", "Support"],
-                  color: "from-cyan-500 to-blue-500",
-                  bgColor: "from-cyan-900/20 to-blue-900/20"
+                  color: "from-cyan-500 to-purple-500",
+                  bgColor: "from-cyan-900/20 to-purple-900/20"
                 },
                 {
                   icon: Globe,
@@ -242,8 +253,8 @@ export default function HomePage() {
                   subtitle: "Virtual Venues",
                   description: "Transform your venue into a virtual destination. Host events, concerts, and experiences for global audiences.",
                   features: ["3D Venue Creation", "Event Management", "Global Reach", "Monetization"],
-                  color: "from-green-500 to-emerald-500",
-                  bgColor: "from-green-900/20 to-emerald-900/20"
+                  color: "from-purple-500 to-cyan-500",
+                  bgColor: "from-purple-900/20 to-cyan-900/20"
                 }
               ].map((platform, index) => (
                 <motion.div
@@ -341,14 +352,14 @@ export default function HomePage() {
                   icon: Zap,
                   title: "Connect & Setup",
                   description: "Link your wallet, configure your profile, and access our intuitive dashboard",
-                  color: "from-cyan-500 to-blue-500"
+                  color: "from-cyan-500 to-purple-500"
                 },
                 {
                   step: "03",
                   icon: Star,
                   title: "Start Earning",
                   description: "Begin hosting events, selling experiences, or enjoying premium VR content",
-                  color: "from-green-500 to-emerald-500"
+                  color: "from-purple-500 to-cyan-500"
                 }
               ].map((step, index) => (
                 <motion.div
@@ -929,12 +940,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Monetization Model */}
-        <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-yellow-900/10 to-black">
-          <div className="max-w-7xl mx-auto">
-            <MonetizationModel />
-          </div>
-        </section>
+
 
         {/* Roadmap Section */}
         <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8">
@@ -966,7 +972,7 @@ export default function HomePage() {
         </section>
 
         {/* Community Section */}
-        <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-orange-900/10 to-black">
+        <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-purple-900/10 to-black">
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -975,12 +981,12 @@ export default function HomePage() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <Badge className="mb-4 px-4 py-2 bg-gradient-to-r from-orange-500/20 to-red-500/20 border-orange-500/30 text-orange-200">
+              <Badge className="mb-4 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border-purple-500/30 text-purple-200">
                 <Heart className="w-4 h-4 mr-2" />
                 Community First
               </Badge>
               <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
                   Community
                 </span>
                 <br />
@@ -996,7 +1002,7 @@ export default function HomePage() {
 
         {/* Live Metrics Dashboard */}
         <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-green-900/10 via-black to-blue-900/10" />
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-black to-cyan-900/10" />
           
           <div className="max-w-7xl mx-auto relative z-10">
             <motion.div
@@ -1006,12 +1012,12 @@ export default function HomePage() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <Badge className="mb-4 px-4 py-2 bg-gradient-to-r from-green-500/20 to-blue-500/20 border-green-500/30 text-green-200">
+              <Badge className="mb-4 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border-purple-500/30 text-purple-200">
                 <Activity className="w-4 h-4 mr-2" />
                 Live Analytics
               </Badge>
               <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
                   Real-Time
                 </span>
                 <br />
@@ -1029,8 +1035,8 @@ export default function HomePage() {
         {/* Success Stories - REDESIGNED */}
         <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8 relative overflow-hidden">
           {/* Cinematic Background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-black to-red-900/20" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,165,0,0.1)_0%,transparent_70%)]" />
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-cyan-900/20" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(141,66,236,0.1)_0%,transparent_70%)]" />
           
           <div className="max-w-7xl mx-auto relative z-10">
             {/* Cinematic Header */}
@@ -1041,7 +1047,7 @@ export default function HomePage() {
               viewport={{ once: true }}
               className="text-center mb-20"
             >
-              <Badge className="mb-4 px-4 py-2 bg-gradient-to-r from-orange-500/20 to-red-500/20 border-orange-500/30 text-orange-200">
+              <Badge className="mb-4 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border-purple-500/30 text-purple-200">
                 <Star className="w-4 h-4 mr-2" />
                 Success Stories
               </Badge>
@@ -1049,7 +1055,7 @@ export default function HomePage() {
               {/* Film Strip Effect */}
               <div className="relative mb-8">
                 <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-6 relative z-10">
-                  <span className="bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
                     Epic
                   </span>
                   <br />
@@ -1057,9 +1063,9 @@ export default function HomePage() {
                 </h2>
                 
                 {/* Film Strip Decoration */}
-                <div className="absolute -top-4 -bottom-4 left-1/2 transform -translate-x-1/2 w-2 bg-gradient-to-b from-orange-500/30 to-red-500/30 rounded-full" />
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-orange-500 rounded-full animate-pulse" />
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-red-500 rounded-full animate-pulse" />
+                <div className="absolute -top-4 -bottom-4 left-1/2 transform -translate-x-1/2 w-2 bg-gradient-to-b from-purple-500/30 to-cyan-500/30 rounded-full" />
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-purple-500 rounded-full animate-pulse" />
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-cyan-500 rounded-full animate-pulse" />
               </div>
               
               <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
@@ -1070,7 +1076,7 @@ export default function HomePage() {
             {/* Timeline Layout */}
             <div className="relative">
               {/* Central Timeline Line */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-orange-500/50 to-red-500/50 rounded-full" />
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-purple-500/50 to-cyan-500/50 rounded-full" />
               
               {/* Timeline Stories */}
               <div className="space-y-24">
@@ -1096,8 +1102,8 @@ export default function HomePage() {
                     metric: "50M+ viewers",
                     year: "2023",
                     side: "right",
-                    color: "from-cyan-500 to-blue-500",
-                    bgColor: "from-cyan-900/50 to-blue-900/50"
+                    color: "from-cyan-500 to-purple-500",
+                    bgColor: "from-cyan-900/50 to-purple-900/50"
                   },
                   {
                     icon: Gamepad2,
@@ -1108,8 +1114,8 @@ export default function HomePage() {
                     metric: "150K+ participants",
                     year: "2023",
                     side: "left",
-                    color: "from-green-500 to-emerald-500",
-                    bgColor: "from-green-900/50 to-emerald-900/50"
+                    color: "from-purple-500 to-cyan-500",
+                    bgColor: "from-purple-900/50 to-cyan-900/50"
                   }
                 ].map((story, index) => (
                   <motion.div
@@ -1122,13 +1128,13 @@ export default function HomePage() {
                   >
                     {/* Timeline Node */}
                     <motion.div
-                      className="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-gradient-to-br from-orange-500 to-red-500 border-4 border-black shadow-2xl z-20"
+                      className="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-cyan-500 border-4 border-black shadow-2xl z-20"
                       initial={{ scale: 0, rotate: -180 }}
                       whileInView={{ scale: 1, rotate: 0 }}
                       transition={{ duration: 0.6, delay: index * 0.3 + 0.2 }}
                       viewport={{ once: true }}
                     >
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-orange-400 to-red-400 animate-ping opacity-20" />
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-400 to-cyan-400 animate-ping opacity-20" />
                     </motion.div>
 
                     {/* Story Card */}

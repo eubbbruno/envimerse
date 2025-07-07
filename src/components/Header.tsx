@@ -3,8 +3,9 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Zap } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import ConnectWalletButton from './ConnectWalletButton'
+import Image from 'next/image'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -42,22 +43,22 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 group">
             <motion.div
-              whileHover={{ rotate: 360 }}
-              transition={{ duration: 0.8, ease: "easeInOut" }}
-              className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-purple-500 to-cyan-400 rounded-lg flex items-center justify-center"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="w-6 h-6 sm:w-8 sm:h-8 relative"
             >
-              <Zap className="w-3 h-3 sm:w-5 sm:h-5 text-white" />
+              <Image
+                src="/logo.png"
+                alt="Envimerse Logo"
+                width={32}
+                height={32}
+                className="w-full h-full object-contain"
+              />
             </motion.div>
             <span className="text-base sm:text-xl font-bold text-white tracking-tight">
               Envimerse
             </span>
           </Link>
-
-          {/* Status Indicator - Hidden on mobile */}
-          <div className="hidden md:flex items-center space-x-2">
-            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-            <span className="text-xs text-gray-400">Online</span>
-          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
