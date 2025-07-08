@@ -69,11 +69,15 @@ export default function HomePage() {
               muted
               loop
               playsInline
-              className="w-full h-full object-cover opacity-30"
+              preload="auto"
+              className="w-full h-full object-cover opacity-40"
+              onLoadStart={() => console.log('Video loading started')}
+              onError={(e) => console.error('Video error:', e)}
             >
               <source src="/bg-envi.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
             </video>
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-900/40 via-black/60 to-cyan-900/40" />
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-black/50 to-cyan-900/30" />
           </div>
           
           {/* Animated Grid Overlay */}
@@ -180,23 +184,7 @@ export default function HomePage() {
                   </motion.div>
                 </div>
 
-              {/* 3D Art Section - Centralizado */}
-              <div className="flex justify-center">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 1, delay: 0.5 }}
-                  className="w-full max-w-2xl"
-                >
-                  <Suspense fallback={
-                    <div className="w-full h-64 sm:h-80 lg:h-96 flex items-center justify-center">
-                      <div className="w-8 h-8 sm:w-12 sm:h-12 border-2 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
-                    </div>
-                  }>
-                    <LogoSphere height={600} />
-                  </Suspense>
-                </motion.div>
-              </div>
+
             </div>
           </div>
         </section>
@@ -308,6 +296,94 @@ export default function HomePage() {
                 </motion.div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* 3D Universe Section */}
+        <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-b from-black via-purple-900/5 to-black">
+          <div className="max-w-7xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-12 sm:mb-20"
+            >
+              <Badge className="mb-4 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border-purple-500/30 text-purple-200">
+                <Globe className="w-4 h-4 mr-2" />
+                3D Universe
+              </Badge>
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-6">
+                <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                  Explore Our
+                </span>
+                <br />
+                <span className="text-white">Virtual Galaxy</span>
+              </h2>
+              <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                Journey through our immersive 3D universe where each planet represents a unique VR experience
+              </p>
+            </motion.div>
+
+            {/* 3D Art Section */}
+            <div className="flex justify-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, delay: 0.3 }}
+                viewport={{ once: true }}
+                className="w-full max-w-4xl"
+              >
+                <Suspense fallback={
+                  <div className="w-full h-64 sm:h-80 lg:h-96 flex items-center justify-center">
+                    <div className="w-8 h-8 sm:w-12 sm:h-12 border-2 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
+                  </div>
+                }>
+                  <LogoSphere height={600} />
+                </Suspense>
+              </motion.div>
+            </div>
+
+            {/* Interactive Elements */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              viewport={{ once: true }}
+              className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8"
+            >
+              {[
+                {
+                  title: "Main Planet",
+                  description: "Central hub with orbital rings representing our core platform",
+                  icon: Globe,
+                  color: "from-purple-500 to-pink-500"
+                },
+                {
+                  title: "Satellite Worlds",
+                  description: "Smaller planets representing different VR environments",
+                  icon: Sparkles,
+                  color: "from-cyan-500 to-purple-500"
+                },
+                {
+                  title: "Cosmic Network",
+                  description: "Interconnected universe of limitless possibilities",
+                  icon: Network,
+                  color: "from-purple-500 to-cyan-500"
+                }
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="text-center p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl hover:bg-white/10 transition-all duration-300"
+                >
+                  <div className={`w-12 h-12 mx-auto mb-4 rounded-lg bg-gradient-to-br ${item.color} p-3`}>
+                    <item.icon className="w-full h-full text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
+                  <p className="text-gray-400 leading-relaxed">{item.description}</p>
+                </div>
+              ))}
+            </motion.div>
           </div>
         </section>
 
@@ -517,32 +593,32 @@ export default function HomePage() {
                   title: "Gaming Tournaments",
                   description: "Compete in immersive VR competitions",
                   icon: Gamepad2,
-                  color: "from-green-500 to-emerald-500", 
-                  bgImage: "bg-gradient-to-br from-green-900/50 to-emerald-900/50",
+                  color: "from-purple-500 to-cyan-500", 
+                  bgImage: "bg-gradient-to-br from-purple-900/50 to-cyan-900/50",
                   delay: 0.4
                 },
                 {
                   title: "Art Galleries",
                   description: "Explore virtual museums and exhibitions",
                   icon: Palette,
-                  color: "from-orange-500 to-red-500",
-                  bgImage: "bg-gradient-to-br from-orange-900/50 to-red-900/50",
+                  color: "from-pink-500 to-purple-500",
+                  bgImage: "bg-gradient-to-br from-pink-900/50 to-purple-900/50",
                   delay: 0.6
                 },
                 {
                   title: "Educational Events",
                   description: "Learn in interactive virtual environments",
                   icon: Brain,
-                  color: "from-yellow-500 to-orange-500",
-                  bgImage: "bg-gradient-to-br from-yellow-900/50 to-orange-900/50",
+                  color: "from-cyan-500 to-purple-500",
+                  bgImage: "bg-gradient-to-br from-cyan-900/50 to-purple-900/50",
                   delay: 0.8
                 },
                 {
                   title: "Social Spaces",
                   description: "Connect with friends in virtual worlds",
                   icon: Users,
-                  color: "from-indigo-500 to-purple-500",
-                  bgImage: "bg-gradient-to-br from-indigo-900/50 to-purple-900/50",
+                  color: "from-purple-500 to-pink-500",
+                  bgImage: "bg-gradient-to-br from-purple-900/50 to-pink-900/50",
                   delay: 1.0
                 }
               ].map((experience, index) => (
@@ -680,7 +756,7 @@ export default function HomePage() {
         {/* Platform Statistics - REDESIGNED */}
         <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8 relative overflow-hidden">
           {/* Terminal/Console Background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-green-900/20 via-black to-blue-900/20" />
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-cyan-900/20" />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_24px,rgba(255,255,255,.03)_25px,rgba(255,255,255,.03)_26px,transparent_27px,transparent_74px,rgba(255,255,255,.03)_75px,rgba(255,255,255,.03)_76px,transparent_77px,transparent_24px),linear-gradient(rgba(255,255,255,.03)_50%,transparent_50%)] bg-[size:100px_4px]" />
           
           <div className="max-w-7xl mx-auto relative z-10">
@@ -692,7 +768,7 @@ export default function HomePage() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <Badge className="mb-4 px-4 py-2 bg-gradient-to-r from-green-500/20 to-blue-500/20 border-green-500/30 text-green-200">
+              <Badge className="mb-4 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border-purple-500/30 text-purple-200">
                 <BarChart3 className="w-4 h-4 mr-2" />
                 Platform Stats
               </Badge>
@@ -701,9 +777,9 @@ export default function HomePage() {
               <div className="max-w-4xl mx-auto mb-8">
                 <div className="bg-gray-900/80 rounded-t-lg border border-gray-700 p-3">
                   <div className="flex items-center space-x-2">
-                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-purple-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-pink-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-cyan-500"></div>
                     <div className="ml-4 text-gray-400 text-sm font-mono">envimerse://analytics/dashboard</div>
                   </div>
                 </div>
@@ -765,7 +841,7 @@ export default function HomePage() {
                   value: 2847000,
                   unit: "",
                   trend: "+23.8%",
-                  color: "from-yellow-400 to-orange-500",
+                  color: "from-purple-400 to-cyan-500",
                   icon: TrendingUp,
                   prefix: "$",
                   format: "currency"
@@ -796,10 +872,10 @@ export default function HomePage() {
                     <div className="bg-gray-800/50 px-4 py-2 border-b border-gray-700">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-2">
-                          <stat.icon className="w-4 h-4 text-green-400" />
-                          <span className="text-green-400 text-xs font-mono">{stat.label.toLowerCase().replace(' ', '_')}.log</span>
+                          <stat.icon className="w-4 h-4 text-purple-400" />
+                          <span className="text-purple-400 text-xs font-mono">{stat.label.toLowerCase().replace(' ', '_')}.log</span>
                         </div>
-                        <div className="text-green-400 text-xs font-mono">{stat.trend}</div>
+                        <div className="text-cyan-400 text-xs font-mono">{stat.trend}</div>
                       </div>
                     </div>
 
@@ -866,7 +942,7 @@ export default function HomePage() {
                           animate={{ opacity: [1, 0.3, 1] }}
                           transition={{ duration: 1.5, repeat: Infinity }}
                         />
-                        <span className="text-green-400 text-xs font-mono">LIVE</span>
+                        <span className="text-cyan-400 text-xs font-mono">LIVE</span>
                       </div>
                     </div>
                   </div>
@@ -888,21 +964,21 @@ export default function HomePage() {
               <div className="max-w-4xl mx-auto bg-gray-900/80 rounded-lg border border-gray-700 p-6">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
                   <div>
-                    <div className="text-green-400 text-2xl font-mono font-bold">99.9%</div>
+                    <div className="text-cyan-400 text-2xl font-mono font-bold">99.9%</div>
                     <div className="text-gray-400 text-sm font-mono">Uptime</div>
                   </div>
                   <div>
-                    <div className="text-blue-400 text-2xl font-mono font-bold">{'<'} 50ms</div>
+                    <div className="text-purple-400 text-2xl font-mono font-bold">{'<'} 50ms</div>
                     <div className="text-gray-400 text-sm font-mono">Latency</div>
                   </div>
                   <div>
-                    <div className="text-yellow-400 text-2xl font-mono font-bold">24/7</div>
+                    <div className="text-pink-400 text-2xl font-mono font-bold">24/7</div>
                     <div className="text-gray-400 text-sm font-mono">Monitoring</div>
                   </div>
                 </div>
                 
                 <div className="mt-4 text-center">
-                  <div className="text-green-400 text-sm font-mono">
+                  <div className="text-cyan-400 text-sm font-mono">
                     All systems operational • Last updated: {new Date().toLocaleString()}
                   </div>
                 </div>
@@ -1143,11 +1219,11 @@ export default function HomePage() {
                       whileHover={{ scale: 1.05, rotateY: story.side === 'left' ? 5 : -5 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <div className={`relative bg-gradient-to-br ${story.bgColor} backdrop-blur-sm border border-white/20 rounded-2xl p-8 overflow-hidden group-hover:border-orange-500/50 transition-all duration-300`}>
+                      <div className={`relative bg-gradient-to-br ${story.bgColor} backdrop-blur-sm border border-white/20 rounded-2xl p-8 overflow-hidden group-hover:border-cyan-500/50 transition-all duration-300`}>
                         
                         {/* Year Badge */}
                         <div className="absolute top-4 right-4 bg-black/50 rounded-full px-3 py-1">
-                          <span className="text-orange-400 text-sm font-bold">{story.year}</span>
+                          <span className="text-cyan-400 text-sm font-bold">{story.year}</span>
                         </div>
 
                         {/* Spotlight Effect */}
@@ -1174,15 +1250,15 @@ export default function HomePage() {
 
                         {/* Content */}
                         <div className="relative z-10">
-                          <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-orange-300 transition-colors duration-300">
+                          <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors duration-300">
                             {story.name}
                           </h3>
                           <p className="text-orange-400 font-medium mb-4">{story.type}</p>
                           
                           {/* Result Highlight */}
-                          <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-lg p-4 mb-6 border border-orange-500/30">
+                                                      <div className="bg-gradient-to-r from-purple-500/20 to-cyan-500/20 rounded-lg p-4 mb-6 border border-cyan-500/30">
                             <p className="text-white font-bold text-lg mb-1">{story.result}</p>
-                            <p className="text-orange-300 text-sm font-medium">{story.metric}</p>
+                            <p className="text-cyan-300 text-sm font-medium">{story.metric}</p>
                           </div>
                           
                           <p className="text-gray-300 leading-relaxed mb-6 group-hover:text-gray-200 transition-colors duration-300">
@@ -1227,8 +1303,8 @@ export default function HomePage() {
               className="text-center mt-24"
             >
               <div className="relative">
-                <motion.button
-                  className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white font-bold text-lg px-12 py-4 rounded-2xl shadow-2xl relative overflow-hidden group"
+                              <motion.button
+                className="bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white font-bold text-lg px-12 py-4 rounded-2xl shadow-2xl relative overflow-hidden group"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -1240,14 +1316,14 @@ export default function HomePage() {
                   
                   {/* Button Glow Effect */}
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-orange-400 to-red-400 opacity-0 group-hover:opacity-30 blur-xl"
+                    className="absolute inset-0 bg-gradient-to-r from-purple-400 to-cyan-400 opacity-0 group-hover:opacity-30 blur-xl"
                     animate={{ scale: [1, 1.2, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   />
                 </motion.button>
                 
                 {/* Spotlight Effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-500/20 to-transparent blur-3xl animate-pulse" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent blur-3xl animate-pulse" />
               </div>
             </motion.div>
           </div>

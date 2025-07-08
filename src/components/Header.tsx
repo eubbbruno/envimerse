@@ -41,23 +41,20 @@ export default function Header() {
       <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 group">
+          <Link href="/" className="flex items-center group">
             <motion.div
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="w-6 h-6 sm:w-8 sm:h-8 relative"
+              className="w-18 h-18 sm:w-24 sm:h-24 relative"
             >
               <Image
                 src="/logo.png"
                 alt="Envimerse Logo"
-                width={32}
-                height={32}
+                width={96}
+                height={96}
                 className="w-full h-full object-contain"
               />
             </motion.div>
-            <span className="text-base sm:text-xl font-bold text-white tracking-tight">
-              Envimerse
-            </span>
           </Link>
 
           {/* Desktop Navigation */}

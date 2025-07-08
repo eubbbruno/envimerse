@@ -33,12 +33,10 @@ node_modules/
 .git
 .vercel
 
-# Large files - Videos
-*.mp4
+# Large files - Videos (excluding hero video)
 *.mov
 *.avi
 *.mkv
-public/bg-envi.mp4
 public/community-background.mp4
 
 # Large files - Images
