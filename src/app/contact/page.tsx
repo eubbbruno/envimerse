@@ -220,14 +220,18 @@ export default function ContactPage() {
                     <Mail className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
                     <div>
                       <p className="text-sm font-medium text-white">Email</p>
-                      <p className="text-sm text-gray-400">hello@envimerse.com</p>
+                      <a href="mailto:brunobriote@hotmail.com" className="text-sm text-gray-400 hover:text-purple-400 transition-colors">
+                        brunobriote@hotmail.com
+                      </a>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
                     <Phone className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
                     <div>
                       <p className="text-sm font-medium text-white">Phone</p>
-                      <p className="text-sm text-gray-400">+1 (555) 123-4567</p>
+                      <a href="tel:+5543996466446" className="text-sm text-gray-400 hover:text-purple-400 transition-colors">
+                        +55 43 99646-6446
+                      </a>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
