@@ -15,8 +15,15 @@ const nextConfig = {
     ],
   },
   
-  // Compression
+  // Compression e otimizações para Vercel
   compress: true,
+  swcMinify: true,
+  poweredByHeader: false,
+  
+  // Desabilitar telemetria para build mais rápido
+  env: {
+    NEXT_TELEMETRY_DISABLED: '1'
+  },
   
   // Bundle analyzer (optional)
   webpack: (config, { isServer }) => {
