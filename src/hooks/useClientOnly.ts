@@ -39,4 +39,4 @@ export function useSeededRandom(seed: string) {
 export function useClientAnimation<T>(initialValue: T, animatedValue: T) {
   const hasMounted = useClientOnly()
   return hasMounted ? animatedValue : initialValue
-} 
+}

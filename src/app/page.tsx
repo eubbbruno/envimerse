@@ -5,8 +5,8 @@ import dynamic from 'next/dynamic'
 import ErrorBoundary from '@/components/ErrorBoundary'
 
 // Importar componentes dinamicamente
-const FloatingHeader = dynamic(
-  () => import('@/components/ui/FloatingHeader'),
+const Header = dynamic(
+  () => import('@/components/Header'),
   { ssr: false }
 )
 
@@ -26,16 +26,16 @@ import Footer from '@/components/Footer'
 const LoadingFallback = () => (
   <div className="min-h-screen bg-black flex items-center justify-center">
     <div className="text-cyan-400">Loading experience...</div>
-  </div>
-)
+    </div>
+  )
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-black overflow-x-hidden">
-      {/* New Floating Header */}
+      {/* Main Header */}
       <ErrorBoundary>
         <Suspense fallback={null}>
-          <FloatingHeader />
+      <Header />
         </Suspense>
       </ErrorBoundary>
       
@@ -49,13 +49,13 @@ export default function HomePage() {
 
         {/* Features Section - Bento Grid */}
         <ErrorBoundary>
-          <Suspense fallback={
+                <Suspense fallback={
             <div className="py-20 flex items-center justify-center">
               <div className="w-12 h-12 border-2 border-cyan-500 border-t-transparent rounded-full animate-spin"></div>
-            </div>
-          }>
+                  </div>
+                }>
             <FeaturesSection />
-          </Suspense>
+                </Suspense>
         </ErrorBoundary>
 
         {/* Quick Events Preview */}
@@ -64,7 +64,7 @@ export default function HomePage() {
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
               Live Events
               <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent"> This Week</span>
-            </h2>
+              </h2>
             <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
               Join thousands of fans in virtual venues around the world
             </p>
@@ -112,22 +112,22 @@ export default function HomePage() {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
               Ready to Step Into
-              <br />
+                <br />
               <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
                 The Future?
               </span>
-            </h2>
+              </h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
               Join thousands of users already experiencing live events like never before
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="px-8 py-4 bg-gradient-to-r from-purple-600 to-cyan-600 rounded-full text-white font-bold text-lg hover:shadow-[0_0_40px_rgba(139,69,19,0.8)] transform hover:scale-105 transition-all duration-300">
                 Get Started Now
               </button>
               <button className="px-8 py-4 border-2 border-white/30 rounded-full text-white font-semibold text-lg hover:border-cyan-400 hover:shadow-[0_0_30px_rgba(34,211,238,0.5)] transition-all duration-300">
                 Learn More
               </button>
-            </div>
+              </div>
           </div>
         </section>
       </main>
