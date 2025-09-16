@@ -70,7 +70,7 @@ export default function POVSection() {
   ]
 
   return (
-    <section className="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section className="section-spacing relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/10 to-black" />
       <div className="absolute top-0 left-0 w-full h-full">
@@ -78,24 +78,24 @@ export default function POVSection() {
         <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-gradient-radial from-cyan-500/20 to-transparent rounded-full blur-3xl animate-pulse" />
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="container-spacing relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16 lg:mb-20"
+          className="text-center element-spacing-lg"
         >
           <motion.div
-            className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border border-purple-500/30 text-purple-200 mb-8"
+            className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border border-purple-500/30 text-purple-200 element-spacing-sm"
             whileHover={{ scale: 1.05 }}
           >
             <Camera className="w-5 h-5 mr-3" />
             <span className="text-lg font-semibold">Revolutionary POV Technology</span>
           </motion.div>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-8">
+          <h2 className="text-4xl sm:text-5xl lg:text-7xl font-bold element-spacing">
             <span className="text-white">See Through</span>
             <br />
             <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
@@ -118,9 +118,9 @@ export default function POVSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="element-spacing-lg"
         >
-          <div className="flex flex-col lg:flex-row items-center justify-center gap-6 mb-12">
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-6 element-spacing">
             {povViews.map((view) => {
               const Icon = view.icon
               return (
@@ -217,11 +217,11 @@ export default function POVSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="element-spacing-lg"
         >
-          <div className="text-center mb-12">
+          <div className="text-center element-spacing">
             <motion.div
-              className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/30 text-amber-200 mb-6"
+              className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/30 text-amber-200 element-spacing-sm"
               whileHover={{ scale: 1.05 }}
             >
               <Glasses className="w-5 h-5 mr-3" />

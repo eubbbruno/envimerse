@@ -75,19 +75,19 @@ export default function HomePage() {
         </ErrorBoundary>
 
         {/* Premium Events Showcase */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent to-purple-900/10">
-          <div className="max-w-7xl mx-auto text-center">
-            <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
+        <section className="section-spacing bg-gradient-to-b from-transparent to-purple-900/10">
+          <div className="container-spacing text-center">
+            <h2 className="text-4xl lg:text-6xl font-bold text-white element-spacing">
               Premium Multi-POV
               <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent"> Experiences</span>
             </h2>
-            <p className="text-xl lg:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto">
+            <p className="text-xl lg:text-2xl text-gray-300 element-spacing max-w-4xl mx-auto">
               Join millions of viewers experiencing live events from <span className="text-cyan-400 font-semibold">multiple perspectives simultaneously</span>.
               <br className="hidden lg:block" />
               Every event, every angle, every moment—captured and streamed in real-time.
             </p>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 element-spacing">
               {[
                 {
                   title: "Multi-POV Concert Experience",
@@ -138,16 +138,16 @@ export default function HomePage() {
         </section>
 
         {/* Revolutionary CTA */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-t from-purple-900/20 to-transparent">
-          <div className="max-w-5xl mx-auto text-center">
-            <h2 className="text-4xl lg:text-7xl font-bold text-white mb-8">
+        <section className="cta-spacing bg-gradient-to-t from-purple-900/20 to-transparent">
+          <div className="container-spacing text-center">
+            <h2 className="text-4xl lg:text-7xl font-bold text-white element-spacing">
               Ready to Revolutionize
               <br />
               <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
                 Live Entertainment?
               </span>
             </h2>
-            <p className="text-xl lg:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl lg:text-2xl text-gray-300 element-spacing max-w-4xl mx-auto leading-relaxed">
               Join <span className="text-cyan-400 font-semibold">over 2.5 million creators and viewers</span> already earning and experiencing 
               <br className="hidden lg:block" />
               live events from multiple perspectives simultaneously.

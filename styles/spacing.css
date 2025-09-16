@@ -1,0 +1,178 @@
+/* ===================================
+   ENVIMERSE - SISTEMA DE SPACING PADRÃO
+   =================================== */
+
+/* Sistema de Spacing Principal */
+.section-spacing {
+  padding: 120px 0;
+}
+
+.container-spacing {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.element-spacing {
+  margin-bottom: 48px;
+}
+
+/* Variações de Spacing */
+.section-spacing-sm {
+  padding: 80px 0;
+}
+
+.section-spacing-lg {
+  padding: 160px 0;
+}
+
+.element-spacing-sm {
+  margin-bottom: 24px;
+}
+
+.element-spacing-lg {
+  margin-bottom: 64px;
+}
+
+/* Container Variações */
+.container-spacing-tight {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.container-spacing-wide {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Spacing para Componentes Específicos */
+.hero-spacing {
+  padding: 160px 0 120px 0;
+  min-height: 100vh;
+}
+
+.cta-spacing {
+  padding: 100px 0;
+}
+
+.card-spacing {
+  margin-bottom: 32px;
+}
+
+.text-spacing {
+  margin-bottom: 24px;
+}
+
+.button-spacing {
+  margin-top: 32px;
+}
+
+/* Media Queries - Mobile First */
+@media (max-width: 768px) {
+  .section-spacing {
+    padding: 80px 0;
+  }
+  
+  .section-spacing-sm {
+    padding: 60px 0;
+  }
+  
+  .section-spacing-lg {
+    padding: 100px 0;
+  }
+  
+  .hero-spacing {
+    padding: 120px 0 80px 0;
+    min-height: 100vh;
+  }
+  
+  .cta-spacing {
+    padding: 80px 0;
+  }
+  
+  .container-spacing {
+    padding: 0 16px;
+  }
+  
+  .container-spacing-tight {
+    padding: 0 16px;
+  }
+  
+  .container-spacing-wide {
+    padding: 0 16px;
+  }
+  
+  .element-spacing {
+    margin-bottom: 32px;
+  }
+  
+  .element-spacing-sm {
+    margin-bottom: 16px;
+  }
+  
+  .element-spacing-lg {
+    margin-bottom: 48px;
+  }
+  
+  .card-spacing {
+    margin-bottom: 24px;
+  }
+  
+  .text-spacing {
+    margin-bottom: 16px;
+  }
+  
+  .button-spacing {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-spacing {
+    padding: 60px 0;
+  }
+  
+  .hero-spacing {
+    padding: 100px 0 60px 0;
+  }
+  
+  .cta-spacing {
+    padding: 60px 0;
+  }
+  
+  .container-spacing,
+  .container-spacing-tight,
+  .container-spacing-wide {
+    padding: 0 12px;
+  }
+}
+
+/* Utility Classes */
+.no-spacing {
+  margin: 0;
+  padding: 0;
+}
+
+.spacing-auto {
+  margin: 0 auto;
+}
+
+.vertical-spacing {
+  margin: 48px 0;
+}
+
+.horizontal-spacing {
+  margin: 0 24px;
+}
+
+@media (max-width: 768px) {
+  .vertical-spacing {
+    margin: 32px 0;
+  }
+  
+  .horizontal-spacing {
+    margin: 0 16px;
+  }
+}

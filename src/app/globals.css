@@ -3,6 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Importar Sistema de Spacing */
+@import '../styles/spacing.css';
+
 /* Root Variables */
 :root {
   --background: 0 0% 0%;

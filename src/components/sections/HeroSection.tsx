@@ -9,7 +9,7 @@ export default function HeroSection() {
   const hasMounted = useClientOnly()
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="hero-spacing relative flex items-center justify-center overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         <video
@@ -31,13 +31,13 @@ export default function HeroSection() {
       </div>
       
       {/* Content */}
-      <div className="relative z-30 text-center px-4 max-w-6xl mx-auto">
+      <div className="container-spacing relative z-30 text-center max-w-6xl">
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-8"
+          className="element-spacing-sm"
         >
           <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border border-purple-500/30 text-purple-200 backdrop-blur-sm">
             <Sparkles className="w-5 h-5 mr-3" />
@@ -50,7 +50,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-5xl md:text-8xl font-bold mb-8 leading-tight"
+          className="text-5xl md:text-8xl font-bold element-spacing leading-tight"
         >
           <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
             Be Everywhere
@@ -66,7 +66,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xl md:text-2xl text-gray-300 max-w-5xl mx-auto leading-relaxed mb-12"
+          className="text-xl md:text-2xl text-gray-300 max-w-5xl mx-auto leading-relaxed element-spacing"
         >
           Experience live events through <span className="text-cyan-400 font-semibold">multiple perspectives simultaneously</span>.
           <br className="hidden md:block" />
@@ -147,7 +147,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto"
+            className="vertical-spacing grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto"
           >
             <div className="text-center">
               <div className="text-3xl font-bold text-white mb-2">2.5M+</div>
