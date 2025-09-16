@@ -1,196 +1,195 @@
 "use client"
 
 import { motion } from 'framer-motion'
-import { Play, ArrowRight, Sparkles } from 'lucide-react'
-import GalaxyCSS from '../3d/GalaxyCSS'
+import { Play, ArrowRight, Sparkles, Zap } from 'lucide-react'
 import { useClientOnly } from '@/hooks/useClientOnly'
 
 export default function HeroSection() {
   const hasMounted = useClientOnly()
 
   return (
-    <section className="hero-spacing relative flex items-center justify-center overflow-hidden">
-      {/* Video Background */}
-      <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover"
-        >
-          <source src="/bg-envi.mp4" type="video/mp4" />
-        </video>
-        {/* Video Overlay */}
-        <div className="absolute inset-0 bg-black/50" />
-      </div>
+    <section className="relative min-h-screen overflow-hidden section-spacing">
+      {/* Animated gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-purple-900/20 to-black" />
       
-      {/* Galaxy CSS Background - Overlay adicional */}
-      <div className="absolute inset-0 z-10 opacity-30">
-        <GalaxyCSS />
-      </div>
-      
-      {/* Content */}
-      <div className="container-spacing relative z-30 text-center max-w-6xl">
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="element-spacing-sm"
-        >
-          <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border border-purple-500/30 text-purple-200 backdrop-blur-sm">
-            <Sparkles className="w-5 h-5 mr-3" />
-            <span className="text-lg font-semibold">World's First Multi-POV Streaming Platform</span>
-          </div>
-        </motion.div>
-
-        {/* Main Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-5xl md:text-8xl font-bold element-spacing leading-tight"
-        >
-          <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
-            Be Everywhere
-          </span>
-          <br />
-          <span className="text-white">
-            At Once
-          </span>
-        </motion.h1>
-
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xl md:text-2xl text-gray-300 max-w-5xl mx-auto leading-relaxed element-spacing"
-        >
-          Experience live events through <span className="text-cyan-400 font-semibold">multiple perspectives simultaneously</span>.
-          <br className="hidden md:block" />
-          Switch between audience views, stage angles, and backstage access in real-time.
-          <br className="hidden lg:block" />
-          <span className="text-purple-400 font-semibold">The future of live entertainment is here.</span>
-        </motion.p>
-
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex flex-col sm:flex-row gap-6 justify-center items-center"
-        >
-          {/* Primary CTA */}
-          <motion.button
-            className="group relative px-8 py-4 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 font-bold text-white text-lg overflow-hidden transform transition-all duration-300 hover:scale-105"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className="relative z-10 flex items-center">
-              Start Multi-POV Experience
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </span>
-            
-            {/* Button glow effect */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-purple-600 to-cyan-600 opacity-0 group-hover:opacity-100"
-              transition={{ duration: 0.3 }}
-            />
-            
-            {/* Animated shadow */}
-            <motion.div
-              className="absolute inset-0 rounded-full"
-              animate={{
-                boxShadow: [
-                  '0 0 20px rgba(236, 72, 153, 0.4)',
-                  '0 0 40px rgba(34, 211, 238, 0.4)',
-                  '0 0 20px rgba(236, 72, 153, 0.4)'
-                ]
-              }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
-          </motion.button>
-
-          {/* Secondary CTA */}
-          <motion.button
-            className="group px-8 py-4 rounded-full border-2 border-white/30 hover:border-cyan-400 text-white font-semibold text-lg backdrop-blur-sm transition-all duration-300 relative overflow-hidden"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className="relative z-10 flex items-center">
-              <Play className="w-5 h-5 mr-2" />
-              See POV Demo
-            </span>
-            
-            {/* Hover glow */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 rounded-full"
-              transition={{ duration: 0.3 }}
-            />
-            
-            {/* Border glow animation */}
-            <motion.div
-              className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100"
-              animate={{
-                boxShadow: ['0 0 0px rgba(34, 211, 238, 0)', '0 0 30px rgba(34, 211, 238, 0.5)', '0 0 0px rgba(34, 211, 238, 0)']
-              }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            />
-          </motion.button>
-        </motion.div>
-
-        {/* Stats */}
+      {/* Animated particles background */}
+      <div className="absolute inset-0 opacity-30">
         {hasMounted && (
+          <div className="absolute inset-0">
+            {[...Array(50)].map((_, i) => (
+              <div
+                key={i}
+                className="absolute w-1 h-1 bg-gradient-to-r from-magenta-400 to-cyan-400 rounded-full animate-float"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                  animationDelay: `${Math.random() * 6}s`,
+                  animationDuration: `${4 + Math.random() * 4}s`
+                }}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+      
+      <div className="container-spacing relative z-10 min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          {/* Epic Badge */}
           <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="element-spacing-sm"
+          >
+            <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-magenta-500/20 to-cyan-500/20 border border-magenta-500/30 text-magenta-200 backdrop-blur-sm animate-pulse-glow">
+              <Zap className="w-5 h-5 mr-3 animate-rotate-slow" />
+              <span className="text-lg font-bold tracking-wide">REVOLUTIONARY MULTI-POV PLATFORM</span>
+            </div>
+          </motion.div>
+
+          {/* Epic Main Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className="text-7xl md:text-9xl font-bold element-spacing leading-none"
+          >
+            <span className="block bg-clip-text text-transparent bg-gradient-to-r from-magenta-400 to-cyan-400 animate-gradient">
+              ENTER THE
+            </span>
+            <span className="block bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-magenta-400 animate-gradient" style={{ animationDelay: '1s' }}>
+              METAVERSE
+            </span>
+          </motion.h1>
+
+          {/* Epic Subtitle */}
+          <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="vertical-spacing grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto"
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="text-2xl text-gray-300 element-spacing max-w-3xl mx-auto leading-relaxed"
           >
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-2">2.5M+</div>
-              <div className="text-gray-400 text-sm">Active Users</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-2">15</div>
-              <div className="text-gray-400 text-sm">Angles per Event</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-2">99.9%</div>
-              <div className="text-gray-400 text-sm">Uptime</div>
-            </div>
-          </motion.div>
-        )}
+            Experience live events like <span className="text-magenta-400 font-bold">never before</span>. 
+            <br />
+            Multiple angles, <span className="text-cyan-400 font-bold">infinite possibilities</span>.
+          </motion.p>
 
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        >
+          {/* Epic CTA Buttons */}
           <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1.2 }}
+            className="flex flex-col sm:flex-row gap-8 justify-center items-center element-spacing"
+          >
+            {/* Primary Epic Button */}
+            <motion.button
+              className="group relative px-12 py-6 overflow-hidden rounded-full text-white font-bold text-xl tracking-wide"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {/* Animated gradient background */}
+              <span className="absolute inset-0 bg-gradient-to-r from-magenta-500 to-cyan-500 group-hover:scale-110 transition-transform duration-500" />
+              
+              {/* Shimmer effect */}
+              <span className="absolute inset-0 animate-shimmer opacity-0 group-hover:opacity-100" />
+              
+              {/* Button content */}
+              <span className="relative z-10 flex items-center">
+                <Sparkles className="w-6 h-6 mr-3 animate-pulse" />
+                EXPLORE EVENTS
+                <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
+              </span>
+              
+              {/* Glow effect */}
+              <span className="absolute inset-0 rounded-full animate-pulse-glow" />
+            </motion.button>
+
+            {/* Secondary Epic Button */}
+            <motion.button
+              className="group relative px-10 py-5 overflow-hidden rounded-full border-2 border-cyan-400/50 text-cyan-400 font-bold text-lg tracking-wide backdrop-blur-sm"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {/* Hover background */}
+              <span className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-magenta-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              
+              {/* Border glow */}
+              <span className="absolute inset-0 rounded-full border-2 border-transparent bg-gradient-to-r from-cyan-400 to-magenta-400 opacity-0 group-hover:opacity-30 transition-opacity duration-300" style={{ padding: '2px' }} />
+              
+              {/* Button content */}
+              <span className="relative z-10 flex items-center">
+                <Play className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform duration-300" />
+                WATCH DEMO
+              </span>
+            </motion.button>
+          </motion.div>
+
+          {/* Epic Stats */}
+          {hasMounted && (
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 1.6 }}
+              className="vertical-spacing grid grid-cols-1 md:grid-cols-3 gap-12 max-w-4xl mx-auto"
+            >
+              <div className="text-center group">
+                <motion.div 
+                  className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-magenta-400 to-cyan-400 mb-3 group-hover:animate-pulse"
+                  whileHover={{ scale: 1.1 }}
+                >
+                  2.5M+
+                </motion.div>
+                <div className="text-gray-300 text-lg font-semibold tracking-wide">ACTIVE USERS</div>
+              </div>
+              <div className="text-center group">
+                <motion.div 
+                  className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-magenta-400 mb-3 group-hover:animate-pulse"
+                  whileHover={{ scale: 1.1 }}
+                >
+                  15+
+                </motion.div>
+                <div className="text-gray-300 text-lg font-semibold tracking-wide">CAMERA ANGLES</div>
+              </div>
+              <div className="text-center group">
+                <motion.div 
+                  className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-magenta-400 to-cyan-400 mb-3 group-hover:animate-pulse"
+                  whileHover={{ scale: 1.1 }}
+                >
+                  99.9%
+                </motion.div>
+                <div className="text-gray-300 text-lg font-semibold tracking-wide">UPTIME</div>
+              </div>
+            </motion.div>
+          )}
+
+          {/* Epic Scroll Indicator */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 2 }}
+            className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
           >
             <motion.div
-              animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="w-1 h-3 bg-gradient-to-b from-purple-400 to-cyan-400 rounded-full mt-2"
-            />
+              animate={{ y: [0, 15, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              className="w-8 h-12 border-2 border-magenta-400/50 rounded-full flex justify-center backdrop-blur-sm animate-pulse-glow"
+            >
+              <motion.div
+                animate={{ y: [0, 16, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="w-2 h-4 bg-gradient-to-b from-magenta-400 to-cyan-400 rounded-full mt-3"
+              />
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
 
-      {/* Animated grid overlay */}
-      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-5 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] z-20" />
+      {/* Epic Grid Overlay */}
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] animate-float" />
       
-      {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20 z-10" />
-      <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-black/30 z-10" />
+      {/* Epic Gradient Overlays */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-radial from-transparent via-magenta-900/5 to-transparent animate-pulse" />
     </section>
   )
 } 
