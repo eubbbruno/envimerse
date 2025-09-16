@@ -39,9 +39,9 @@ export default function HeroSection() {
           transition={{ duration: 0.6 }}
           className="mb-8"
         >
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border border-purple-500/30 text-purple-200 backdrop-blur-sm">
-            <Sparkles className="w-4 h-4 mr-2" />
-            <span className="text-sm font-medium">Next-Gen Live Entertainment</span>
+          <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border border-purple-500/30 text-purple-200 backdrop-blur-sm">
+            <Sparkles className="w-5 h-5 mr-3" />
+            <span className="text-lg font-semibold">Primeira Plataforma Multi-POV do Mundo</span>
           </div>
         </motion.div>
 
@@ -50,14 +50,14 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-5xl md:text-7xl font-bold mb-8 leading-tight"
+          className="text-5xl md:text-8xl font-bold mb-8 leading-tight"
         >
           <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
-            Experience Live Events
+            Esteja em Todos
           </span>
           <br />
           <span className="text-white">
-            In Virtual Reality
+            os Lugares ao Mesmo Tempo
           </span>
         </motion.h1>
 
@@ -66,11 +66,13 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12"
+          className="text-xl md:text-2xl text-gray-300 max-w-5xl mx-auto leading-relaxed mb-12"
         >
-          Front row seats from anywhere in the world.
+          Experimente eventos ao vivo através de <span className="text-cyan-400 font-semibold">múltiplas perspectivas simultaneamente</span>.
           <br className="hidden md:block" />
-          <span className="text-cyan-400">Choose between HD streaming or full VR immersion.</span>
+          Alterne entre visões da plateia, ângulos do palco e acesso aos bastidores em tempo real.
+          <br className="hidden lg:block" />
+          <span className="text-purple-400 font-semibold">O futuro do entretenimento ao vivo chegou.</span>
         </motion.p>
 
         {/* CTA Buttons */}
@@ -87,7 +89,7 @@ export default function HeroSection() {
             whileTap={{ scale: 0.95 }}
           >
             <span className="relative z-10 flex items-center">
-              Explore Events
+              Começar Experiência Multi-POV
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </span>
             
@@ -119,7 +121,7 @@ export default function HeroSection() {
           >
             <span className="relative z-10 flex items-center">
               <Play className="w-5 h-5 mr-2" />
-              Watch Demo
+              Ver Demo POV
             </span>
             
             {/* Hover glow */}
@@ -148,12 +150,12 @@ export default function HeroSection() {
             className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto"
           >
             <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-2">50K+</div>
-              <div className="text-gray-400 text-sm">Active Users</div>
+              <div className="text-3xl font-bold text-white mb-2">2.5M+</div>
+              <div className="text-gray-400 text-sm">Usuários Ativos</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-2">200+</div>
-              <div className="text-gray-400 text-sm">Live Events</div>
+              <div className="text-3xl font-bold text-white mb-2">15</div>
+              <div className="text-gray-400 text-sm">Ângulos por Evento</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-white mb-2">99.9%</div>
