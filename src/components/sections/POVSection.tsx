@@ -21,27 +21,27 @@ export default function POVSection() {
   const povViews = [
     {
       id: 'audience',
-      title: 'Perspectiva da Plateia',
-      description: 'Sinta a energia da multidão',
+      title: 'Audience POV',
+      description: 'Experience the energy from the crowd',
       icon: Users,
       color: 'from-purple-500 to-pink-500',
-      details: 'Experimente o show como se estivesse no meio da multidão, sentindo toda a energia e emoção do público.'
+      details: 'Experience the show as if you were in the middle of the crowd, feeling all the energy and emotion of the audience.'
     },
     {
       id: 'stage',
-      title: 'Visão do Palco',
-      description: 'Veja pelos olhos do artista',
+      title: 'Stage POV',
+      description: 'See through the artist\'s eyes',
       icon: Eye,
       color: 'from-cyan-500 to-blue-500',
-      details: 'Tenha uma visão única do palco, vendo o público e sentindo-se parte da apresentação.'
+      details: 'Have a unique view of the stage, seeing the audience and feeling part of the performance.'
     },
     {
       id: 'backstage',
-      title: 'Acesso aos Bastidores',
-      description: 'Conteúdo exclusivo e preparação',
+      title: 'Backstage POV',
+      description: 'Behind-the-scenes access',
       icon: Camera,
       color: 'from-emerald-500 to-teal-500',
-      details: 'Acesso VIP aos bastidores, veja a preparação dos artistas e momentos únicos.'
+      details: 'VIP backstage access, see artist preparation and unique moments.'
     }
   ]
 
@@ -49,23 +49,23 @@ export default function POVSection() {
     {
       brand: 'Ray-Ban Meta',
       model: 'Smart Glasses',
-      description: 'Transmissão discreta com óptica premium',
+      description: 'Discreet streaming with premium optics',
       image: 'from-amber-600 to-orange-600',
-      features: ['Gravação 4K', 'Streaming ao Vivo', 'Controle por Voz']
+      features: ['4K Recording', 'Live Streaming', 'Voice Control']
     },
     {
       brand: 'Oakley Prizm',
       model: 'Sport Series',
-      description: 'Perfeito para eventos esportivos e shows ao ar livre',
+      description: 'Perfect for sports events and outdoor concerts',
       image: 'from-red-600 to-pink-600',
-      features: ['Visão HDR', 'Resistente ao Vento', 'Bateria Todo o Dia']
+      features: ['HDR Vision', 'Wind Resistant', 'All-Day Battery']
     },
     {
       brand: 'Apple Vision Pro',
-      model: 'Integração Pronta',
-      description: 'Experiência de transmissão imersiva definitiva',
+      model: 'Integration Ready',
+      description: 'Ultimate immersive broadcasting experience',
       image: 'from-slate-600 to-gray-600',
-      features: ['Gravação Espacial', 'Processamento em Tempo Real', 'Qualidade Pro']
+      features: ['Spatial Recording', 'Real-time Processing', 'Pro Quality']
     }
   ]
 
@@ -92,23 +92,23 @@ export default function POVSection() {
             whileHover={{ scale: 1.05 }}
           >
             <Camera className="w-5 h-5 mr-3" />
-            <span className="text-lg font-semibold">Tecnologia POV Revolucionária</span>
+            <span className="text-lg font-semibold">Revolutionary POV Technology</span>
           </motion.div>
 
           <h2 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-8">
-            <span className="text-white">Veja Através de</span>
+            <span className="text-white">See Through</span>
             <br />
             <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
-              Todas as Perspectivas
+              Every Perspective
             </span>
           </h2>
 
           <p className="text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            A primeira plataforma do mundo para <span className="text-cyan-400 font-semibold">streaming multi-ângulo ao vivo</span>.
+            The world's first platform for <span className="text-cyan-400 font-semibold">multi-angle live streaming</span>.
             <br className="hidden lg:block" />
-            Escolha sua visão, mude perspectivas, sinta-se em todos os lugares ao mesmo tempo.
+            Choose your view, switch perspectives, feel like you're everywhere at once.
             <br className="hidden lg:block" />
-            <span className="text-purple-400 font-semibold">O futuro do entretenimento ao vivo chegou.</span>
+            <span className="text-purple-400 font-semibold">The future of live entertainment is here.</span>
           </p>
         </motion.div>
 
@@ -179,7 +179,7 @@ export default function POVSection() {
               <div className="absolute top-6 left-6">
                 <div className="px-4 py-2 bg-black/50 backdrop-blur-sm rounded-full border border-white/20">
                   <span className="text-white font-semibold text-sm">
-                    AO VIVO • {povViews.find(v => v.id === activeView)?.title}
+                    LIVE • {povViews.find(v => v.id === activeView)?.title}
                   </span>
                 </div>
               </div>
@@ -188,7 +188,7 @@ export default function POVSection() {
               <div className="absolute top-6 right-6">
                 <div className="flex items-center px-4 py-2 bg-red-500/80 backdrop-blur-sm rounded-full">
                   <div className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse" />
-                  <span className="text-white font-semibold text-sm">12.4K assistindo</span>
+                  <span className="text-white font-semibold text-sm">12.4K watching</span>
                 </div>
               </div>
 
@@ -204,7 +204,7 @@ export default function POVSection() {
                 </div>
                 
                 <div className="text-white text-sm font-medium">
-                  Trocar POV: Pressione 1, 2 ou 3
+                  Switch POV: Press 1, 2, or 3
                 </div>
               </div>
             </div>
@@ -225,15 +225,15 @@ export default function POVSection() {
               whileHover={{ scale: 1.05 }}
             >
               <Glasses className="w-5 h-5 mr-3" />
-              <span className="text-lg font-semibold">Integração com Óculos Inteligentes</span>
+              <span className="text-lg font-semibold">Smart Glasses Integration</span>
             </motion.div>
 
             <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-              Transmita Como um Pro com 
-              <span className="bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent"> Parceiros Premium</span>
+              Stream Like a Pro with 
+              <span className="bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent"> Premium Partners</span>
             </h3>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Parcerias oficiais com os principais fabricantes de óculos inteligentes para streaming perfeito e de alta qualidade.
+              Official partnerships with leading smart glasses manufacturers for seamless, high-quality streaming.
             </p>
           </div>
 
@@ -255,7 +255,7 @@ export default function POVSection() {
                   </div>
                   <div className="absolute top-4 right-4">
                     <div className="px-3 py-1 bg-green-500 rounded-full text-xs font-bold text-white">
-                      PARCEIRO
+                      PARTNER
                     </div>
                   </div>
                 </div>
@@ -292,11 +292,11 @@ export default function POVSection() {
           className="text-center"
         >
           <h3 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-            Pronto para Mudar Como o Mundo 
-            <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent"> Assiste Eventos Ao Vivo?</span>
+            Ready to Change How the World 
+            <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent"> Watches Live Events?</span>
           </h3>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Junte-se à revolução. Transmita sua perspectiva. Experimente todos os ângulos.
+            Join the revolution. Stream your perspective. Experience every angle.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -306,7 +306,7 @@ export default function POVSection() {
               className="group px-8 py-4 bg-gradient-to-r from-purple-600 to-cyan-600 rounded-full text-white font-bold text-lg hover:shadow-[0_0_40px_rgba(139,69,19,0.8)] transition-all duration-300"
             >
               <span className="flex items-center">
-                Começar Streaming POV
+                Start POV Streaming
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </span>
             </motion.button>
@@ -315,7 +315,7 @@ export default function POVSection() {
               whileTap={{ scale: 0.95 }}
               className="px-8 py-4 border-2 border-white/30 rounded-full text-white font-semibold text-lg hover:border-cyan-400 hover:shadow-[0_0_30px_rgba(34,211,238,0.5)] transition-all duration-300"
             >
-              Assistir Demo
+              Watch Demo
             </motion.button>
           </div>
         </motion.div>

@@ -78,35 +78,35 @@ export default function HomePage() {
         <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent to-purple-900/10">
           <div className="max-w-7xl mx-auto text-center">
             <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-              Experiências Premium
-              <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent"> Multi-POV</span>
-                </h2>
+              Premium Multi-POV
+              <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent"> Experiences</span>
+            </h2>
             <p className="text-xl lg:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto">
-              Junte-se a milhões de espectadores vivenciando eventos ao vivo de <span className="text-cyan-400 font-semibold">múltiplas perspectivas simultaneamente</span>.
+              Join millions of viewers experiencing live events from <span className="text-cyan-400 font-semibold">multiple perspectives simultaneously</span>.
               <br className="hidden lg:block" />
-              Cada evento, cada ângulo, cada momento—capturado e transmitido em tempo real.
+              Every event, every angle, every moment—captured and streamed in real-time.
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
               {[
                 {
-                  title: "Experiência Multi-POV de Show",
-                  artist: "Festival Eletrônico Global",
-                  time: "Hoje 20h • 15 Ângulos de Câmera",
+                  title: "Multi-POV Concert Experience",
+                  artist: "Global Electronic Festival",
+                  time: "Tonight 8PM • 15 Camera Angles",
                   image: "from-purple-600 to-pink-600",
                   viewers: "47.2K"
                 },
                 {
-                  title: "Final do Campeonato de Tênis",
-                  artist: "Quadra Central de Wimbledon",
-                  time: "Amanhã 15h • Quadra + POV do Jogador", 
+                  title: "Championship Tennis Finals",
+                  artist: "Wimbledon Center Court",
+                  time: "Tomorrow 3PM • Courtside + Player POV", 
                   image: "from-blue-600 to-cyan-600",
                   viewers: "89.1K"
                 },
                 {
-                  title: "Desfile da Semana de Moda",
-                  artist: "Semana de Moda de Milão",
-                  time: "Sexta 19h • Acesso aos Bastidores",
+                  title: "Fashion Week Runway",
+                  artist: "Milan Fashion Week",
+                  time: "Friday 7PM • Backstage Access",
                   image: "from-emerald-600 to-teal-600",
                   viewers: "23.8K"
                 }
@@ -120,7 +120,7 @@ export default function HomePage() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center text-sm text-purple-400">
                         <div className="w-2 h-2 bg-red-500 rounded-full mr-2 animate-pulse"></div>
-                        <span>{event.viewers} assistindo</span>
+                        <span>{event.viewers} watching</span>
                       </div>
                       <div className="text-xs text-gray-400">
                         Multi-POV
@@ -132,7 +132,7 @@ export default function HomePage() {
             </div>
 
             <button className="px-10 py-5 bg-gradient-to-r from-purple-600 to-cyan-600 rounded-full text-white font-bold text-xl hover:shadow-[0_0_40px_rgba(139,69,19,0.8)] transform hover:scale-105 transition-all duration-300">
-              Explorar Todos os Eventos Multi-POV
+              Explore All Multi-POV Events
             </button>
           </div>
         </section>
@@ -141,25 +141,25 @@ export default function HomePage() {
         <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-t from-purple-900/20 to-transparent">
           <div className="max-w-5xl mx-auto text-center">
             <h2 className="text-4xl lg:text-7xl font-bold text-white mb-8">
-              Pronto para Revolucionar
-                <br />
-                <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                o Entretenimento Ao Vivo?
-                </span>
-              </h2>
+              Ready to Revolutionize
+              <br />
+              <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                Live Entertainment?
+              </span>
+            </h2>
             <p className="text-xl lg:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
-              Junte-se a <span className="text-cyan-400 font-semibold">mais de 2.5 milhões de criadores e espectadores</span> já ganhando dinheiro e vivenciando 
+              Join <span className="text-cyan-400 font-semibold">over 2.5 million creators and viewers</span> already earning and experiencing 
               <br className="hidden lg:block" />
-              eventos ao vivo de múltiplas perspectivas simultaneamente.
+              live events from multiple perspectives simultaneously.
               <br className="hidden lg:block" />
-              <span className="text-purple-400 font-semibold">O futuro é multidimensional. O futuro é agora.</span>
+              <span className="text-purple-400 font-semibold">The future is multidimensional. The future is now.</span>
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <button className="px-12 py-6 bg-gradient-to-r from-purple-600 to-cyan-600 rounded-full text-white font-bold text-xl hover:shadow-[0_0_50px_rgba(139,69,19,0.8)] transform hover:scale-105 transition-all duration-300">
-                Começar Streaming Multi-POV
+                Start Multi-POV Streaming
               </button>
               <button className="px-12 py-6 border-2 border-white/30 rounded-full text-white font-bold text-xl hover:border-cyan-400 hover:shadow-[0_0_40px_rgba(34,211,238,0.5)] transition-all duration-300">
-                Assistir Demo Ao Vivo
+                Watch Live Demo
               </button>
             </div>
           </div>
