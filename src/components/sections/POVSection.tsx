@@ -47,25 +47,25 @@ export default function POVSection() {
 
   const smartGlasses = [
     {
-      brand: 'Ray-Ban Meta',
-      model: 'Smart Glasses',
-      description: 'Discreet streaming with premium optics',
+      brand: 'Ray-Ban',
+      model: 'Meta Smart Glasses',
+      description: 'Official partnership for discreet streaming with premium optics and Meta AI integration',
       image: 'from-amber-600 to-orange-600',
-      features: ['4K Recording', 'Live Streaming', 'Voice Control']
+      features: ['4K Recording', 'Live Streaming to Envimerse', 'Voice Control', 'Meta AI Powered', 'Hands-Free Operation']
     },
     {
       brand: 'Oakley Prizm',
       model: 'Sport Series',
-      description: 'Perfect for sports events and outdoor concerts',
+      description: 'Perfect for sports events and outdoor concerts with enhanced color and contrast',
       image: 'from-red-600 to-pink-600',
-      features: ['HDR Vision', 'Wind Resistant', 'All-Day Battery']
+      features: ['HDR Vision', 'Wind Resistant', 'All-Day Battery', 'Sport Optimized', 'Impact Resistant']
     },
     {
-      brand: 'Apple Vision Pro',
-      model: 'Integration Ready',
-      description: 'Ultimate immersive broadcasting experience',
+      brand: 'Apple',
+      model: 'Vision Pro',
+      description: 'Ultimate immersive broadcasting experience with spatial computing and pro-level quality',
       image: 'from-slate-600 to-gray-600',
-      features: ['Spatial Recording', 'Real-time Processing', 'Pro Quality']
+      features: ['Spatial Recording', 'Real-time Processing', 'Pro Quality 8K', 'visionOS Integration', 'Eye Tracking']
     }
   ]
 

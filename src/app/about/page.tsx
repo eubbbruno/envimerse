@@ -50,8 +50,8 @@ export default function AboutPage() {
     <div className="min-h-screen bg-black text-white">
       <Header />
       
-      {/* Hero Section */}
-      <section className="pt-20 sm:pt-24 pb-12 sm:pb-20 px-3 sm:px-6 lg:px-8">
+      {/* Hero Section - Adjusted for fixed header */}
+      <section className="pt-32 sm:pt-36 pb-12 sm:pb-20 px-3 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

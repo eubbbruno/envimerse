@@ -86,8 +86,8 @@ export default function EventsPage() {
     <>
       <Header />
       <div className="min-h-screen bg-black text-white">
-        {/* Header */}
-        <div className="relative overflow-hidden bg-gradient-to-br from-brandMagenta/20 via-black to-brandCyan/20">
+        {/* Header - Adjusted for fixed header */}
+        <div className="relative overflow-hidden bg-gradient-to-br from-brandMagenta/20 via-black to-brandCyan/20 pt-24">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(141,66,236,0.1),transparent_60%)]" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(96,163,249,0.1),transparent_60%)]" />
           

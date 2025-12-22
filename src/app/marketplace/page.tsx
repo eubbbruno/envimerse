@@ -8,7 +8,7 @@ import CategoryFilter from '@/components/marketplace/CategoryFilter';
 import SearchFilters from '@/components/marketplace/SearchFilters';
 import ProductGrid from '@/components/marketplace/ProductGrid';
 import LoadingSpinner from '@/components/marketplace/LoadingSpinner';
-import AnimatedNavigation from '@/components/AnimatedNavigation';
+import Header from '@/components/Header';
 import Footer from '@/components/Footer'
 
 export default function MarketplacePage() {
@@ -32,12 +32,12 @@ export default function MarketplacePage() {
 
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-br from-[#0a0a0f] via-[#16162a] to-[#1a1a2e]">
-        <AnimatedNavigation />
+      <div className="min-h-screen bg-gradient-to-br from-black via-purple-900/20 to-black">
+        <Header />
         
-        {/* Hero Section */}
+        {/* Hero Section - Adjusted spacing for fixed header */}
         <motion.section 
-          className="relative pt-28 pb-16 px-4"
+          className="relative pt-32 pb-16 px-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}

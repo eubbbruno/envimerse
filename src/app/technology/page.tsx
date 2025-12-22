@@ -226,8 +226,8 @@ export default function TechnologyPage() {
       
       <Header />
       
-      {/* Hero Section */}
-      <section className="relative z-10 pt-20 sm:pt-24 pb-12 sm:pb-20 px-3 sm:px-6 lg:px-8">
+      {/* Hero Section - Adjusted for fixed header */}
+      <section className="relative z-10 pt-32 sm:pt-36 pb-12 sm:pb-20 px-3 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

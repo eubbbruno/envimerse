@@ -74,13 +74,86 @@ export default function HomePage() {
           </Suspense>
         </ErrorBoundary>
 
+        {/* Strategic Partnerships Section */}
+        <section className="section-spacing bg-gradient-to-b from-black via-gray-900/50 to-black">
+          <div className="container-spacing text-center">
+            <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/30 text-amber-200 element-spacing-sm">
+              <span className="text-lg font-bold">🤝 OFFICIAL TECHNOLOGY PARTNERS</span>
+            </div>
+
+            <h2 className="text-3xl lg:text-5xl font-bold text-white element-spacing">
+              Powered By The World's
+              <span className="bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent"> Best Technology</span>
+            </h2>
+            
+            <p className="text-xl text-gray-300 element-spacing max-w-4xl mx-auto">
+              Official partnerships with <span className="text-amber-400 font-bold">Ray-Ban Meta</span>, <span className="text-gray-300 font-bold">Apple Vision Pro</span>, and <span className="text-red-400 font-bold">Oakley Prizm</span>
+              <br className="hidden lg:block" />
+              ensuring professional-grade streaming quality and seamless integration.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 element-spacing max-w-6xl mx-auto">
+              {/* Ray-Ban Meta */}
+              <div className="group relative bg-gradient-to-br from-amber-900/20 to-orange-900/20 p-8 rounded-2xl border border-amber-500/20 hover:border-amber-500/50 transition-all duration-300">
+                <div className="absolute top-4 right-4">
+                  <div className="px-3 py-1 bg-green-500 rounded-full text-xs font-bold text-white">
+                    OFFICIAL PARTNER
+                  </div>
+                </div>
+                <div className="text-6xl mb-4">🕶️</div>
+                <h3 className="text-2xl font-bold text-white mb-2">Ray-Ban Meta</h3>
+                <p className="text-amber-300 font-semibold mb-3">Smart Glasses</p>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  Stream live events hands-free with Meta AI powered smart glasses. 4K quality with voice control.
+                </p>
+                    </div>
+                    
+              {/* Apple Vision Pro */}
+              <div className="group relative bg-gradient-to-br from-gray-900/20 to-slate-900/20 p-8 rounded-2xl border border-gray-500/20 hover:border-gray-500/50 transition-all duration-300">
+                <div className="absolute top-4 right-4">
+                  <div className="px-3 py-1 bg-green-500 rounded-full text-xs font-bold text-white">
+                    OFFICIAL PARTNER
+                  </div>
+                </div>
+                <div className="text-6xl mb-4">🥽</div>
+                <h3 className="text-2xl font-bold text-white mb-2">Apple Vision Pro</h3>
+                <p className="text-gray-300 font-semibold mb-3">Spatial Computing</p>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  Professional 8K spatial recording with real-time processing. The ultimate broadcasting experience.
+                </p>
+                    </div>
+
+              {/* Oakley Prizm */}
+              <div className="group relative bg-gradient-to-br from-red-900/20 to-pink-900/20 p-8 rounded-2xl border border-red-500/20 hover:border-red-500/50 transition-all duration-300">
+                <div className="absolute top-4 right-4">
+                  <div className="px-3 py-1 bg-green-500 rounded-full text-xs font-bold text-white">
+                    OFFICIAL PARTNER
+                  </div>
+            </div>
+                <div className="text-6xl mb-4">🏃</div>
+                <h3 className="text-2xl font-bold text-white mb-2">Oakley Prizm</h3>
+                <p className="text-red-300 font-semibold mb-3">Sport Series</p>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  HDR vision optimized for sports events. Wind-resistant with all-day battery for outdoor concerts.
+                </p>
+              </div>
+              </div>
+              
+            <div className="element-spacing">
+              <p className="text-sm text-gray-400">
+                * Official technology partnerships ensuring seamless integration and professional-grade quality
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Premium Events Showcase */}
         <section className="section-spacing bg-gradient-to-b from-transparent to-purple-900/10">
           <div className="container-spacing text-center">
             <h2 className="text-4xl lg:text-6xl font-bold text-white element-spacing">
               Premium Multi-POV
               <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent"> Experiences</span>
-            </h2>
+              </h2>
             <p className="text-xl lg:text-2xl text-gray-300 element-spacing max-w-4xl mx-auto">
               Join millions of viewers experiencing live events from <span className="text-cyan-400 font-semibold">multiple perspectives simultaneously</span>.
               <br className="hidden lg:block" />
@@ -117,7 +190,7 @@ export default function HomePage() {
                     <h3 className="text-xl font-bold text-white mb-2">{event.title}</h3>
                     <p className="text-gray-300 mb-2">{event.artist}</p>
                     <p className="text-cyan-400 text-sm font-medium mb-2">{event.time}</p>
-                    <div className="flex items-center justify-between">
+                      <div className="flex items-center justify-between">
                       <div className="flex items-center text-sm text-purple-400">
                         <div className="w-2 h-2 bg-red-500 rounded-full mr-2 animate-pulse"></div>
                         <span>{event.viewers} watching</span>
@@ -142,11 +215,11 @@ export default function HomePage() {
           <div className="container-spacing text-center">
             <h2 className="text-4xl lg:text-7xl font-bold text-white element-spacing">
               Ready to Revolutionize
-              <br />
-              <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                <br />
+                <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
                 Live Entertainment?
-              </span>
-            </h2>
+                </span>
+              </h2>
             <p className="text-xl lg:text-2xl text-gray-300 element-spacing max-w-4xl mx-auto leading-relaxed">
               Join <span className="text-cyan-400 font-semibold">over 2.5 million creators and viewers</span> already earning and experiencing 
               <br className="hidden lg:block" />
